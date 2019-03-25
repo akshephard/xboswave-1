@@ -8,6 +8,7 @@ syntax = "proto3";
 package xbospb;
 
 import "nullabletypes.proto";
+import "parker.proto";
 
 message URI {
     string namespace = 1;
