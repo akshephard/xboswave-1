@@ -127,7 +127,6 @@ class ParkerDriver(Driver):
                 time = int(time.time()*1e9),
                 parker_state = iot_pb2.ParkerState(
                     compressor_working_hours  =   types.Double(value=compressor_working_hours),
-                    clear_compressor_working_hours  =   types.Int64(value=clear_compressor_working_hours),
                     buzzer_control  =   types.Int64(value=buzzer_control),
                     defrost_control  =   types.Int64(value=defrost_control),
                     start_resistors  =   types.Int64(value=start_resistors),
