@@ -152,12 +152,12 @@ class ParkerDriver(Driver):
                     F1  =   types.Double(value=F1),
                     F2  =   types.Int64(value=F2),
                     F3  =   types.Double(value=F3),
-                    Hd1  =   types.string(value=Hd1),
-                    Hd2  =   types.string(value=Hd2),
-                    Hd3  =   types.string(value=Hd3),
-                    Hd4  =   types.string(value=Hd4),
-                    Hd5  =   types.string(value=Hd5),
-                    Hd6  =   types.string(value=Hd6)
+                    Hd1  =   Hd1,
+                    Hd2  =   Hd2,
+                    Hd3  =   Hd3,
+                    Hd4  =   Hd4,
+                    Hd5  =   Hd5,
+                    Hd6  =   Hd6
                 )
             )
         )
