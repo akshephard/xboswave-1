@@ -115,12 +115,12 @@ class ParkerDriver(Driver):
         u8 = output['u8']
         HE1 = output['HE1']
         HE2 = output['HE2']
-        hd1 = output['hd1']
-        hd2 = output['hd2']
-        hd3 = output['hd3']
-        hd4 = output['hd4']
-        hd5 = output['hd5']
-        hd6 = output['hd6']
+        Hd1 = output['hd1']
+        Hd2 = output['hd2']
+        Hd3 = output['hd3']
+        Hd4 = output['hd4']
+        Hd5 = output['hd5']
+        Hd6 = output['hd6']
 
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
