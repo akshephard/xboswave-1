@@ -272,7 +272,7 @@ if __name__ == '__main__':
         'rate': 900, # 15 min
         'service_name': service_name
     }
-    print(getmembers(pyxbos.iot_pb2))
+    print(getmembers(iot_pb2))
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
     #e = DarkSkyDriver(cfg)
     e = ParkerDriver(xbos_cfg)
