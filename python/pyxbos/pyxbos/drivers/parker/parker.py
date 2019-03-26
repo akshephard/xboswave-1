@@ -124,7 +124,7 @@ class ParkerDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                parker_state = iot_pb2.ParkerState(
+                parker_state = iot_pb2.parker_state(
                     compressor_working_hours  =   types.Double(value=compressor_working_hours),
                     clear_compressor_working_hours  =   types.Int64(value=clear_compressor_working_hours),
                     buzzer_control  =   types.Int64(value=buzzer_control),
