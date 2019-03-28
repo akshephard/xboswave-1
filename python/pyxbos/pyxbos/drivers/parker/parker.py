@@ -59,12 +59,7 @@ class ParkerDriver(Driver):
                     F0  =   types.Int64(value=output['F0']),
                     F1  =   types.Double(value=output['F1']),
                     F2  =   types.Int64(value=output['F2']),
-                    F3  =   types.Double(value=output['F3']),
-                    Hd1  =   types.Int64(value=output['Hd1']),
-                    Hd2  =   types.Int64(value=output['Hd2']),
-                    Hd3  =   types.Int64(value=output['Hd3']),
-                    Hd4  =   types.Int64(value=output['Hd4']),
-                    Hd5  =   types.Int64(value=output['Hd5'])
+                    F3  =   types.Double(value=output['F3'])
 
                 )
             )
