@@ -20,6 +20,38 @@ class ParkerDriver(Driver):
 
     def read(self, requestid=None):
         output = self.modbus_device.get_data()
+
+
+        regulator_flag_1 = output['regulator_flag1']
+        output['energy_saving_regulator_flag'] = regulator_flag_1 & 0x0100
+        output['energy_saving_real_time_regulator_flag'] = regulator_flag_1 & 0x0200
+        output['service_request_regulator_flag'] = regulator_flag_1 & 0x0400
+
+        regulator_flag_2 = output['regulator_flag_2']
+        output['on_standby_regulator_flag'] = regulator_flag_2 & 0x0001; 1=standby
+        output['new_alarm_to_read_regulator_flag'] = regulator_flag_2 & 0x0080
+        output['defrost_status_regulator_flag']	= regulator_flag_2 & 0x0700
+
+        digital_io_status = output['digital_io_status']
+        output['door_switch_input_status'] = digital_io_status & 0x0001
+        output['multipurpose_input_status'] = digital_io_status & 0x0002
+        output['compressor_status'] = digital_io_status & 0x0100
+        output['output_defrost_status'] = digital_io_status & 0x0200
+        output['fans_status'] = digital_io_status & 0x0400
+        output['output_k4_status'] = digital_io_status & 0x0800
+
+        digital_output_flags = output['digital_output_flags']
+        output['energy_saving_status'] = digital_output_flags & 0x0100
+        output['service_request_status'] =	digital_output_flags & 0x0200
+        output['resistors_activated_by_aux_key_status'] = digital_output_flags & 0x001
+        output['evaporator_valve_state'] = digital_output_flags & 0x002
+        output['output_defrost_state'] = digital_output_flags & 0x004
+        output['output_lux_state'] =	digital_output_flags & 0x008
+        output['output_aux_state'] =	digital_output_flags & 0x0010
+        output['resistors_state'] = digital_output_flags & 0x0020
+        output['output_alarm_state'] =	digital_output_flags & 0x0040
+        output['second_compressor_state'] =	digital_output_flags & 0x0080
+
         alarm_status = output['alarm_status']
         output['probe1_failure_alarm'] = alarm_status & 0x0100
         output['probe2_failure_alarm'] = alarm_status & 0x0200
