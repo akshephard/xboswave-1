@@ -292,7 +292,4 @@ message ParkerState {
     //fifth real time defrost activation time; only if d8=3
     //unit: hh:mm
     Int64 Hd5 = 41;
-    //sixth real time defrost activation time; only if d8=3
-    //unit: hh:mm
-    Int64 Hd6 = 42;
 }
