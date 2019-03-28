@@ -277,22 +277,22 @@ message ParkerState {
     //fan delay after evap drip completes
     //unit: minutes
     Double F3 = 36;
-    //first real time defrost activation time; only if d8=3
+    //first real time defrost activation time; only if d8=3 Changed all of the Hd* variables to integer until the driver is updated
     //unit: hh:mm
-    string Hd1 = 37;
+    Int64 Hd1 = 37;
     //second real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd2 = 38;
+    Int64 Hd2 = 38;
     //third real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd3 = 39;
+    Int64 Hd3 = 39;
     //fourth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd4 = 40;
+    Int64 Hd4 = 40;
     //fifth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd5 = 41;
+    Int64 Hd5 = 41;
     //sixth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd6 = 42;
+    Int64 Hd6 = 42;
 }
