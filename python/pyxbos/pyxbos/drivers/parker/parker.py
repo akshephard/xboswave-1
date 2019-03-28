@@ -32,7 +32,6 @@ class ParkerDriver(Driver):
                     cabinet_temperature  =   types.Double(value=output['cabinet_temperature']),
                     evaporator_temperature  =   types.Double(value=output['evaporator_temperature']),
                     auxiliary_temperature  =   types.Double(value=output['auxiliary_temperature']),
-                    defrost_status_regulator_flag  =   types.Int64(value=output['defrost_status_regulator_flag']),
                     active_setpoint  =   types.Double(value=output['active_setpoint']),
                     time_until_defrost  =   types.Double(value=output['time_until_defrost']),
                     current_defrost_counter  =   types.Double(value=output['current_defrost_counter']),
