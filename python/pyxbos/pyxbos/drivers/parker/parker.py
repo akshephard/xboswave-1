@@ -53,6 +53,7 @@ class ParkerDriver(Driver):
         output['second_compressor_state'] =	digital_output_flags & 0x0080
 
         alarm_status = output['alarm_status']
+        print(format(output['alarm_status'], '#010b'))
         output['probe1_failure_alarm'] = alarm_status & 0x0100
         output['probe2_failure_alarm'] = alarm_status & 0x0200
         output['probe3_failure_alarm'] = alarm_status & 0x0400
