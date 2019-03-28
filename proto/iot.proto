@@ -202,100 +202,97 @@ message ParkerState {
     //temperature measured by auxiliary probe (if present) (in 10x actual value)
     //unit: C
     Double auxiliary_temperature = 8;
-    //active_setpoint=setpoint(when no energy saving); else=setpoint+r4
-    //unit: C
-    Double active_setpoint = 9;
     //time remaining to next defrost
     //unit: seconds
-    Double time_until_defrost = 10;
+    Double time_until_defrost = 9;
     //current defrost counter countdown (in 1/4 of a minute)
     //unit: seconds
-    Double current_defrost_counter = 11;
+    Double current_defrost_counter = 10;
     //compressor delay in seconds
     //unit: seconds
-    Double compressor_delay = 12;
+    Double compressor_delay = 11;
     //setpoint
-    Double setpoint = 13;
+    Double setpoint = 12;
     //min working setpoint
     //unit: C
-    Double r1 = 14;
+    Double r1 = 13;
     //max working setpoint
     //unit: C
-    Double r2 = 15;
+    Double r2 = 14;
     //used for active_set_point calculation in energy saving mode; adds to active setpoint
-    Double r4 = 16;
+    Double r4 = 15;
     //compressor delay after turning on controller
     //unit: minutes
-    Double C0 = 17;
+    Double C0 = 16;
     //min time between 2 activations in succession of compressor
     //unit: minutes
-    Double C1 = 18;
+    Double C1 = 17;
     //defrost interval (only if d8 = 0/1/2); 0 = the defrost at intervals will never be activated
     //unit: hours
-    Double d0 = 19;
+    Double d0 = 18;
     //defrost duration if P3=0 or 2; max duration if P3=1
     //unit: minutes
-    Double d3 = 20;
+    Double d3 = 19;
     //defrost delay when you turn on controller; only if d4=1
     //unit: minutes
-    Double d5 = 21;
+    Double d5 = 20;
     //drip delay
     //unit: minutes
-    Double d7 = 22;
+    Double d7 = 21;
     //kind of defrost interval; 0/1/2/3=defrost on when controller/compressor/evaporator temperature is below d9  is on for d0 hours/realtime
-    Int64 d8 = 23;
+    Int64 d8 = 22;
     //measured input for low temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
-    Int64 A0 = 24;
+    Int64 A0 = 23;
     //temperature below which low temperature alarm is activated
     //unit: C
-    Double A1 = 25;
+    Double A1 = 24;
     //kind of lower temp alarm; 0/1/2=disabled/working setpoint-A1/absolute (or A1)
-    Int64 A2 = 26;
+    Int64 A2 = 25;
     //measured input for high temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
-    Int64 A3 = 27;
+    Int64 A3 = 26;
     //temperature above which high temperature alarm is activated
     //unit: C
-    Double A4 = 28;
+    Double A4 = 27;
     //kind of high temp alarm; 0/1/2=disabled/working setpoint+A4/absolute (or A4)
-    Int64 A5 = 29;
+    Int64 A5 = 28;
     //high temperature alarm delay after turning on controller; only if A3=0
     //unit: minutes
-    Double A6 = 30;
+    Double A6 = 29;
     //temperature alarm delay
     //unit: minutes
-    Double A7 = 31;
+    Double A7 = 30;
     //high temperature alarm delay after end of defrost; only if A3=0
     //unit: minutes
-    Double A8 = 32;
+    Double A8 = 31;
     //high temperature alarm delay after deactivation of microport input only if A3=0
     //unit: minutes
-    Double A9 = 33;
+    Double A9 = 32;
     //evap fan activity during normal operation; 0/1/2/3/4=off/on/in parallel with compressor/dependent on F1/off if compressor is off and depedent on F1 if compressor is on
-    Int64 F0 = 34;
+    Int64 F0 = 33;
     //evap temperature above which evap fan is turned off; only if F0=3/4
     //unit: C
-    Double F1 = 35;
+    Double F1 = 34;
     //evap fan activity during defrost and drip delay; 0/1/2 = off/on/dependent on F0
-    Int64 F2 = 36;
+    Int64 F2 = 35;
     //fan delay after evap drip completes
     //unit: minutes
-    Double F3 = 37;
+    Double F3 = 36;
     //first real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd1 = 38;
+    string Hd1 = 37;
     //second real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd2 = 39;
+    string Hd2 = 38;
     //third real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd3 = 40;
+    string Hd3 = 39;
     //fourth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd4 = 41;
+    string Hd4 = 40;
     //fifth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd5 = 42;
+    string Hd5 = 41;
     //sixth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd6 = 43;
+    string Hd6 = 42;
 }

@@ -32,7 +32,6 @@ class ParkerDriver(Driver):
                     cabinet_temperature  =   types.Double(value=output['cabinet_temperature']),
                     evaporator_temperature  =   types.Double(value=output['evaporator_temperature']),
                     auxiliary_temperature  =   types.Double(value=output['auxiliary_temperature']),
-                    active_setpoint  =   types.Double(value=output['active_setpoint']),
                     time_until_defrost  =   types.Double(value=output['time_until_defrost']),
                     current_defrost_counter  =   types.Double(value=output['current_defrost_counter']),
                     compressor_delay  =   types.Double(value=output['compressor_delay']),
@@ -67,6 +66,7 @@ class ParkerDriver(Driver):
                     Hd4  =  output['Hd4'],
                     Hd5  =  output['Hd5'],
                     Hd6  =  output['Hd6']
+
                 )
             )
         )
