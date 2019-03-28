@@ -344,6 +344,6 @@ message ParkerState {
     Int64 F2 = 69;
     //fan delay after evap drip completes
     //unit: minutes
-    Int64 F3 = 70;
+    int64 F3 = 70;
 
 }

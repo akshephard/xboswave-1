@@ -143,7 +143,7 @@ class ParkerDriver(Driver):
                     F0  =   types.Int64(value=output['F0']),
                     F1  =   types.Double(value=output['F1']),
                     F2  =   types.Int64(value=output['F2']),
-                    F3  =   types.Int64(value=output['F3'])
+                    F3  =   output['F3']
 
                 )
             )
