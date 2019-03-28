@@ -1,4 +1,4 @@
-GOPATH = /home/gabe/go
+GOPATH = /home/solarplus/go
 PLUGINS=$(wildcard plugins/*.go)
 
 .PHONY: proto
