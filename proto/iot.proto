@@ -186,126 +186,118 @@ message WeatherStationPrediction {
 message ParkerState {
     //unit: hours
     Double compressor_working_hours = 1;
-    //1=clear
-    Int64 clear_compressor_working_hours = 2;
-    //0/1/2/3=mute/reserved/mute-until-reset/restore buzzer for alarms
-    Int64 buzzer_control = 3;
-    //0x0C/0x0D = stop defrost/start defrost
-    Int64 defrost_control = 4;
-    //1=resistors will be activated for 6minutes
-    Int64 start_resistors = 5;
     //on/standby
-    Int64 on_standby_status = 6;
-    Int64 light_status = 7;
-    Int64 aux_output_status = 8;
+    Int64 on_standby_status = 2;
+    Int64 light_status = 3;
+    Int64 aux_output_status = 4;
     //counter reduces periodically (in 1/4 of a minute)
     //unit: seconds
-    Double next_defrost_counter = 9;
+    Double next_defrost_counter = 5;
     //temperature measured by cabinet probe (in 10x actual value)
     //unit: C
-    Double cabinet_temperature = 10;
+    Double cabinet_temperature = 6;
     //temperature measured by evaporator probe (in 10x actual value)
     //unit: C
-    Double evaporator_temperature = 11;
+    Double evaporator_temperature = 7;
     //temperature measured by auxiliary probe (if present) (in 10x actual value)
     //unit: C
-    Double auxiliary_temperature = 12;
+    Double auxiliary_temperature = 8;
     //regulator_flag_2 & 0x0700; 0/1/2/3 = no defrost active/defrost running/dripping/fans stop
-    Int64 defrost_status_regulator_flag = 13;
+    Int64 defrost_status_regulator_flag = 9;
     //active_setpoint=setpoint(when no energy saving); else=setpoint+r4
     //unit: C
-    Double active_setpoint = 14;
+    Double active_setpoint = 10;
     //time remaining to next defrost
     //unit: seconds
-    Double time_until_defrost = 15;
+    Double time_until_defrost = 11;
     //current defrost counter countdown (in 1/4 of a minute)
     //unit: seconds
-    Double current_defrost_counter = 16;
+    Double current_defrost_counter = 12;
     //compressor delay in seconds
     //unit: seconds
-    Double compressor_delay = 17;
+    Double compressor_delay = 13;
     //setpoint
-    Double setpoint = 18;
+    Double setpoint = 14;
     //min working setpoint
     //unit: C
-    Double r1 = 19;
+    Double r1 = 15;
     //max working setpoint
     //unit: C
-    Double r2 = 20;
+    Double r2 = 16;
     //used for active_set_point calculation in energy saving mode; adds to active setpoint
-    Double r4 = 21;
+    Double r4 = 17;
     //compressor delay after turning on controller
     //unit: minutes
-    Double C0 = 22;
+    Double C0 = 18;
     //min time between 2 activations in succession of compressor
     //unit: minutes
-    Double C1 = 23;
+    Double C1 = 19;
     //defrost interval (only if d8 = 0/1/2); 0 = the defrost at intervals will never be activated
     //unit: hours
-    Double d0 = 24;
+    Double d0 = 20;
     //defrost duration if P3=0 or 2; max duration if P3=1
     //unit: minutes
-    Double d3 = 25;
+    Double d3 = 21;
     //defrost delay when you turn on controller; only if d4=1
     //unit: minutes
-    Double d5 = 26;
+    Double d5 = 22;
     //drip delay
     //unit: minutes
-    Double d7 = 27;
+    Double d7 = 23;
     //kind of defrost interval; 0/1/2/3=defrost on when controller/compressor/evaporator temperature is below d9  is on for d0 hours/realtime
-    Int64 d8 = 28;
+    Int64 d8 = 24;
     //measured input for low temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
-    Int64 A0 = 29;
+    Int64 A0 = 25;
     //temperature below which low temperature alarm is activated
     //unit: C
-    Double A1 = 30;
+    Double A1 = 26;
     //kind of lower temp alarm; 0/1/2=disabled/working setpoint-A1/absolute (or A1)
-    Int64 A2 = 31;
+    Int64 A2 = 27;
     //measured input for high temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
-    Int64 A3 = 32;
+    Int64 A3 = 28;
     //temperature above which high temperature alarm is activated
     //unit: C
-    Double A4 = 33;
+    Double A4 = 29;
     //kind of high temp alarm; 0/1/2=disabled/working setpoint+A4/absolute (or A4)
-    Int64 A5 = 34;
+    Int64 A5 = 30;
     //high temperature alarm delay after turning on controller; only if A3=0
     //unit: minutes
-    Double A6 = 35;
+    Double A6 = 31;
     //temperature alarm delay
     //unit: minutes
-    Double A7 = 36;
+    Double A7 = 32;
     //high temperature alarm delay after end of defrost; only if A3=0
     //unit: minutes
-    Double A8 = 37;
+    Double A8 = 33;
     //high temperature alarm delay after deactivation of microport input only if A3=0
     //unit: minutes
-    Double A9 = 38;
+    Double A9 = 34;
     //evap fan activity during normal operation; 0/1/2/3/4=off/on/in parallel with compressor/dependent on F1/off if compressor is off and depedent on F1 if compressor is on
-    Int64 F0 = 39;
+    Int64 F0 = 35;
     //evap temperature above which evap fan is turned off; only if F0=3/4
     //unit: C
-    Double F1 = 40;
+    Double F1 = 36;
     //evap fan activity during defrost and drip delay; 0/1/2 = off/on/dependent on F0
-    Int64 F2 = 41;
+    Int64 F2 = 37;
     //fan delay after evap drip completes
     //unit: minutes
-    Double F3 = 42;
+    Double F3 = 38;
     //first real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd1 = 43;
+    string Hd1 = 39;
     //second real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd2 = 44;
+    string Hd2 = 40;
     //third real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd3 = 45;
+    string Hd3 = 41;
     //fourth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd4 = 46;
+    string Hd4 = 42;
     //fifth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd5 = 47;
+    string Hd5 = 43;
     //sixth real time defrost activation time; only if d8=3
     //unit: hh:mm
-    string Hd6 = 48;
+    string Hd6 = 44;
 }
