@@ -20,6 +20,21 @@ class ParkerDriver(Driver):
 
     def read(self, requestid=None):
         output = self.modbus_device.get_data()
+        alarm_status = output['alarm_status']
+        output['probe1_failure_alarm'] = alarm_status & 0x0100
+        output['probe2_failure_alarm'] = alarm_status & 0x0200
+        output['probe3_failure_alarm'] = alarm_status & 0x0400
+        output['minimum_temperature_alarm'] = alarm_status & 0x1000
+        output['maximum_temperture_alarm'] = alarm_status & 0x2000
+        output['condensor_temperature_failure_alarm'] = alarm_status & 0x4000
+        output['condensor_pre_alarm'] = alarm_status & 0x8000
+        output['door_alarm'] = alarm_status & 0x0004
+        output['multipurpose_input_alarm'] = alarm_status & 0x0008
+        output['compressor_blocked_alarm'] = alarm_status & 0x0010
+        output['power_failure_alarm'] = alarm_status & 0x0020
+        output['rtc_error_alarm'] = alarm_status & 0x0080
+        print(output)
+
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
