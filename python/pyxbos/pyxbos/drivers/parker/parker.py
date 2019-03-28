@@ -28,7 +28,7 @@ class ParkerDriver(Driver):
         output['service_request_regulator_flag'] = regulator_flag_1 & 0x0400
 
         regulator_flag_2 = output['regulator_flag_2']
-        output['on_standby_regulator_flag'] = regulator_flag_2 & 0x0001; 1=standby
+        output['on_standby_regulator_flag'] = regulator_flag_2 & 0x0001
         output['new_alarm_to_read_regulator_flag'] = regulator_flag_2 & 0x0080
         output['defrost_status_regulator_flag']	= regulator_flag_2 & 0x0700
 
