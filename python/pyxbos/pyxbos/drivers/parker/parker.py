@@ -22,7 +22,7 @@ class ParkerDriver(Driver):
         output = self.modbus_device.get_data()
 
 
-        regulator_flag_1 = output['regulator_flag1']
+        regulator_flag_1 = output['regulator_flag_1']
         output['energy_saving_regulator_flag'] = regulator_flag_1 & 0x0100
         output['energy_saving_real_time_regulator_flag'] = regulator_flag_1 & 0x0200
         output['service_request_regulator_flag'] = regulator_flag_1 & 0x0400
