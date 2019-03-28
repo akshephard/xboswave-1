@@ -65,6 +65,8 @@ class ParkerDriver(Driver):
         output['compressor_blocked_alarm'] = alarm_status & 0x0010
         output['power_failure_alarm'] = alarm_status & 0x0020
         output['rtc_error_alarm'] = alarm_status & 0x0080
+        print(output['rtc_error_alarm'])
+        print(format(output['rtc_error_alarm'], '#010b'))
         print(output)
 
         msg = xbos_pb2.XBOS(
