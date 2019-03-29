@@ -98,7 +98,7 @@ if __name__ == '__main__':
     xbos_cfg = {
         'wavemq': 'localhost:4516',
         'namespace': namespace,
-        'base_resource': 'test/darksky',
+        'base_resource': 'test/parker',
         'entity': 'parker.ent',
         'id': 'pyxbos-driver-darksky-1',
         #'rate': 1800, # half hour
