@@ -34,8 +34,8 @@ var parker_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 		return 0, false
 	},
 	"LightStatus": func(msg xbospb.XBOS) (float64, bool) {
-		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.light_status != nil {
-			return float64(msg.XBOSIoTDeviceState.ParkerState.light_status.Value), true
+		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.LightStatus != nil {
+			return float64(msg.XBOSIoTDeviceState.ParkerState.LightStatus.Value), true
 		}
 		return 0, false
 	},
