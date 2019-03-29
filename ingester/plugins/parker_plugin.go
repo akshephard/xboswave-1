@@ -22,14 +22,14 @@ var parker_units = map[string]string{
 var parker_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	// XBOSIoTDeviceState.ParkerState
 	"CompressorWorkingHours": func(msg xbospb.XBOS) (float64, bool) {
-		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.compressor_working_hours != nil {
+		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.CompressorWorkingHours != nil {
 			return float64(msg.XBOSIoTDeviceState.ParkerState.compressor_working_hours.Value), true
 		}
 		return 0, false
 	},
 	"OnStandbyStatus": func(msg xbospb.XBOS) (float64, bool) {
-		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.on_standby_status != nil {
-			return float64(msg.XBOSIoTDeviceState.ParkerState.on_standby_status.Value), true
+		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.OnStandbyStatus != nil {
+			return float64(msg.XBOSIoTDeviceState.ParkerState.OnStandbyStatus.Value), true
 		}
 		return 0, false
 	},
@@ -40,8 +40,8 @@ var parker_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 		return 0, false
 	},
 	"AuxOutputStatus": func(msg xbospb.XBOS) (float64, bool) {
-		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.aux_output_status != nil {
-			return float64(msg.XBOSIoTDeviceState.ParkerState.aux_output_status.Value), true
+		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.AuxOutputStatus != nil {
+			return float64(msg.XBOSIoTDeviceState.ParkerState.AuxOutputStatus.Value), true
 		}
 		return 0, false
 	},
