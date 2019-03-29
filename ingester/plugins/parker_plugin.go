@@ -10,7 +10,7 @@ func has_parker(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.ParkerState != nil
 }
 
-var weather_units = map[string]string{
+var parker_units = map[string]string{
 	"compressor_working_hours":            "hours",
 	"on_standby_status":       "unknown",
     "light_status":       "unknown",
@@ -18,7 +18,7 @@ var weather_units = map[string]string{
 	"next_defrost_counter": "seconds",
 }
 
-var weather_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
+var parker_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	// XBOSIoTDeviceState.ParkerState
 	"compressor_working_hours": func(msg xbospb.XBOS) (float64, bool) {
 		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.compressor_working_hours != nil {
