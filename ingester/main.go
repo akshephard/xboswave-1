@@ -25,7 +25,7 @@ func init() {
 // This is an example that shows how to publish and subscribe to a WAVEMQ site router
 // Fill these fields in:
 const EntityFile = "wavemqingester.ent"
-const Namespace = "GyAlyQyfJuai4MCyg6Rx9KkxnZZXWyDaIo0EXGY9-WEq6w=="
+const Namespace = "GyAm0amHIojg5RIMu6tj4oHHIURc_B4j30sguB6JghTi7g=="
 const SiteRouter = "127.0.0.1:4516"
 
 var IngesterName = "testingester3"
