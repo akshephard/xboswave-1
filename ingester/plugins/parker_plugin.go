@@ -23,7 +23,7 @@ var parker_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	// XBOSIoTDeviceState.ParkerState
 	"CompressorWorkingHours": func(msg xbospb.XBOS) (float64, bool) {
 		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.CompressorWorkingHours != nil {
-			return float64(msg.XBOSIoTDeviceState.ParkerState.compressor_working_hours.Value), true
+			return float64(msg.XBOSIoTDeviceState.ParkerState.CompressorWorkingHours.Value), true
 		}
 		return 0, false
 	},
@@ -46,8 +46,8 @@ var parker_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 		return 0, false
 	},
 	"NextDefrostCounter": func(msg xbospb.XBOS) (float64, bool) {
-		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.next_defrost_counter != nil {
-			return float64(msg.XBOSIoTDeviceState.ParkerState.next_defrost_counter.Value), true
+		if has_parker(msg) && msg.XBOSIoTDeviceState.ParkerState.NextDefrostCounter != nil {
+			return float64(msg.XBOSIoTDeviceState.ParkerState.NextDefrostCounter.Value), true
 		}
 		return 0, false
 	},
