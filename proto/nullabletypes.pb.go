@@ -3,11 +3,9 @@
 
 package xbospb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -31,7 +29,7 @@ func (m *Int32) Reset()         { *m = Int32{} }
 func (m *Int32) String() string { return proto.CompactTextString(m) }
 func (*Int32) ProtoMessage()    {}
 func (*Int32) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a606d93d67bf0130, []int{0}
+	return fileDescriptor_nullabletypes_978b8fc104c2fd55, []int{0}
 }
 func (m *Int32) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Int32.Unmarshal(m, b)
@@ -39,8 +37,8 @@ func (m *Int32) XXX_Unmarshal(b []byte) error {
 func (m *Int32) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Int32.Marshal(b, m, deterministic)
 }
-func (m *Int32) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Int32.Merge(m, src)
+func (dst *Int32) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Int32.Merge(dst, src)
 }
 func (m *Int32) XXX_Size() int {
 	return xxx_messageInfo_Int32.Size(m)
@@ -69,7 +67,7 @@ func (m *Int64) Reset()         { *m = Int64{} }
 func (m *Int64) String() string { return proto.CompactTextString(m) }
 func (*Int64) ProtoMessage()    {}
 func (*Int64) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a606d93d67bf0130, []int{1}
+	return fileDescriptor_nullabletypes_978b8fc104c2fd55, []int{1}
 }
 func (m *Int64) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Int64.Unmarshal(m, b)
@@ -77,8 +75,8 @@ func (m *Int64) XXX_Unmarshal(b []byte) error {
 func (m *Int64) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Int64.Marshal(b, m, deterministic)
 }
-func (m *Int64) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Int64.Merge(m, src)
+func (dst *Int64) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Int64.Merge(dst, src)
 }
 func (m *Int64) XXX_Size() int {
 	return xxx_messageInfo_Int64.Size(m)
@@ -107,7 +105,7 @@ func (m *Uint64) Reset()         { *m = Uint64{} }
 func (m *Uint64) String() string { return proto.CompactTextString(m) }
 func (*Uint64) ProtoMessage()    {}
 func (*Uint64) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a606d93d67bf0130, []int{2}
+	return fileDescriptor_nullabletypes_978b8fc104c2fd55, []int{2}
 }
 func (m *Uint64) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Uint64.Unmarshal(m, b)
@@ -115,8 +113,8 @@ func (m *Uint64) XXX_Unmarshal(b []byte) error {
 func (m *Uint64) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Uint64.Marshal(b, m, deterministic)
 }
-func (m *Uint64) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Uint64.Merge(m, src)
+func (dst *Uint64) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Uint64.Merge(dst, src)
 }
 func (m *Uint64) XXX_Size() int {
 	return xxx_messageInfo_Uint64.Size(m)
@@ -145,7 +143,7 @@ func (m *Double) Reset()         { *m = Double{} }
 func (m *Double) String() string { return proto.CompactTextString(m) }
 func (*Double) ProtoMessage()    {}
 func (*Double) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a606d93d67bf0130, []int{3}
+	return fileDescriptor_nullabletypes_978b8fc104c2fd55, []int{3}
 }
 func (m *Double) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Double.Unmarshal(m, b)
@@ -153,8 +151,8 @@ func (m *Double) XXX_Unmarshal(b []byte) error {
 func (m *Double) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Double.Marshal(b, m, deterministic)
 }
-func (m *Double) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Double.Merge(m, src)
+func (dst *Double) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Double.Merge(dst, src)
 }
 func (m *Double) XXX_Size() int {
 	return xxx_messageInfo_Double.Size(m)
@@ -183,7 +181,7 @@ func (m *Bool) Reset()         { *m = Bool{} }
 func (m *Bool) String() string { return proto.CompactTextString(m) }
 func (*Bool) ProtoMessage()    {}
 func (*Bool) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a606d93d67bf0130, []int{4}
+	return fileDescriptor_nullabletypes_978b8fc104c2fd55, []int{4}
 }
 func (m *Bool) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Bool.Unmarshal(m, b)
@@ -191,8 +189,8 @@ func (m *Bool) XXX_Unmarshal(b []byte) error {
 func (m *Bool) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Bool.Marshal(b, m, deterministic)
 }
-func (m *Bool) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Bool.Merge(m, src)
+func (dst *Bool) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Bool.Merge(dst, src)
 }
 func (m *Bool) XXX_Size() int {
 	return xxx_messageInfo_Bool.Size(m)
@@ -218,9 +216,9 @@ func init() {
 	proto.RegisterType((*Bool)(nil), "xbospb.Bool")
 }
 
-func init() { proto.RegisterFile("nullabletypes.proto", fileDescriptor_a606d93d67bf0130) }
+func init() { proto.RegisterFile("nullabletypes.proto", fileDescriptor_nullabletypes_978b8fc104c2fd55) }
 
-var fileDescriptor_a606d93d67bf0130 = []byte{
+var fileDescriptor_nullabletypes_978b8fc104c2fd55 = []byte{
 	// 127 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xce, 0x2b, 0xcd, 0xc9,
 	0x49, 0x4c, 0xca, 0x49, 0x2d, 0xa9, 0x2c, 0x48, 0x2d, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17,

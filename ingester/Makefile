@@ -1,4 +1,4 @@
-GOPATH = /home/gabe/go
+GOPATH = /home/solarplus/go
 PLUGINSRC=$(wildcard plugins/*.go)
 PLUGINCOMP=$(PLUGINSRC:.go=.so)
 

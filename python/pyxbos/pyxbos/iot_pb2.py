@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='xbospb',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tiot.proto\x12\x06xbospb\x1a\x13nullabletypes.proto\"\'\n\x03URI\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"c\n\x06Triple\x12\x1c\n\x07subject\x18\x01 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1e\n\tpredicate\x18\x02 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1b\n\x06object\x18\x03 \x01(\x0b\x32\x0b.xbospb.URI\"\xbb\x02\n\x12XBOSIoTDeviceState\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\nthermostat\x18\x04 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x05 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x06 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x07 \x01(\x0b\x32\x0c.xbospb.EVSE\x12/\n\x0fweather_station\x18\x08 \x01(\x0b\x32\x16.xbospb.WeatherStation\x12\x44\n\x1aweather_station_prediction\x18\t \x01(\x0b\x32 .xbospb.WeatherStationPrediction\"\xb9\x01\n\x16XBOSIoTDeviceActuation\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12&\n\nthermostat\x18\x03 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x04 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x05 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x06 \x01(\x0b\x32\x0c.xbospb.EVSE\"?\n\x0eXBOSIoTContext\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x1f\n\x07\x63ontext\x18\x02 \x03(\x0b\x32\x0e.xbospb.Triple\"\xae\x03\n\nThermostat\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x11relative_humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x08override\x18\x03 \x01(\x0b\x32\x0c.xbospb.Bool\x12\x1f\n\tfan_state\x18\x04 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\x08\x66\x61n_mode\x18\x05 \x01(\x0e\x32\x0f.xbospb.FanMode\x12\x1e\n\x04mode\x18\x06 \x01(\x0e\x32\x10.xbospb.HVACMode\x12 \n\x05state\x18\x07 \x01(\x0e\x32\x11.xbospb.HVACState\x12*\n\x13\x65nabled_heat_stages\x18\x08 \x01(\x0b\x32\r.xbospb.Int32\x12*\n\x13\x65nabled_cool_stages\x18\t \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10heating_setpoint\x18\n \x01(\x0b\x32\x0e.xbospb.Double\x12(\n\x10\x63ooling_setpoint\x18\x0b \x01(\x0b\x32\x0e.xbospb.Double\"o\n\x05Meter\x12\x1d\n\x05power\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12&\n\x0e\x61pparent_power\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\"G\n\x05Light\x12\x1b\n\x05state\x18\x01 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\nbrightness\x18\x02 \x01(\x0b\x32\r.xbospb.Int64\"\xb7\x01\n\x04\x45VSE\x12%\n\rcurrent_limit\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x12\x63harging_time_left\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12\x1b\n\x05state\x18\x05 \x01(\x0b\x32\x0c.xbospb.Bool\"\xdf\x01\n\x0eWeatherStation\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12.\n\x16nearest_storm_distance\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12,\n\x15nearest_storm_bearing\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10precip_intensity\x18\x05 \x01(\x0b\x32\x0e.xbospb.Double\"\xaf\x01\n\x18WeatherStationPrediction\x12@\n\x0bpredictions\x18\x01 \x03(\x0b\x32+.xbospb.WeatherStationPrediction.Prediction\x1aQ\n\nPrediction\x12\x17\n\x0fprediction_time\x18\x01 \x01(\x04\x12*\n\nprediction\x18\x02 \x01(\x0b\x32\x16.xbospb.WeatherStation*-\n\x07\x46\x61nMode\x12\x0b\n\x07\x46\x61nAuto\x10\x00\x12\t\n\x05\x46\x61nOn\x10\x01\x12\n\n\x06\x46\x61nOff\x10\x02*Y\n\x08HVACMode\x12\x0f\n\x0bHVACModeOff\x10\x00\x12\x14\n\x10HVACModeHeatOnly\x10\x01\x12\x14\n\x10HVACModeCoolOnly\x10\x02\x12\x10\n\x0cHVACModeAuto\x10\x03*\x81\x01\n\tHVACState\x12\x10\n\x0cHVACStateOff\x10\x00\x12\x17\n\x13HVACStateHeatStage1\x10\x01\x12\x17\n\x13HVACStateCoolStage1\x10\x02\x12\x17\n\x13HVACStateHeatStage2\x10\x03\x12\x17\n\x13HVACStateCoolStage2\x10\x04\x62\x06proto3')
+  serialized_pb=_b('\n\tiot.proto\x12\x06xbospb\x1a\x13nullabletypes.proto\"\'\n\x03URI\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"c\n\x06Triple\x12\x1c\n\x07subject\x18\x01 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1e\n\tpredicate\x18\x02 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1b\n\x06object\x18\x03 \x01(\x0b\x32\x0b.xbospb.URI\"\xe6\x02\n\x12XBOSIoTDeviceState\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\nthermostat\x18\x04 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x05 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x06 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x07 \x01(\x0b\x32\x0c.xbospb.EVSE\x12/\n\x0fweather_station\x18\x08 \x01(\x0b\x32\x16.xbospb.WeatherStation\x12\x44\n\x1aweather_station_prediction\x18\t \x01(\x0b\x32 .xbospb.WeatherStationPrediction\x12)\n\x0cparker_state\x18\n \x01(\x0b\x32\x13.xbospb.ParkerState\"\xb9\x01\n\x16XBOSIoTDeviceActuation\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12&\n\nthermostat\x18\x03 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x04 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x05 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x06 \x01(\x0b\x32\x0c.xbospb.EVSE\"?\n\x0eXBOSIoTContext\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x1f\n\x07\x63ontext\x18\x02 \x03(\x0b\x32\x0e.xbospb.Triple\"\xae\x03\n\nThermostat\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x11relative_humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x08override\x18\x03 \x01(\x0b\x32\x0c.xbospb.Bool\x12\x1f\n\tfan_state\x18\x04 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\x08\x66\x61n_mode\x18\x05 \x01(\x0e\x32\x0f.xbospb.FanMode\x12\x1e\n\x04mode\x18\x06 \x01(\x0e\x32\x10.xbospb.HVACMode\x12 \n\x05state\x18\x07 \x01(\x0e\x32\x11.xbospb.HVACState\x12*\n\x13\x65nabled_heat_stages\x18\x08 \x01(\x0b\x32\r.xbospb.Int32\x12*\n\x13\x65nabled_cool_stages\x18\t \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10heating_setpoint\x18\n \x01(\x0b\x32\x0e.xbospb.Double\x12(\n\x10\x63ooling_setpoint\x18\x0b \x01(\x0b\x32\x0e.xbospb.Double\"\x8f\x01\n\x05Meter\x12\x1d\n\x05power\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12&\n\x0e\x61pparent_power\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x06\x65nergy\x18\x04 \x01(\x0b\x32\x0e.xbospb.Double\"G\n\x05Light\x12\x1b\n\x05state\x18\x01 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\nbrightness\x18\x02 \x01(\x0b\x32\r.xbospb.Int64\"\xb7\x01\n\x04\x45VSE\x12%\n\rcurrent_limit\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x12\x63harging_time_left\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12\x1b\n\x05state\x18\x05 \x01(\x0b\x32\x0c.xbospb.Bool\"\xdf\x01\n\x0eWeatherStation\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12.\n\x16nearest_storm_distance\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12,\n\x15nearest_storm_bearing\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10precip_intensity\x18\x05 \x01(\x0b\x32\x0e.xbospb.Double\"\xaf\x01\n\x18WeatherStationPrediction\x12@\n\x0bpredictions\x18\x01 \x03(\x0b\x32+.xbospb.WeatherStationPrediction.Prediction\x1aQ\n\nPrediction\x12\x17\n\x0fprediction_time\x18\x01 \x01(\x04\x12*\n\nprediction\x18\x02 \x01(\x0b\x32\x16.xbospb.WeatherStation\"\xcc\x15\n\x0bParkerState\x12\x30\n\x18\x63ompressor_working_hours\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12(\n\x11on_standby_status\x18\x02 \x01(\x0b\x32\r.xbospb.Int64\x12#\n\x0clight_status\x18\x03 \x01(\x0b\x32\r.xbospb.Int64\x12(\n\x11\x61ux_output_status\x18\x04 \x01(\x0b\x32\r.xbospb.Int64\x12,\n\x14next_defrost_counter\x18\x05 \x01(\x0b\x32\x0e.xbospb.Double\x12.\n\x18\x64oor_switch_input_status\x18\x06 \x01(\x0b\x32\x0c.xbospb.Bool\x12/\n\x19multipurpose_input_status\x18\x07 \x01(\x0b\x32\x0c.xbospb.Bool\x12\'\n\x11\x63ompressor_status\x18\x08 \x01(\x0b\x32\x0c.xbospb.Bool\x12+\n\x15output_defrost_status\x18\t \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\x0b\x66\x61ns_status\x18\n \x01(\x0b\x32\x0c.xbospb.Bool\x12&\n\x10output_k4_status\x18\x0b \x01(\x0b\x32\x0c.xbospb.Bool\x12+\n\x13\x63\x61\x62inet_temperature\x18\x0c \x01(\x0b\x32\x0e.xbospb.Double\x12.\n\x16\x65vaporator_temperature\x18\r \x01(\x0b\x32\x0e.xbospb.Double\x12-\n\x15\x61uxiliary_temperature\x18\x0e \x01(\x0b\x32\x0e.xbospb.Double\x12*\n\x14probe1_failure_alarm\x18\x0f \x01(\x0b\x32\x0c.xbospb.Bool\x12*\n\x14probe2_failure_alarm\x18\x10 \x01(\x0b\x32\x0c.xbospb.Bool\x12*\n\x14probe3_failure_alarm\x18\x11 \x01(\x0b\x32\x0c.xbospb.Bool\x12/\n\x19minimum_temperature_alarm\x18\x12 \x01(\x0b\x32\x0c.xbospb.Bool\x12.\n\x18maximum_temperture_alarm\x18\x13 \x01(\x0b\x32\x0c.xbospb.Bool\x12\x39\n#condensor_temperature_failure_alarm\x18\x14 \x01(\x0b\x32\x0c.xbospb.Bool\x12)\n\x13\x63ondensor_pre_alarm\x18\x15 \x01(\x0b\x32\x0c.xbospb.Bool\x12 \n\ndoor_alarm\x18\x16 \x01(\x0b\x32\x0c.xbospb.Bool\x12.\n\x18multipurpose_input_alarm\x18\x17 \x01(\x0b\x32\x0c.xbospb.Bool\x12.\n\x18\x63ompressor_blocked_alarm\x18\x18 \x01(\x0b\x32\x0c.xbospb.Bool\x12)\n\x13power_failure_alarm\x18\x19 \x01(\x0b\x32\x0c.xbospb.Bool\x12%\n\x0frtc_error_alarm\x18\x1a \x01(\x0b\x32\x0c.xbospb.Bool\x12\x32\n\x1c\x65nergy_saving_regulator_flag\x18\x1b \x01(\x0b\x32\x0c.xbospb.Bool\x12<\n&energy_saving_real_time_regulator_flag\x18\x1c \x01(\x0b\x32\x0c.xbospb.Bool\x12\x34\n\x1eservice_request_regulator_flag\x18\x1d \x01(\x0b\x32\x0c.xbospb.Bool\x12/\n\x19on_standby_regulator_flag\x18\x1e \x01(\x0b\x32\x0c.xbospb.Bool\x12\x36\n new_alarm_to_read_regulator_flag\x18\x1f \x01(\x0b\x32\x0c.xbospb.Bool\x12\x33\n\x1d\x64\x65\x66rost_status_regulator_flag\x18  \x01(\x0b\x32\x0c.xbospb.Bool\x12*\n\x12time_until_defrost\x18! \x01(\x0b\x32\x0e.xbospb.Double\x12/\n\x17\x63urrent_defrost_counter\x18\" \x01(\x0b\x32\x0e.xbospb.Double\x12(\n\x10\x63ompressor_delay\x18# \x01(\x0b\x32\x0e.xbospb.Double\x12*\n\x14\x65nergy_saving_status\x18$ \x01(\x0b\x32\x0c.xbospb.Bool\x12,\n\x16service_request_status\x18% \x01(\x0b\x32\x0c.xbospb.Bool\x12;\n%resistors_activated_by_aux_key_status\x18& \x01(\x0b\x32\x0c.xbospb.Bool\x12,\n\x16\x65vaporator_valve_state\x18\' \x01(\x0b\x32\x0c.xbospb.Bool\x12*\n\x14output_defrost_state\x18( \x01(\x0b\x32\x0c.xbospb.Bool\x12&\n\x10output_lux_state\x18) \x01(\x0b\x32\x0c.xbospb.Bool\x12&\n\x10output_aux_state\x18* \x01(\x0b\x32\x0c.xbospb.Bool\x12%\n\x0fresistors_state\x18+ \x01(\x0b\x32\x0c.xbospb.Bool\x12(\n\x12output_alarm_state\x18, \x01(\x0b\x32\x0c.xbospb.Bool\x12-\n\x17second_compressor_state\x18- \x01(\x0b\x32\x0c.xbospb.Bool\x12 \n\x08setpoint\x18. \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02r1\x18/ \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02r2\x18\x30 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02r4\x18\x31 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x43\x30\x18\x32 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x43\x31\x18\x33 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x64\x30\x18\x34 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x64\x33\x18\x35 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x64\x35\x18\x36 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x64\x37\x18\x37 \x01(\x0b\x32\x0e.xbospb.Double\x12\x19\n\x02\x64\x38\x18\x38 \x01(\x0b\x32\r.xbospb.Int64\x12\x19\n\x02\x41\x30\x18\x39 \x01(\x0b\x32\r.xbospb.Int64\x12\x1a\n\x02\x41\x31\x18: \x01(\x0b\x32\x0e.xbospb.Double\x12\x19\n\x02\x41\x32\x18; \x01(\x0b\x32\r.xbospb.Int64\x12\x19\n\x02\x41\x33\x18< \x01(\x0b\x32\r.xbospb.Int64\x12\x1a\n\x02\x41\x34\x18= \x01(\x0b\x32\x0e.xbospb.Double\x12\x19\n\x02\x41\x35\x18> \x01(\x0b\x32\r.xbospb.Int64\x12\x1a\n\x02\x41\x36\x18? \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x41\x37\x18@ \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x41\x38\x18\x41 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1a\n\x02\x41\x39\x18\x42 \x01(\x0b\x32\x0e.xbospb.Double\x12\x19\n\x02\x46\x30\x18\x43 \x01(\x0b\x32\r.xbospb.Int64\x12\x1a\n\x02\x46\x31\x18\x44 \x01(\x0b\x32\x0e.xbospb.Double\x12\x19\n\x02\x46\x32\x18\x45 \x01(\x0b\x32\r.xbospb.Int64\x12\n\n\x02\x46\x33\x18\x46 \x01(\x03*-\n\x07\x46\x61nMode\x12\x0b\n\x07\x46\x61nAuto\x10\x00\x12\t\n\x05\x46\x61nOn\x10\x01\x12\n\n\x06\x46\x61nOff\x10\x02*Y\n\x08HVACMode\x12\x0f\n\x0bHVACModeOff\x10\x00\x12\x14\n\x10HVACModeHeatOnly\x10\x01\x12\x14\n\x10HVACModeCoolOnly\x10\x02\x12\x10\n\x0cHVACModeAuto\x10\x03*\x81\x01\n\tHVACState\x12\x10\n\x0cHVACStateOff\x10\x00\x12\x17\n\x13HVACStateHeatStage1\x10\x01\x12\x17\n\x13HVACStateCoolStage1\x10\x02\x12\x17\n\x13HVACStateHeatStage2\x10\x03\x12\x17\n\x13HVACStateCoolStage2\x10\x04\x62\x06proto3')
   ,
   dependencies=[nullabletypes__pb2.DESCRIPTOR,])
 
@@ -46,8 +46,8 @@ _FANMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1964,
-  serialized_end=2009,
+  serialized_start=4807,
+  serialized_end=4852,
 )
 _sym_db.RegisterEnumDescriptor(_FANMODE)
 
@@ -77,8 +77,8 @@ _HVACMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2011,
-  serialized_end=2100,
+  serialized_start=4854,
+  serialized_end=4943,
 )
 _sym_db.RegisterEnumDescriptor(_HVACMODE)
 
@@ -112,8 +112,8 @@ _HVACSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2103,
-  serialized_end=2232,
+  serialized_start=4946,
+  serialized_end=5075,
 )
 _sym_db.RegisterEnumDescriptor(_HVACSTATE)
 
@@ -286,6 +286,13 @@ _XBOSIOTDEVICESTATE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='parker_state', full_name='xbospb.XBOSIoTDeviceState.parker_state', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -299,7 +306,7 @@ _XBOSIOTDEVICESTATE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=185,
-  serialized_end=500,
+  serialized_end=543,
 )
 
 
@@ -364,8 +371,8 @@ _XBOSIOTDEVICEACTUATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=503,
-  serialized_end=688,
+  serialized_start=546,
+  serialized_end=731,
 )
 
 
@@ -402,8 +409,8 @@ _XBOSIOTCONTEXT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=690,
-  serialized_end=753,
+  serialized_start=733,
+  serialized_end=796,
 )
 
 
@@ -503,8 +510,8 @@ _THERMOSTAT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=756,
-  serialized_end=1186,
+  serialized_start=799,
+  serialized_end=1229,
 )
 
 
@@ -536,6 +543,13 @@ _METER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='energy', full_name='xbospb.Meter.energy', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -548,8 +562,8 @@ _METER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1188,
-  serialized_end=1299,
+  serialized_start=1232,
+  serialized_end=1375,
 )
 
 
@@ -586,8 +600,8 @@ _LIGHT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1301,
-  serialized_end=1372,
+  serialized_start=1377,
+  serialized_end=1448,
 )
 
 
@@ -645,8 +659,8 @@ _EVSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1375,
-  serialized_end=1558,
+  serialized_start=1451,
+  serialized_end=1634,
 )
 
 
@@ -704,8 +718,8 @@ _WEATHERSTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1561,
-  serialized_end=1784,
+  serialized_start=1637,
+  serialized_end=1860,
 )
 
 
@@ -742,8 +756,8 @@ _WEATHERSTATIONPREDICTION_PREDICTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1881,
-  serialized_end=1962,
+  serialized_start=1957,
+  serialized_end=2038,
 )
 
 _WEATHERSTATIONPREDICTION = _descriptor.Descriptor(
@@ -772,8 +786,522 @@ _WEATHERSTATIONPREDICTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1787,
-  serialized_end=1962,
+  serialized_start=1863,
+  serialized_end=2038,
+)
+
+
+_PARKERSTATE = _descriptor.Descriptor(
+  name='ParkerState',
+  full_name='xbospb.ParkerState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='compressor_working_hours', full_name='xbospb.ParkerState.compressor_working_hours', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='on_standby_status', full_name='xbospb.ParkerState.on_standby_status', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='light_status', full_name='xbospb.ParkerState.light_status', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='aux_output_status', full_name='xbospb.ParkerState.aux_output_status', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='next_defrost_counter', full_name='xbospb.ParkerState.next_defrost_counter', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='door_switch_input_status', full_name='xbospb.ParkerState.door_switch_input_status', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='multipurpose_input_status', full_name='xbospb.ParkerState.multipurpose_input_status', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='compressor_status', full_name='xbospb.ParkerState.compressor_status', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='output_defrost_status', full_name='xbospb.ParkerState.output_defrost_status', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='fans_status', full_name='xbospb.ParkerState.fans_status', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='output_k4_status', full_name='xbospb.ParkerState.output_k4_status', index=10,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cabinet_temperature', full_name='xbospb.ParkerState.cabinet_temperature', index=11,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='evaporator_temperature', full_name='xbospb.ParkerState.evaporator_temperature', index=12,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='auxiliary_temperature', full_name='xbospb.ParkerState.auxiliary_temperature', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='probe1_failure_alarm', full_name='xbospb.ParkerState.probe1_failure_alarm', index=14,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='probe2_failure_alarm', full_name='xbospb.ParkerState.probe2_failure_alarm', index=15,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='probe3_failure_alarm', full_name='xbospb.ParkerState.probe3_failure_alarm', index=16,
+      number=17, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='minimum_temperature_alarm', full_name='xbospb.ParkerState.minimum_temperature_alarm', index=17,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='maximum_temperture_alarm', full_name='xbospb.ParkerState.maximum_temperture_alarm', index=18,
+      number=19, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='condensor_temperature_failure_alarm', full_name='xbospb.ParkerState.condensor_temperature_failure_alarm', index=19,
+      number=20, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='condensor_pre_alarm', full_name='xbospb.ParkerState.condensor_pre_alarm', index=20,
+      number=21, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='door_alarm', full_name='xbospb.ParkerState.door_alarm', index=21,
+      number=22, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='multipurpose_input_alarm', full_name='xbospb.ParkerState.multipurpose_input_alarm', index=22,
+      number=23, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='compressor_blocked_alarm', full_name='xbospb.ParkerState.compressor_blocked_alarm', index=23,
+      number=24, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='power_failure_alarm', full_name='xbospb.ParkerState.power_failure_alarm', index=24,
+      number=25, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rtc_error_alarm', full_name='xbospb.ParkerState.rtc_error_alarm', index=25,
+      number=26, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='energy_saving_regulator_flag', full_name='xbospb.ParkerState.energy_saving_regulator_flag', index=26,
+      number=27, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='energy_saving_real_time_regulator_flag', full_name='xbospb.ParkerState.energy_saving_real_time_regulator_flag', index=27,
+      number=28, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='service_request_regulator_flag', full_name='xbospb.ParkerState.service_request_regulator_flag', index=28,
+      number=29, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='on_standby_regulator_flag', full_name='xbospb.ParkerState.on_standby_regulator_flag', index=29,
+      number=30, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='new_alarm_to_read_regulator_flag', full_name='xbospb.ParkerState.new_alarm_to_read_regulator_flag', index=30,
+      number=31, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='defrost_status_regulator_flag', full_name='xbospb.ParkerState.defrost_status_regulator_flag', index=31,
+      number=32, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time_until_defrost', full_name='xbospb.ParkerState.time_until_defrost', index=32,
+      number=33, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='current_defrost_counter', full_name='xbospb.ParkerState.current_defrost_counter', index=33,
+      number=34, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='compressor_delay', full_name='xbospb.ParkerState.compressor_delay', index=34,
+      number=35, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='energy_saving_status', full_name='xbospb.ParkerState.energy_saving_status', index=35,
+      number=36, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='service_request_status', full_name='xbospb.ParkerState.service_request_status', index=36,
+      number=37, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='resistors_activated_by_aux_key_status', full_name='xbospb.ParkerState.resistors_activated_by_aux_key_status', index=37,
+      number=38, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='evaporator_valve_state', full_name='xbospb.ParkerState.evaporator_valve_state', index=38,
+      number=39, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='output_defrost_state', full_name='xbospb.ParkerState.output_defrost_state', index=39,
+      number=40, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='output_lux_state', full_name='xbospb.ParkerState.output_lux_state', index=40,
+      number=41, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='output_aux_state', full_name='xbospb.ParkerState.output_aux_state', index=41,
+      number=42, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='resistors_state', full_name='xbospb.ParkerState.resistors_state', index=42,
+      number=43, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='output_alarm_state', full_name='xbospb.ParkerState.output_alarm_state', index=43,
+      number=44, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='second_compressor_state', full_name='xbospb.ParkerState.second_compressor_state', index=44,
+      number=45, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='setpoint', full_name='xbospb.ParkerState.setpoint', index=45,
+      number=46, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='r1', full_name='xbospb.ParkerState.r1', index=46,
+      number=47, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='r2', full_name='xbospb.ParkerState.r2', index=47,
+      number=48, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='r4', full_name='xbospb.ParkerState.r4', index=48,
+      number=49, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='C0', full_name='xbospb.ParkerState.C0', index=49,
+      number=50, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='C1', full_name='xbospb.ParkerState.C1', index=50,
+      number=51, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='d0', full_name='xbospb.ParkerState.d0', index=51,
+      number=52, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='d3', full_name='xbospb.ParkerState.d3', index=52,
+      number=53, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='d5', full_name='xbospb.ParkerState.d5', index=53,
+      number=54, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='d7', full_name='xbospb.ParkerState.d7', index=54,
+      number=55, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='d8', full_name='xbospb.ParkerState.d8', index=55,
+      number=56, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A0', full_name='xbospb.ParkerState.A0', index=56,
+      number=57, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A1', full_name='xbospb.ParkerState.A1', index=57,
+      number=58, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A2', full_name='xbospb.ParkerState.A2', index=58,
+      number=59, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A3', full_name='xbospb.ParkerState.A3', index=59,
+      number=60, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A4', full_name='xbospb.ParkerState.A4', index=60,
+      number=61, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A5', full_name='xbospb.ParkerState.A5', index=61,
+      number=62, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A6', full_name='xbospb.ParkerState.A6', index=62,
+      number=63, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A7', full_name='xbospb.ParkerState.A7', index=63,
+      number=64, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A8', full_name='xbospb.ParkerState.A8', index=64,
+      number=65, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='A9', full_name='xbospb.ParkerState.A9', index=65,
+      number=66, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='F0', full_name='xbospb.ParkerState.F0', index=66,
+      number=67, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='F1', full_name='xbospb.ParkerState.F1', index=67,
+      number=68, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='F2', full_name='xbospb.ParkerState.F2', index=68,
+      number=69, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='F3', full_name='xbospb.ParkerState.F3', index=69,
+      number=70, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2041,
+  serialized_end=4805,
 )
 
 _TRIPLE.fields_by_name['subject'].message_type = _URI
@@ -785,6 +1313,7 @@ _XBOSIOTDEVICESTATE.fields_by_name['light'].message_type = _LIGHT
 _XBOSIOTDEVICESTATE.fields_by_name['evse'].message_type = _EVSE
 _XBOSIOTDEVICESTATE.fields_by_name['weather_station'].message_type = _WEATHERSTATION
 _XBOSIOTDEVICESTATE.fields_by_name['weather_station_prediction'].message_type = _WEATHERSTATIONPREDICTION
+_XBOSIOTDEVICESTATE.fields_by_name['parker_state'].message_type = _PARKERSTATE
 _XBOSIOTDEVICEACTUATION.fields_by_name['thermostat'].message_type = _THERMOSTAT
 _XBOSIOTDEVICEACTUATION.fields_by_name['meter'].message_type = _METER
 _XBOSIOTDEVICEACTUATION.fields_by_name['light'].message_type = _LIGHT
@@ -804,6 +1333,7 @@ _THERMOSTAT.fields_by_name['cooling_setpoint'].message_type = nullabletypes__pb2
 _METER.fields_by_name['power'].message_type = nullabletypes__pb2._DOUBLE
 _METER.fields_by_name['voltage'].message_type = nullabletypes__pb2._DOUBLE
 _METER.fields_by_name['apparent_power'].message_type = nullabletypes__pb2._DOUBLE
+_METER.fields_by_name['energy'].message_type = nullabletypes__pb2._DOUBLE
 _LIGHT.fields_by_name['state'].message_type = nullabletypes__pb2._BOOL
 _LIGHT.fields_by_name['brightness'].message_type = nullabletypes__pb2._INT64
 _EVSE.fields_by_name['current_limit'].message_type = nullabletypes__pb2._DOUBLE
@@ -819,6 +1349,75 @@ _WEATHERSTATION.fields_by_name['precip_intensity'].message_type = nullabletypes_
 _WEATHERSTATIONPREDICTION_PREDICTION.fields_by_name['prediction'].message_type = _WEATHERSTATION
 _WEATHERSTATIONPREDICTION_PREDICTION.containing_type = _WEATHERSTATIONPREDICTION
 _WEATHERSTATIONPREDICTION.fields_by_name['predictions'].message_type = _WEATHERSTATIONPREDICTION_PREDICTION
+_PARKERSTATE.fields_by_name['compressor_working_hours'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['on_standby_status'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['light_status'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['aux_output_status'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['next_defrost_counter'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['door_switch_input_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['multipurpose_input_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['compressor_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['output_defrost_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['fans_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['output_k4_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['cabinet_temperature'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['evaporator_temperature'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['auxiliary_temperature'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['probe1_failure_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['probe2_failure_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['probe3_failure_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['minimum_temperature_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['maximum_temperture_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['condensor_temperature_failure_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['condensor_pre_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['door_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['multipurpose_input_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['compressor_blocked_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['power_failure_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['rtc_error_alarm'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['energy_saving_regulator_flag'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['energy_saving_real_time_regulator_flag'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['service_request_regulator_flag'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['on_standby_regulator_flag'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['new_alarm_to_read_regulator_flag'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['defrost_status_regulator_flag'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['time_until_defrost'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['current_defrost_counter'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['compressor_delay'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['energy_saving_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['service_request_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['resistors_activated_by_aux_key_status'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['evaporator_valve_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['output_defrost_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['output_lux_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['output_aux_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['resistors_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['output_alarm_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['second_compressor_state'].message_type = nullabletypes__pb2._BOOL
+_PARKERSTATE.fields_by_name['setpoint'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['r1'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['r2'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['r4'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['C0'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['C1'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['d0'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['d3'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['d5'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['d7'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['d8'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['A0'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['A1'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['A2'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['A3'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['A4'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['A5'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['A6'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['A7'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['A8'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['A9'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['F0'].message_type = nullabletypes__pb2._INT64
+_PARKERSTATE.fields_by_name['F1'].message_type = nullabletypes__pb2._DOUBLE
+_PARKERSTATE.fields_by_name['F2'].message_type = nullabletypes__pb2._INT64
 DESCRIPTOR.message_types_by_name['URI'] = _URI
 DESCRIPTOR.message_types_by_name['Triple'] = _TRIPLE
 DESCRIPTOR.message_types_by_name['XBOSIoTDeviceState'] = _XBOSIOTDEVICESTATE
@@ -830,6 +1429,7 @@ DESCRIPTOR.message_types_by_name['Light'] = _LIGHT
 DESCRIPTOR.message_types_by_name['EVSE'] = _EVSE
 DESCRIPTOR.message_types_by_name['WeatherStation'] = _WEATHERSTATION
 DESCRIPTOR.message_types_by_name['WeatherStationPrediction'] = _WEATHERSTATIONPREDICTION
+DESCRIPTOR.message_types_by_name['ParkerState'] = _PARKERSTATE
 DESCRIPTOR.enum_types_by_name['FanMode'] = _FANMODE
 DESCRIPTOR.enum_types_by_name['HVACMode'] = _HVACMODE
 DESCRIPTOR.enum_types_by_name['HVACState'] = _HVACSTATE
@@ -919,6 +1519,13 @@ WeatherStationPrediction = _reflection.GeneratedProtocolMessageType('WeatherStat
   ))
 _sym_db.RegisterMessage(WeatherStationPrediction)
 _sym_db.RegisterMessage(WeatherStationPrediction.Prediction)
+
+ParkerState = _reflection.GeneratedProtocolMessageType('ParkerState', (_message.Message,), dict(
+  DESCRIPTOR = _PARKERSTATE,
+  __module__ = 'iot_pb2'
+  # @@protoc_insertion_point(class_scope:xbospb.ParkerState)
+  ))
+_sym_db.RegisterMessage(ParkerState)
 
 
 # @@protoc_insertion_point(module_scope)

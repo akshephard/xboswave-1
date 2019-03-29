@@ -3,11 +3,9 @@
 
 package xbospb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -33,7 +31,7 @@ func (m *DentMeterState) Reset()         { *m = DentMeterState{} }
 func (m *DentMeterState) String() string { return proto.CompactTextString(m) }
 func (*DentMeterState) ProtoMessage()    {}
 func (*DentMeterState) Descriptor() ([]byte, []int) {
-	return fileDescriptor_73ded010fafc5f24, []int{0}
+	return fileDescriptor_dentmeter_9a520a2efbd44a9f, []int{0}
 }
 func (m *DentMeterState) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DentMeterState.Unmarshal(m, b)
@@ -41,8 +39,8 @@ func (m *DentMeterState) XXX_Unmarshal(b []byte) error {
 func (m *DentMeterState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DentMeterState.Marshal(b, m, deterministic)
 }
-func (m *DentMeterState) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DentMeterState.Merge(m, src)
+func (dst *DentMeterState) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DentMeterState.Merge(dst, src)
 }
 func (m *DentMeterState) XXX_Size() int {
 	return xxx_messageInfo_DentMeterState.Size(m)
@@ -103,7 +101,7 @@ func (m *PhaseState) Reset()         { *m = PhaseState{} }
 func (m *PhaseState) String() string { return proto.CompactTextString(m) }
 func (*PhaseState) ProtoMessage()    {}
 func (*PhaseState) Descriptor() ([]byte, []int) {
-	return fileDescriptor_73ded010fafc5f24, []int{1}
+	return fileDescriptor_dentmeter_9a520a2efbd44a9f, []int{1}
 }
 func (m *PhaseState) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PhaseState.Unmarshal(m, b)
@@ -111,8 +109,8 @@ func (m *PhaseState) XXX_Unmarshal(b []byte) error {
 func (m *PhaseState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PhaseState.Marshal(b, m, deterministic)
 }
-func (m *PhaseState) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PhaseState.Merge(m, src)
+func (dst *PhaseState) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PhaseState.Merge(dst, src)
 }
 func (m *PhaseState) XXX_Size() int {
 	return xxx_messageInfo_PhaseState.Size(m)
@@ -226,9 +224,9 @@ func init() {
 	proto.RegisterType((*PhaseState)(nil), "xbospb.PhaseState")
 }
 
-func init() { proto.RegisterFile("dentmeter.proto", fileDescriptor_73ded010fafc5f24) }
+func init() { proto.RegisterFile("dentmeter.proto", fileDescriptor_dentmeter_9a520a2efbd44a9f) }
 
-var fileDescriptor_73ded010fafc5f24 = []byte{
+var fileDescriptor_dentmeter_9a520a2efbd44a9f = []byte{
 	// 348 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x92, 0x4d, 0x6f, 0xe2, 0x30,
 	0x10, 0x86, 0x15, 0x3e, 0xc2, 0x32, 0x2c, 0x20, 0x79, 0xb7, 0x92, 0x2f, 0x6d, 0x11, 0x52, 0x05,
