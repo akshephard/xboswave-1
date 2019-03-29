@@ -15,5 +15,5 @@ wavemq:
 
 ingestershell:
     passwordlogin: true
-    password: "<Enter Password Here>"
+    password: "here_is_pass"
     sshhostkey: "sshkey"
