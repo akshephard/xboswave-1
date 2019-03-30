@@ -102,7 +102,7 @@ if __name__ == '__main__':
         'entity': 'parker.ent',
         'id': 'pyxbos-driver-darksky-1',
         #'rate': 1800, # half hour
-        'rate': 900, # 15 min
+        'rate': 20, # 15 min
         'service_name': service_name
     }
     print(getmembers(iot_pb2))
