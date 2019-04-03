@@ -19,7 +19,7 @@ class DarkSkyPredictionDriver(Driver):
         if 'hourly' not in json_data: return
 
         hourly = json_data['hourly']
-
+        print(json_data)
         predictions = []
 
         for hour in hourly.get('data',[]):
