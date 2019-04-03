@@ -96,8 +96,8 @@ if __name__ == '__main__':
         },
         'wavemq': 'localhost:4516',
         'namespace': 'GyBnl_UdduxPIcOwkrnZfqJGQiztUWKyHj9m5zHiFHS1uQ==',
-        'base_resource': 'test/darksky',
-        'entity': 'gabedarksky.ent',
+        'base_resource': 'darksky',
+        'entity': 'dark_sky.ent',
         'id': 'pyxbos-driver-darksky-1',
         #'rate': 1800, # half hour
         'rate': 900, # 15 min
