@@ -76,6 +76,7 @@ class Driver:
             entitySecret=EntitySecret(DER=self._ent),
         )
         self._namespace = b64decode(self._cfg['namespace'])
+        print(b64encode(self._namespace))
         self._uri = self._cfg['base_resource']
 
     def connect(self):
@@ -159,6 +160,7 @@ class Driver:
                 uri = self._uri+"/"+resource,
                 content = [po],
             ))
+            self._log.info("publish: {0}".format(x))
             if not x:
                 self._log.error("Error reading: {0}".format(x))
                 print('x>',x)

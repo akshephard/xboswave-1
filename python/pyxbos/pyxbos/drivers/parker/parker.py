@@ -73,7 +73,7 @@ class ParkerDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                parker_state = iot_pb2.ParkerState(
+                parker_state = parker_pb2.ParkerState(
                     compressor_working_hours  =   types.Double(value=output['compressor_working_hours']),
                     on_standby_status  =   types.Int64(value=output['on_standby_status']),
                     light_status  =   types.Int64(value=output['light_status']),
@@ -82,7 +82,7 @@ class ParkerDriver(Driver):
                 )
             )
         )
-        self.report(self.service_name, msg)
+        print(self.report(self.service_name, msg))
 
 
 if __name__ == '__main__':
@@ -98,9 +98,9 @@ if __name__ == '__main__':
     xbos_cfg = {
         'wavemq': 'localhost:4516',
         'namespace': namespace,
-        'base_resource': 'solarplus/parker',
+        'base_resource': 'parker',
         'entity': 'parker.ent',
-        'id': 'pyxbos-driver-darksky-1',
+        'id': 'pyxbos-driver-parker-2',
         #'rate': 1800, # half hour
         'rate': 20, # 15 min
         'service_name': service_name

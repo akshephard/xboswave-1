@@ -8,6 +8,7 @@ syntax = "proto3";
 package xbospb;
 
 import "nullabletypes.proto";
+import "parker.proto";
 
 
 message URI {
@@ -183,14 +184,4 @@ message WeatherStationPrediction {
 
     repeated Prediction predictions = 1;
 }
-message ParkerState {
-    //unit: hours
-    Double compressor_working_hours = 1;
-    //on/standby
-    Int64 on_standby_status = 2;
-    Int64 light_status = 3;
-    Int64 aux_output_status = 4;
-    //counter reduces periodically (in 1/4 of a minute)
-    //unit: seconds
-    Double next_defrost_counter = 5;
-}
+
