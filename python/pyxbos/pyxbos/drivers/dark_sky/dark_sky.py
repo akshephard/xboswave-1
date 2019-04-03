@@ -49,7 +49,7 @@ class DarkSkyPredictionDriver(Driver):
             )
         )
         self.report(self.coords+'/prediction', msg)
-        
+
 class DarkSkyDriver(Driver):
     def setup(self, cfg):
         self.baseurl = cfg['darksky']['url']
@@ -68,6 +68,7 @@ class DarkSkyDriver(Driver):
         precipIntensity =       json_data['currently'].get('precipIntensity',None)
         apparentTemperature =   json_data['currently'].get('apparentTemperature',None)
         humidity =              json_data['currently'].get('humidity',None)
+        print(json_data['currently'])
         if humidity is not None:
             humidity *= 100 # change from decimal to percent
 
