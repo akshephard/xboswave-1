@@ -88,14 +88,20 @@ class DarkSkyDriver(Driver):
 
 
 if __name__ == '__main__':
+    with open('dark_sky.yaml') as f:
+        # use safe_load instead load for security reasons
+        driverConfig = yaml.safe_load(f)
+
+    namespace = driverConfig['wavemq']['namespace']
+    api = driverConfig['dark_sky']['api']
     cfg = {
         'darksky': {
-            'apikey': 'api key here',
+            'apikey': api,
             'url': 'https://api.darksky.net/forecast/',
             'coordinates': '40.5301,-124.0000' # Should be near BLR
         },
         'wavemq': 'localhost:4516',
-        'namespace': 'GyBnl_UdduxPIcOwkrnZfqJGQiztUWKyHj9m5zHiFHS1uQ==',
+        'namespace': namespace,
         'base_resource': 'darksky',
         'entity': 'dark_sky.ent',
         'id': 'pyxbos-driver-darksky-1',
