@@ -102,7 +102,7 @@ if __name__ == '__main__':
         },
         'wavemq': 'localhost:4516',
         'namespace': namespace,
-        'base_resource': 'darksky',
+        'base_resource': 'dark_sky',
         'entity': 'dark_sky.ent',
         'id': 'pyxbos-driver-darksky-1',
         #'rate': 1800, # half hour
