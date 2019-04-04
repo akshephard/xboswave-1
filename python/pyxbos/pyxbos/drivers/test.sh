@@ -2,6 +2,7 @@
 if (( $# == 1 )); then
     echo '../test.sh weather_driver $NAMESPACE_HASH $NAMESPACE'
 fi
+echo $#
 source ~/.bashrc
 DRIVER_NAME=$1
 ENTITY=$DRIVER_NAME".ent"
