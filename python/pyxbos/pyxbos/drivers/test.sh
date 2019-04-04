@@ -1,5 +1,5 @@
 #!/bin/bash
-if (( $# == 1 )); then
+if (( $# == 0 )); then
     echo '../test.sh weather_driver $NAMESPACE_HASH $NAMESPACE'
 fi
 echo $#
