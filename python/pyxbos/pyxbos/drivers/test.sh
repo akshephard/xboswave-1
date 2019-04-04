@@ -13,6 +13,7 @@ echo "Granted permissions"
 echo $ENTITY
 echo $NAMESPACE
 echo $NAMESPACE_HASH
+echo $WAVE_DEFAULT_ENTITY
 wv name --public --attester $ENTITY $NAMESPACE_HASH $NAMESPACE
 echo "linked namespace to hash"
 wv rtprove --subject $ENTITY -o driverproof.pem wavemq:publish,subscribe@solarplus/$DRIVER_NAME/*
