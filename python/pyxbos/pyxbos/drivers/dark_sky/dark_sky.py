@@ -106,7 +106,7 @@ if __name__ == '__main__':
         'entity': 'dark_sky.ent',
         'id': 'pyxbos-driver-darksky-1',
         #'rate': 1800, # half hour
-        'rate': 900, # 15 min
+        'rate': 20, # 15 min
     }
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
     e = DarkSkyDriver(cfg)
