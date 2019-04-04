@@ -1,5 +1,7 @@
 #!/bin/bash
-who
+if (( $# == 1 )); then
+    echo '../test.sh weather_driver $NAMESPACE_HASH $NAMESPACE'
+fi
 source ~/.bashrc
 DRIVER_NAME=$1
 ENTITY=$DRIVER_NAME".ent"
