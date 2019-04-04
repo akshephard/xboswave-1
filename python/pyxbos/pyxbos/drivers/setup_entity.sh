@@ -1,6 +1,6 @@
 #!/bin/bash
 if (( $# == 0 )); then
-    echo '../test.sh insert_driver_name $NAMESPACE_HASH $NAMESPACE'
+    echo 'USAGE: ../setup_entity.sh insert_driver_name $NAMESPACE_HASH $NAMESPACE'
 else
     echo $#
     source ~/.bashrc
