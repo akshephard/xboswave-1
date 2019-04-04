@@ -1,6 +1,6 @@
 #!/bin/bash
 DRIVER_NAME=$1
-ENTITY=DRIVER_NAME".ent"
+ENTITY=$DRIVER_NAME".ent"
 echo 'driver name is' $DRIVER_NAME
 echo 'entity name is' $ENTITY
 wv mke -e 50y --nopassphrase -o $ENTITY
