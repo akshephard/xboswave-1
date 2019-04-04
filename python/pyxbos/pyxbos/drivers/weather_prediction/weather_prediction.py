@@ -71,7 +71,7 @@ if __name__ == '__main__':
         'namespace': namespace,
         'base_resource': 'weather_prediction',
         'entity': 'weather_prediction.ent',
-        'id': 'pyxbos-driver-darksky-1',
+        'id': 'pyxbos-driver-prediction-1',
         #'rate': 1800, # half hour
         'rate': 20, # 15 min
     }
