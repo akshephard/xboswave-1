@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/.bashrc
 DRIVER_NAME=$1
 ENTITY=$DRIVER_NAME".ent"
 echo 'driver name is' $DRIVER_NAME
