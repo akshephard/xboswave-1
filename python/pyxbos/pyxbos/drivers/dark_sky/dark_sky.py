@@ -14,12 +14,13 @@ class DarkSkyPredictionDriver(Driver):
         self.url = self.baseurl + self.apikey + '/' + self.coords
 
     def read(self, requestid=None):
+        print("In prediction driver")
         response = requests.get(self.url)
         json_data = json.loads(response.text)
         if 'hourly' not in json_data: return
 
         hourly = json_data['hourly']
-        print(json_data)
+        #print(json_data)
         predictions = []
 
         for hour in hourly.get('data',[]):
@@ -58,6 +59,7 @@ class DarkSkyDriver(Driver):
         self.url = self.baseurl + self.apikey + '/' + self.coords
 
     def read(self, requestid=None):
+        print("In current driver")
         response = requests.get(self.url)
         json_data = json.loads(response.text)
         if 'currently' not in json_data: return
@@ -68,7 +70,7 @@ class DarkSkyDriver(Driver):
         precipIntensity =       json_data['currently'].get('precipIntensity',None)
         apparentTemperature =   json_data['currently'].get('apparentTemperature',None)
         humidity =              json_data['currently'].get('humidity',None)
-        print(json_data['currently'])
+        #print(json_data['currently'])
         if humidity is not None:
             humidity *= 100 # change from decimal to percent
 
