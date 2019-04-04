@@ -9,6 +9,9 @@ wv inspect $ENTITY
 echo "Did inspection"
 wv rtgrant --subject $ENTITY -e 3y --attester $WAVE_DEFAULT_ENTITY --indirections 0 wavemq:publish,subscribe@solarplus/$DRIVER_NAME/*
 echo "Granted permissions"
+echo $ENTITY
+echo $NAMESPACE
+echo $NAMESPACE_HASH
 wv name --public --attester $ENTITY $NAMESPACE_HASH $NAMESPACE
 echo "linked namespace to hash"
 wv rtprove --subject $ENTITY -o driverproof.pem wavemq:publish,subscribe@solarplus/$DRIVER_NAME/*
