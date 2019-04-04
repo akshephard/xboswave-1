@@ -1,4 +1,5 @@
 #!/bin/bash
+whoami
 source ~/.bashrc
 DRIVER_NAME=$1
 ENTITY=$DRIVER_NAME".ent"
