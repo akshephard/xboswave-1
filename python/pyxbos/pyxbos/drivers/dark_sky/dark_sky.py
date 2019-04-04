@@ -111,6 +111,7 @@ if __name__ == '__main__':
         'rate': 20, # 15 min
     }
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
-    e = DarkSkyDriver(cfg)
-    e = DarkSkyPredictionDriver(cfg)
-    e.begin()
+    current_driver = DarkSkyDriver(cfg)
+    prediction_driver = DarkSkyPredictionDriver(cfg)
+    current_driver.begin()
+    prediction_driver.begin()
