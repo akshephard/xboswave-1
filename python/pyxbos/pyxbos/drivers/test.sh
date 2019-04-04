@@ -1,5 +1,5 @@
 #!/bin/bash
-whoami
+who
 source ~/.bashrc
 DRIVER_NAME=$1
 ENTITY=$DRIVER_NAME".ent"
@@ -15,6 +15,8 @@ echo $ENTITY
 echo $NAMESPACE
 echo $NAMESPACE_HASH
 echo $WAVE_DEFAULT_ENTITY
+echo $2
+echo $3
 wv name --public --attester $ENTITY $2 $3
 echo "linked namespace to hash"
 wv rtprove --subject $ENTITY -o driverproof.pem wavemq:publish,subscribe@solarplus/$DRIVER_NAME/*
