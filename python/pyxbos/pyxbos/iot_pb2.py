@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='xbospb',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tiot.proto\x12\x06xbospb\x1a\x13nullabletypes.proto\x1a\x0cparker.proto\"\'\n\x03URI\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"c\n\x06Triple\x12\x1c\n\x07subject\x18\x01 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1e\n\tpredicate\x18\x02 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1b\n\x06object\x18\x03 \x01(\x0b\x32\x0b.xbospb.URI\"\xe6\x02\n\x12XBOSIoTDeviceState\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\nthermostat\x18\x04 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x05 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x06 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x07 \x01(\x0b\x32\x0c.xbospb.EVSE\x12/\n\x0fweather_station\x18\x08 \x01(\x0b\x32\x16.xbospb.WeatherStation\x12\x44\n\x1aweather_station_prediction\x18\t \x01(\x0b\x32 .xbospb.WeatherStationPrediction\x12)\n\x0cparker_state\x18\n \x01(\x0b\x32\x13.xbospb.ParkerState\"\xb9\x01\n\x16XBOSIoTDeviceActuation\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12&\n\nthermostat\x18\x03 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x04 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x05 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x06 \x01(\x0b\x32\x0c.xbospb.EVSE\"?\n\x0eXBOSIoTContext\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x1f\n\x07\x63ontext\x18\x02 \x03(\x0b\x32\x0e.xbospb.Triple\"\xae\x03\n\nThermostat\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x11relative_humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x08override\x18\x03 \x01(\x0b\x32\x0c.xbospb.Bool\x12\x1f\n\tfan_state\x18\x04 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\x08\x66\x61n_mode\x18\x05 \x01(\x0e\x32\x0f.xbospb.FanMode\x12\x1e\n\x04mode\x18\x06 \x01(\x0e\x32\x10.xbospb.HVACMode\x12 \n\x05state\x18\x07 \x01(\x0e\x32\x11.xbospb.HVACState\x12*\n\x13\x65nabled_heat_stages\x18\x08 \x01(\x0b\x32\r.xbospb.Int32\x12*\n\x13\x65nabled_cool_stages\x18\t \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10heating_setpoint\x18\n \x01(\x0b\x32\x0e.xbospb.Double\x12(\n\x10\x63ooling_setpoint\x18\x0b \x01(\x0b\x32\x0e.xbospb.Double\"\x8f\x01\n\x05Meter\x12\x1d\n\x05power\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12&\n\x0e\x61pparent_power\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x06\x65nergy\x18\x04 \x01(\x0b\x32\x0e.xbospb.Double\"G\n\x05Light\x12\x1b\n\x05state\x18\x01 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\nbrightness\x18\x02 \x01(\x0b\x32\r.xbospb.Int64\"\xb7\x01\n\x04\x45VSE\x12%\n\rcurrent_limit\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x12\x63harging_time_left\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12\x1b\n\x05state\x18\x05 \x01(\x0b\x32\x0c.xbospb.Bool\"\xdf\x01\n\x0eWeatherStation\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12.\n\x16nearest_storm_distance\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12,\n\x15nearest_storm_bearing\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10precip_intensity\x18\x05 \x01(\x0b\x32\x0e.xbospb.Double\"\xaf\x01\n\x18WeatherStationPrediction\x12@\n\x0bpredictions\x18\x01 \x03(\x0b\x32+.xbospb.WeatherStationPrediction.Prediction\x1aQ\n\nPrediction\x12\x17\n\x0fprediction_time\x18\x01 \x01(\x04\x12*\n\nprediction\x18\x02 \x01(\x0b\x32\x16.xbospb.WeatherStation*-\n\x07\x46\x61nMode\x12\x0b\n\x07\x46\x61nAuto\x10\x00\x12\t\n\x05\x46\x61nOn\x10\x01\x12\n\n\x06\x46\x61nOff\x10\x02*Y\n\x08HVACMode\x12\x0f\n\x0bHVACModeOff\x10\x00\x12\x14\n\x10HVACModeHeatOnly\x10\x01\x12\x14\n\x10HVACModeCoolOnly\x10\x02\x12\x10\n\x0cHVACModeAuto\x10\x03*\x81\x01\n\tHVACState\x12\x10\n\x0cHVACStateOff\x10\x00\x12\x17\n\x13HVACStateHeatStage1\x10\x01\x12\x17\n\x13HVACStateCoolStage1\x10\x02\x12\x17\n\x13HVACStateHeatStage2\x10\x03\x12\x17\n\x13HVACStateCoolStage2\x10\x04\x62\x06proto3')
+  serialized_pb=_b('\n\tiot.proto\x12\x06xbospb\x1a\x13nullabletypes.proto\x1a\x0cparker.proto\"\'\n\x03URI\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"c\n\x06Triple\x12\x1c\n\x07subject\x18\x01 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1e\n\tpredicate\x18\x02 \x01(\x0b\x32\x0b.xbospb.URI\x12\x1b\n\x06object\x18\x03 \x01(\x0b\x32\x0b.xbospb.URI\"\xe6\x02\n\x12XBOSIoTDeviceState\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\nthermostat\x18\x04 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x05 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x06 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x07 \x01(\x0b\x32\x0c.xbospb.EVSE\x12/\n\x0fweather_station\x18\x08 \x01(\x0b\x32\x16.xbospb.WeatherStation\x12\x44\n\x1aweather_station_prediction\x18\t \x01(\x0b\x32 .xbospb.WeatherStationPrediction\x12)\n\x0cparker_state\x18\n \x01(\x0b\x32\x13.xbospb.ParkerState\"\xb9\x01\n\x16XBOSIoTDeviceActuation\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x11\n\trequestid\x18\x02 \x01(\x03\x12&\n\nthermostat\x18\x03 \x01(\x0b\x32\x12.xbospb.Thermostat\x12\x1c\n\x05meter\x18\x04 \x01(\x0b\x32\r.xbospb.Meter\x12\x1c\n\x05light\x18\x05 \x01(\x0b\x32\r.xbospb.Light\x12\x1a\n\x04\x65vse\x18\x06 \x01(\x0b\x32\x0c.xbospb.EVSE\"?\n\x0eXBOSIoTContext\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x1f\n\x07\x63ontext\x18\x02 \x03(\x0b\x32\x0e.xbospb.Triple\"\xae\x03\n\nThermostat\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x11relative_humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x08override\x18\x03 \x01(\x0b\x32\x0c.xbospb.Bool\x12\x1f\n\tfan_state\x18\x04 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\x08\x66\x61n_mode\x18\x05 \x01(\x0e\x32\x0f.xbospb.FanMode\x12\x1e\n\x04mode\x18\x06 \x01(\x0e\x32\x10.xbospb.HVACMode\x12 \n\x05state\x18\x07 \x01(\x0e\x32\x11.xbospb.HVACState\x12*\n\x13\x65nabled_heat_stages\x18\x08 \x01(\x0b\x32\r.xbospb.Int32\x12*\n\x13\x65nabled_cool_stages\x18\t \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10heating_setpoint\x18\n \x01(\x0b\x32\x0e.xbospb.Double\x12(\n\x10\x63ooling_setpoint\x18\x0b \x01(\x0b\x32\x0e.xbospb.Double\"\x8f\x01\n\x05Meter\x12\x1d\n\x05power\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12&\n\x0e\x61pparent_power\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1e\n\x06\x65nergy\x18\x04 \x01(\x0b\x32\x0e.xbospb.Double\"G\n\x05Light\x12\x1b\n\x05state\x18\x01 \x01(\x0b\x32\x0c.xbospb.Bool\x12!\n\nbrightness\x18\x02 \x01(\x0b\x32\r.xbospb.Int64\"\xb7\x01\n\x04\x45VSE\x12%\n\rcurrent_limit\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07voltage\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x12\x63harging_time_left\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12\x1b\n\x05state\x18\x05 \x01(\x0b\x32\x0c.xbospb.Bool\"\xdf\x01\n\x0eWeatherStation\x12#\n\x0btemperature\x18\x01 \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08humidity\x18\x02 \x01(\x0b\x32\x0e.xbospb.Double\x12.\n\x16nearest_storm_distance\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12,\n\x15nearest_storm_bearing\x18\x04 \x01(\x0b\x32\r.xbospb.Int32\x12(\n\x10precip_intensity\x18\x05 \x01(\x0b\x32\x0e.xbospb.Double\"\xaf\x01\n\x18WeatherStationPrediction\x12@\n\x0bpredictions\x18\x01 \x03(\x0b\x32+.xbospb.WeatherStationPrediction.Prediction\x1aQ\n\nPrediction\x12\x17\n\x0fprediction_time\x18\x01 \x01(\x04\x12*\n\nprediction\x18\x02 \x01(\x0b\x32\x16.xbospb.WeatherStation\"\xdd\x05\n\x15Weather_Current_State\x12\x1b\n\x04time\x18\x01 \x01(\x0b\x32\r.xbospb.Int64\x12\x0c\n\x04icon\x18\x02 \x01(\t\x12,\n\x14nearestStormDistance\x18\x03 \x01(\x0b\x32\x0e.xbospb.Double\x12+\n\x13nearestStormBearing\x18\x04 \x01(\x0b\x32\x0e.xbospb.Double\x12\'\n\x0fprecipIntensity\x18\x05 \x01(\x0b\x32\x0e.xbospb.Double\x12,\n\x14precipIntensityError\x18\x06 \x01(\x0b\x32\x0e.xbospb.Double\x12)\n\x11precipProbability\x18\x07 \x01(\x0b\x32\x0e.xbospb.Double\x12\x12\n\nprecipType\x18\x08 \x01(\t\x12#\n\x0btemperature\x18\t \x01(\x0b\x32\x0e.xbospb.Double\x12+\n\x13\x61pparentTemperature\x18\n \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08\x64\x65wPoint\x18\x0b \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08humidity\x18\x0c \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08pressure\x18\r \x01(\x0b\x32\x0e.xbospb.Double\x12!\n\twindSpeed\x18\x0e \x01(\x0b\x32\x0e.xbospb.Double\x12 \n\x08windGust\x18\x0f \x01(\x0b\x32\x0e.xbospb.Double\x12#\n\x0bwindBearing\x18\x10 \x01(\x0b\x32\x0e.xbospb.Double\x12\"\n\ncloudCover\x18\x11 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1f\n\x07uvIndex\x18\x12 \x01(\x0b\x32\x0e.xbospb.Double\x12\"\n\nvisibility\x18\x13 \x01(\x0b\x32\x0e.xbospb.Double\x12\x1d\n\x05ozone\x18\x14 \x01(\x0b\x32\x0e.xbospb.Double*-\n\x07\x46\x61nMode\x12\x0b\n\x07\x46\x61nAuto\x10\x00\x12\t\n\x05\x46\x61nOn\x10\x01\x12\n\n\x06\x46\x61nOff\x10\x02*Y\n\x08HVACMode\x12\x0f\n\x0bHVACModeOff\x10\x00\x12\x14\n\x10HVACModeHeatOnly\x10\x01\x12\x14\n\x10HVACModeCoolOnly\x10\x02\x12\x10\n\x0cHVACModeAuto\x10\x03*\x81\x01\n\tHVACState\x12\x10\n\x0cHVACStateOff\x10\x00\x12\x17\n\x13HVACStateHeatStage1\x10\x01\x12\x17\n\x13HVACStateCoolStage1\x10\x02\x12\x17\n\x13HVACStateHeatStage2\x10\x03\x12\x17\n\x13HVACStateCoolStage2\x10\x04\x62\x06proto3')
   ,
   dependencies=[nullabletypes__pb2.DESCRIPTOR,parker__pb2.DESCRIPTOR,])
 
@@ -47,8 +47,8 @@ _FANMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2054,
-  serialized_end=2099,
+  serialized_start=2790,
+  serialized_end=2835,
 )
 _sym_db.RegisterEnumDescriptor(_FANMODE)
 
@@ -78,8 +78,8 @@ _HVACMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2101,
-  serialized_end=2190,
+  serialized_start=2837,
+  serialized_end=2926,
 )
 _sym_db.RegisterEnumDescriptor(_HVACMODE)
 
@@ -113,8 +113,8 @@ _HVACSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2193,
-  serialized_end=2322,
+  serialized_start=2929,
+  serialized_end=3058,
 )
 _sym_db.RegisterEnumDescriptor(_HVACSTATE)
 
@@ -791,6 +791,170 @@ _WEATHERSTATIONPREDICTION = _descriptor.Descriptor(
   serialized_end=2052,
 )
 
+
+_WEATHER_CURRENT_STATE = _descriptor.Descriptor(
+  name='Weather_Current_State',
+  full_name='xbospb.Weather_Current_State',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='xbospb.Weather_Current_State.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='icon', full_name='xbospb.Weather_Current_State.icon', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nearestStormDistance', full_name='xbospb.Weather_Current_State.nearestStormDistance', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='nearestStormBearing', full_name='xbospb.Weather_Current_State.nearestStormBearing', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='precipIntensity', full_name='xbospb.Weather_Current_State.precipIntensity', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='precipIntensityError', full_name='xbospb.Weather_Current_State.precipIntensityError', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='precipProbability', full_name='xbospb.Weather_Current_State.precipProbability', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='precipType', full_name='xbospb.Weather_Current_State.precipType', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='temperature', full_name='xbospb.Weather_Current_State.temperature', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='apparentTemperature', full_name='xbospb.Weather_Current_State.apparentTemperature', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='dewPoint', full_name='xbospb.Weather_Current_State.dewPoint', index=10,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='humidity', full_name='xbospb.Weather_Current_State.humidity', index=11,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pressure', full_name='xbospb.Weather_Current_State.pressure', index=12,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='windSpeed', full_name='xbospb.Weather_Current_State.windSpeed', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='windGust', full_name='xbospb.Weather_Current_State.windGust', index=14,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='windBearing', full_name='xbospb.Weather_Current_State.windBearing', index=15,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cloudCover', full_name='xbospb.Weather_Current_State.cloudCover', index=16,
+      number=17, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='uvIndex', full_name='xbospb.Weather_Current_State.uvIndex', index=17,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='visibility', full_name='xbospb.Weather_Current_State.visibility', index=18,
+      number=19, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ozone', full_name='xbospb.Weather_Current_State.ozone', index=19,
+      number=20, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2055,
+  serialized_end=2788,
+)
+
 _TRIPLE.fields_by_name['subject'].message_type = _URI
 _TRIPLE.fields_by_name['predicate'].message_type = _URI
 _TRIPLE.fields_by_name['object'].message_type = _URI
@@ -836,6 +1000,24 @@ _WEATHERSTATION.fields_by_name['precip_intensity'].message_type = nullabletypes_
 _WEATHERSTATIONPREDICTION_PREDICTION.fields_by_name['prediction'].message_type = _WEATHERSTATION
 _WEATHERSTATIONPREDICTION_PREDICTION.containing_type = _WEATHERSTATIONPREDICTION
 _WEATHERSTATIONPREDICTION.fields_by_name['predictions'].message_type = _WEATHERSTATIONPREDICTION_PREDICTION
+_WEATHER_CURRENT_STATE.fields_by_name['time'].message_type = nullabletypes__pb2._INT64
+_WEATHER_CURRENT_STATE.fields_by_name['nearestStormDistance'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['nearestStormBearing'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['precipIntensity'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['precipIntensityError'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['precipProbability'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['temperature'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['apparentTemperature'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['dewPoint'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['humidity'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['pressure'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['windSpeed'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['windGust'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['windBearing'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['cloudCover'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['uvIndex'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['visibility'].message_type = nullabletypes__pb2._DOUBLE
+_WEATHER_CURRENT_STATE.fields_by_name['ozone'].message_type = nullabletypes__pb2._DOUBLE
 DESCRIPTOR.message_types_by_name['URI'] = _URI
 DESCRIPTOR.message_types_by_name['Triple'] = _TRIPLE
 DESCRIPTOR.message_types_by_name['XBOSIoTDeviceState'] = _XBOSIOTDEVICESTATE
@@ -847,6 +1029,7 @@ DESCRIPTOR.message_types_by_name['Light'] = _LIGHT
 DESCRIPTOR.message_types_by_name['EVSE'] = _EVSE
 DESCRIPTOR.message_types_by_name['WeatherStation'] = _WEATHERSTATION
 DESCRIPTOR.message_types_by_name['WeatherStationPrediction'] = _WEATHERSTATIONPREDICTION
+DESCRIPTOR.message_types_by_name['Weather_Current_State'] = _WEATHER_CURRENT_STATE
 DESCRIPTOR.enum_types_by_name['FanMode'] = _FANMODE
 DESCRIPTOR.enum_types_by_name['HVACMode'] = _HVACMODE
 DESCRIPTOR.enum_types_by_name['HVACState'] = _HVACSTATE
@@ -936,6 +1119,13 @@ WeatherStationPrediction = _reflection.GeneratedProtocolMessageType('WeatherStat
   ))
 _sym_db.RegisterMessage(WeatherStationPrediction)
 _sym_db.RegisterMessage(WeatherStationPrediction.Prediction)
+
+Weather_Current_State = _reflection.GeneratedProtocolMessageType('Weather_Current_State', (_message.Message,), dict(
+  DESCRIPTOR = _WEATHER_CURRENT_STATE,
+  __module__ = 'iot_pb2'
+  # @@protoc_insertion_point(class_scope:xbospb.Weather_Current_State)
+  ))
+_sym_db.RegisterMessage(Weather_Current_State)
 
 
 # @@protoc_insertion_point(module_scope)
