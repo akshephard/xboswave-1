@@ -36,7 +36,7 @@ class WeatherCurrentDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                weather_station = iot_pb2.Weather_Current_State(
+                weather_current_state = iot_pb2.Weather_Current_State(
                     time  =   types.Int64(value=output['time']),
                     icon  =  output['icon'],
                     precipIntensity  =   types.Double(value=output['precipIntensity']),
