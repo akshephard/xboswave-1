@@ -295,7 +295,7 @@ _XBOSIOTDEVICESTATE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Weather_Current_State', full_name='xbospb.XBOSIoTDeviceState.parker_state', index=9,
+      name='weather_current_state', full_name='xbospb.XBOSIoTDeviceState.weather_current_state', index=10,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
