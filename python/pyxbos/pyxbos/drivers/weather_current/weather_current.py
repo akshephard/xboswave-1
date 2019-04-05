@@ -41,7 +41,6 @@ class WeatherCurrentDriver(Driver):
                     icon  =  output['icon'],
                     precipIntensity  =   types.Double(value=output['precipIntensity']),
                     precipProbability  =   types.Double(value=output['precipProbability']),
-                    precipType  =  output['precipType'],
                     temperature  =   types.Double(value=output['temperature']),
                     apparentTemperature  =   types.Double(value=output['apparentTemperature']),
                     dewPoint  =   types.Double(value=output['dewPoint']),
