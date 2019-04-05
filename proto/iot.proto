@@ -9,7 +9,7 @@ package xbospb;
 
 import "nullabletypes.proto";
 import "parker.proto";
-
+import "weather_current.proto";
 
 message URI {
     string namespace = 1;
@@ -58,9 +58,10 @@ message XBOSIoTDeviceState {
     Meter meter = 5;
     Light light = 6;
     EVSE evse = 7;
-    WeatherStation weather_station = 8;
-    WeatherStationPrediction weather_station_prediction = 9;
-    ParkerState parker_state = 10;
+    //WeatherStation weather_station = 8;
+    //WeatherStationPrediction weather_station_prediction = 9;
+    ParkerState parker_state = 8;
+    Weather_Current_State current_weather = 9;
 }
 
 
@@ -158,7 +159,7 @@ message EVSE {
     //unit: on/off
     Bool state = 5;
 }
-
+/*
 message WeatherStation {
     // unit: celsius
     Double temperature = 1;
@@ -183,7 +184,9 @@ message WeatherStationPrediction {
     }
 
     repeated Prediction predictions = 1;
-}
+}*/
+
+/*
 message Weather_Current_State {
 	//epoch time
 	//unit: seconds
@@ -239,3 +242,4 @@ message Weather_Current_State {
 	//unit: Dobson
 	Double ozone = 20;
 }
+*/
