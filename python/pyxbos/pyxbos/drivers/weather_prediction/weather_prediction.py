@@ -21,8 +21,7 @@ class DarkSkyPredictionDriver(Driver):
 
         hourly = json_data['hourly']
         #print(json_data)
-        predictions = []
-
+        print(hourly)
         for hour in hourly.get('data',[]):
             timestamp = int(hour.get('time') * 1e9) # nanoseconds
             temperature = hour.get('apparentTemperature', None)
@@ -35,9 +34,7 @@ class DarkSkyPredictionDriver(Driver):
             predictions.append(iot_pb2.WeatherStationPrediction.Prediction(
                 prediction_time=timestamp,
                 prediction=iot_pb2.WeatherStation(
-                    temperature=types.Double(value=temperature),
-                    precip_intensity=types.Double(value=precipIntensity),
-                    humidity=types.Double(value=humidity),
+
                 )
             ))
 
