@@ -102,7 +102,6 @@ class Driver:
         ))
 
         loop = asyncio.get_event_loop()
-        
         async def _doread(requestid=None):
             self.read(requestid=requestid)
 
