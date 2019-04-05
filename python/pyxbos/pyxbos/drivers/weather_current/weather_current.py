@@ -21,6 +21,8 @@ class WeatherCurrentDriver(Driver):
 
         logging.info("currently {0}".format(json_data['currently']))
         print(json_data['currently'])
+        for key, value in json_data['currently'].items():
+            output[key] = value
         nearestStormDistance =  json_data['currently'].get('nearestStormDistance',None)
         nearestStormBearing =   json_data['currently'].get('nearestStormBearing',None)
         precipIntensity =       json_data['currently'].get('precipIntensity',None)
