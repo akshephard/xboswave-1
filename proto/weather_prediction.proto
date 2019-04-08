@@ -1,7 +1,7 @@
 syntax = "proto3";
 package xbospb;
 import "nullabletypes.proto";
-import "weather_current.proto"
+import "weather_current.proto";
 message Weather_Prediction_State {
     // time of the prediction (leave empty
     // unit: ns
