@@ -65,7 +65,7 @@ class WeatherPredictionDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                weather_prediction_state = weather_current_pb2.Weather_Prediction_State(
+                weather_prediction_state = weather_prediction_pb2.Weather_Prediction_State(
                     predictions=predictions
                 )
             )
