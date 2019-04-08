@@ -35,7 +35,7 @@ class WeatherPredictionDriver(Driver):
             if 'humidity' is in output:
                 output['humidity'] *= 100 # change from decimal to percent
             timestamp  =   output.get('time',None)
-            predictions.append(iot_pb2.WeatherStationPrediction.Prediction(
+            predictions.append(weather_prediction_pb2.Weather_Prediction_State .Prediction(
                 prediction_time=timestamp,
                 prediction=weather_current_pb2.Weather_Current_State(
                     time  =   types.Int64(value=output.get('time',None)),
