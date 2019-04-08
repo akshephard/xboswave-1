@@ -28,6 +28,7 @@ class WeatherPredictionDriver(Driver):
         hourly = json_data['hourly']
         #print(json_data)
         predictions = []
+        output = {}
 
         for hour in hourly.get('data',[]):
             for key, value in hour.items():
