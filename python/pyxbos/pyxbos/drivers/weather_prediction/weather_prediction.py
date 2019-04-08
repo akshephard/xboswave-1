@@ -32,7 +32,7 @@ class WeatherPredictionDriver(Driver):
         for hour in hourly.get('data',[]):
             for key, value in hour.items():
                 output[key] = value
-            if 'humidity' is in output:
+            if 'humidity' in output:
                 output['humidity'] *= 100 # change from decimal to percent
             timestamp  =   output.get('time',None)
             predictions.append(weather_prediction_pb2.Weather_Prediction_State .Prediction(
