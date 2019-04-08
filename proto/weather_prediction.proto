@@ -1,55 +1,14 @@
 syntax = "proto3";
 package xbospb;
 import "nullabletypes.proto";
+import "weather_current.proto"
 message Weather_Prediction_State {
-	//epoch time
-	//unit: seconds
-	Int64 time = 1;
-	//clear-day/clear-night/rain/snow/sleet/wind/fog/cloudy/partly-cloudy-day/partly-cloudy-night
-	string icon = 2;
-	//intensity of precipitation occurring at the given time; this value is conditional on probability
-	//unit: inches per hour
-	Double precipIntensity = 3;
-	//the standard deviation of the distribution of precipIntensity
-	Double precipIntensityError = 4;
-	//the probability of precipitation occurring; 0-1
-	Double precipProbability = 5;
-	//amount of snowfall accumulation expected to occur; if no snowfall is expected this property will not be defined
-	//unit: inches
-	Double precipAccumulation = 6;
-	//rain/snow/sleet; if precipIntensity is zero then this property will not be defined; due to the lack of data historical precipType information is usually estimated rather than observed
-	string precipType = 7;
-	//air temperature
-	//unit: F
-	Double temperature = 8;
-	//feels-like temperature
-	//unit: F
-	Double apparentTemperature = 9;
-	//dew point temperature
-	//unit: F
-	Double dewPoint = 10;
-	//relative humidity; 0-1
-	Double humidity = 11;
-	//sea-level air pressure
-	//unit: millibars
-	Double pressure = 12;
-	//wind speed
-	//unit: miles per hour
-	Double windSpeed = 13;
-	//wind gust speed
-	//unit: miles per hour
-	Double windGust = 14;
-	//the direction that the wind is coming from with true north at 0 and progressing clockwise; if windSpeed=0 then this value will not be defined
-	//unit: degree
-	Double windBearing = 15;
-	//the percentage of sky occluded by clouds; 0-1
-	Double cloudCover = 16;
-	//uv index
-	Double uvIndex = 17;
-	//average visibility capped at 10 miles
-	//unit: miles
-	Double visibility = 18;
-	//the columnar density of total atmospheric ozone
-	//unit: Dobson
-	Double ozone = 19;
+    // time of the prediction (leave empty
+    // unit: ns
+
+    message Prediction {
+        uint64 prediction_time = 1;
+        Weather_Current_State prediction = 2;
+    }
+    repeated Prediction predictions = 1;
 }
