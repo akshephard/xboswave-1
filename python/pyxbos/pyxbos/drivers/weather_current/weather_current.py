@@ -25,7 +25,7 @@ class WeatherCurrentDriver(Driver):
             output[key] = value
 
         #print(json_data['currently'])
-        if humidity in output
+        if 'humidity' in output:
             output['humidity'] *= 100 # change from decimal to percent
 
         msg = xbos_pb2.XBOS(
