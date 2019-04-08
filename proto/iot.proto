@@ -61,7 +61,7 @@ message XBOSIoTDeviceState {
     //WeatherStation weather_station = 8;
     //WeatherStationPrediction weather_station_prediction = 9;
     ParkerState parker_state = 8;
-    Weather_Current_State current_weather = 9;
+    Weather_Current_State weather_current = 9;
 }
 
 

@@ -14,7 +14,6 @@ class WeatherCurrentDriver(Driver):
         self.url = self.baseurl + self.apikey + '/' + self.coords
 
     def read(self, requestid=None):
-        print("In current driver")
         response = requests.get(self.url)
         json_data = json.loads(response.text)
         if 'currently' not in json_data: return
@@ -24,35 +23,35 @@ class WeatherCurrentDriver(Driver):
         output = {}
         for key, value in json_data['currently'].items():
             output[key] = value
-        nearestStormDistance =  json_data['currently'].get('nearestStormDistance',None)
-        nearestStormBearing =   json_data['currently'].get('nearestStormBearing',None)
-        precipIntensity =       json_data['currently'].get('precipIntensity',None)
-        apparentTemperature =   json_data['currently'].get('apparentTemperature',None)
-        humidity =              json_data['currently'].get('humidity',None)
+
         #print(json_data['currently'])
-        if humidity is not None:
-            humidity *= 100 # change from decimal to percent
+        if humidity in output
+            output['humidity'] *= 100 # change from decimal to percent
 
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                current_weather = weather_current_pb2.Weather_Current_State(
-                    time  =   types.Int64(value=output['time']),
-                    icon  =  output['icon'],
-                    precipIntensity  =   types.Double(value=output['precipIntensity']),
-                    precipProbability  =   types.Double(value=output['precipProbability']),
-                    temperature  =   types.Double(value=output['temperature']),
-                    apparentTemperature  =   types.Double(value=output['apparentTemperature']),
-                    dewPoint  =   types.Double(value=output['dewPoint']),
-                    humidity  =   types.Double(value=output['humidity']),
-                    pressure  =   types.Double(value=output['pressure']),
-                    windSpeed  =   types.Double(value=output['windSpeed']),
-                    windGust  =   types.Double(value=output['windGust']),
-                    windBearing  =   types.Double(value=output['windBearing']),
-                    cloudCover  =   types.Double(value=output['cloudCover']),
-                    uvIndex  =   types.Double(value=output['uvIndex']),
-                    visibility  =   types.Double(value=output['visibility']),
-                    ozone  =   types.Double(value=output['ozone']),
+                weather_current = weather_current_pb2.Weather_Current_State(
+                    time  =   types.Int64(value=output.get('time',None)),
+                    icon  =  output.get('icon',None),
+                    nearestStormDistance  =   types.Double(value=output.get('nearestStormDistance',None)),
+                    nearestStormBearing  =   types.Double(value=output.get('nearestStormBearing',None)),
+                    precipIntensity  =   types.Double(value=output.get('precipIntensity',None)),
+                    precipIntensityError  =   types.Double(value=output.get('precipIntensityError',None)),
+                    precipProbability  =   types.Double(value=output.get('precipProbability',None)),
+                    precipType  =  output.get('precipType',None),
+                    temperature  =   types.Double(value=output.get('temperature',None)),
+                    apparentTemperature  =   types.Double(value=output.get('apparentTemperature',None)),
+                    dewPoint  =   types.Double(value=output.get('dewPoint',None)),
+                    humidity  =   types.Double(value=output.get('humidity',None)),
+                    pressure  =   types.Double(value=output.get('pressure',None)),
+                    windSpeed  =   types.Double(value=output.get('windSpeed',None)),
+                    windGust  =   types.Double(value=output.get('windGust',None)),
+                    windBearing  =   types.Double(value=output.get('windBearing',None)),
+                    cloudCover  =   types.Double(value=output.get('cloudCover',None)),
+                    uvIndex  =   types.Double(value=output.get('uvIndex',None)),
+                    visibility  =   types.Double(value=output.get('visibility',None)),
+                    ozone  =   types.Double(value=output.get('ozone',None)),
                 )
             )
         )
