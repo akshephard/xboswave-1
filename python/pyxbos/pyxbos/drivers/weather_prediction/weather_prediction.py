@@ -95,5 +95,5 @@ if __name__ == '__main__':
         'rate': 20, # 15 min
     }
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
-    prediction_driver = DarkSkyPredictionDriver(cfg)
+    prediction_driver = WeatherPredictionDriver(cfg)
     prediction_driver.begin()
