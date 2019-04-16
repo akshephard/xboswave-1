@@ -7,12 +7,10 @@ package xbospb
 framing messages for exposing GRPC servers over WAVEMQ
 */
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	any "github.com/golang/protobuf/ptypes/any"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
+import any "github.com/golang/protobuf/ptypes/any"
 
 import (
 	context "golang.org/x/net/context"
@@ -46,7 +44,7 @@ func (m *GRPCServerMessage) Reset()         { *m = GRPCServerMessage{} }
 func (m *GRPCServerMessage) String() string { return proto.CompactTextString(m) }
 func (*GRPCServerMessage) ProtoMessage()    {}
 func (*GRPCServerMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{0}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{0}
 }
 func (m *GRPCServerMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GRPCServerMessage.Unmarshal(m, b)
@@ -54,8 +52,8 @@ func (m *GRPCServerMessage) XXX_Unmarshal(b []byte) error {
 func (m *GRPCServerMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_GRPCServerMessage.Marshal(b, m, deterministic)
 }
-func (m *GRPCServerMessage) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GRPCServerMessage.Merge(m, src)
+func (dst *GRPCServerMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GRPCServerMessage.Merge(dst, src)
 }
 func (m *GRPCServerMessage) XXX_Size() int {
 	return xxx_messageInfo_GRPCServerMessage.Size(m)
@@ -119,7 +117,7 @@ func (m *Ping) Reset()         { *m = Ping{} }
 func (m *Ping) String() string { return proto.CompactTextString(m) }
 func (*Ping) ProtoMessage()    {}
 func (*Ping) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{1}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{1}
 }
 func (m *Ping) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Ping.Unmarshal(m, b)
@@ -127,8 +125,8 @@ func (m *Ping) XXX_Unmarshal(b []byte) error {
 func (m *Ping) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Ping.Marshal(b, m, deterministic)
 }
-func (m *Ping) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Ping.Merge(m, src)
+func (dst *Ping) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Ping.Merge(dst, src)
 }
 func (m *Ping) XXX_Size() int {
 	return xxx_messageInfo_Ping.Size(m)
@@ -156,7 +154,7 @@ func (m *Pong) Reset()         { *m = Pong{} }
 func (m *Pong) String() string { return proto.CompactTextString(m) }
 func (*Pong) ProtoMessage()    {}
 func (*Pong) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{2}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{2}
 }
 func (m *Pong) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Pong.Unmarshal(m, b)
@@ -164,8 +162,8 @@ func (m *Pong) XXX_Unmarshal(b []byte) error {
 func (m *Pong) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Pong.Marshal(b, m, deterministic)
 }
-func (m *Pong) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Pong.Merge(m, src)
+func (dst *Pong) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Pong.Merge(dst, src)
 }
 func (m *Pong) XXX_Size() int {
 	return xxx_messageInfo_Pong.Size(m)
@@ -189,7 +187,7 @@ func (m *UnaryCall) Reset()         { *m = UnaryCall{} }
 func (m *UnaryCall) String() string { return proto.CompactTextString(m) }
 func (*UnaryCall) ProtoMessage()    {}
 func (*UnaryCall) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{3}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{3}
 }
 func (m *UnaryCall) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UnaryCall.Unmarshal(m, b)
@@ -197,8 +195,8 @@ func (m *UnaryCall) XXX_Unmarshal(b []byte) error {
 func (m *UnaryCall) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_UnaryCall.Marshal(b, m, deterministic)
 }
-func (m *UnaryCall) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UnaryCall.Merge(m, src)
+func (dst *UnaryCall) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UnaryCall.Merge(dst, src)
 }
 func (m *UnaryCall) XXX_Size() int {
 	return xxx_messageInfo_UnaryCall.Size(m)
@@ -243,7 +241,7 @@ func (m *UnaryResponse) Reset()         { *m = UnaryResponse{} }
 func (m *UnaryResponse) String() string { return proto.CompactTextString(m) }
 func (*UnaryResponse) ProtoMessage()    {}
 func (*UnaryResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{4}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{4}
 }
 func (m *UnaryResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UnaryResponse.Unmarshal(m, b)
@@ -251,8 +249,8 @@ func (m *UnaryResponse) XXX_Unmarshal(b []byte) error {
 func (m *UnaryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_UnaryResponse.Marshal(b, m, deterministic)
 }
-func (m *UnaryResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UnaryResponse.Merge(m, src)
+func (dst *UnaryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UnaryResponse.Merge(dst, src)
 }
 func (m *UnaryResponse) XXX_Size() int {
 	return xxx_messageInfo_UnaryResponse.Size(m)
@@ -297,7 +295,7 @@ func (m *StreamingCall) Reset()         { *m = StreamingCall{} }
 func (m *StreamingCall) String() string { return proto.CompactTextString(m) }
 func (*StreamingCall) ProtoMessage()    {}
 func (*StreamingCall) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{5}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{5}
 }
 func (m *StreamingCall) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_StreamingCall.Unmarshal(m, b)
@@ -305,8 +303,8 @@ func (m *StreamingCall) XXX_Unmarshal(b []byte) error {
 func (m *StreamingCall) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_StreamingCall.Marshal(b, m, deterministic)
 }
-func (m *StreamingCall) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StreamingCall.Merge(m, src)
+func (dst *StreamingCall) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamingCall.Merge(dst, src)
 }
 func (m *StreamingCall) XXX_Size() int {
 	return xxx_messageInfo_StreamingCall.Size(m)
@@ -353,7 +351,7 @@ func (m *StreamingResponse) Reset()         { *m = StreamingResponse{} }
 func (m *StreamingResponse) String() string { return proto.CompactTextString(m) }
 func (*StreamingResponse) ProtoMessage()    {}
 func (*StreamingResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{6}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{6}
 }
 func (m *StreamingResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_StreamingResponse.Unmarshal(m, b)
@@ -361,8 +359,8 @@ func (m *StreamingResponse) XXX_Unmarshal(b []byte) error {
 func (m *StreamingResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_StreamingResponse.Marshal(b, m, deterministic)
 }
-func (m *StreamingResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StreamingResponse.Merge(m, src)
+func (dst *StreamingResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamingResponse.Merge(dst, src)
 }
 func (m *StreamingResponse) XXX_Size() int {
 	return xxx_messageInfo_StreamingResponse.Size(m)
@@ -412,7 +410,7 @@ func (m *TestParams) Reset()         { *m = TestParams{} }
 func (m *TestParams) String() string { return proto.CompactTextString(m) }
 func (*TestParams) ProtoMessage()    {}
 func (*TestParams) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{7}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{7}
 }
 func (m *TestParams) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestParams.Unmarshal(m, b)
@@ -420,8 +418,8 @@ func (m *TestParams) XXX_Unmarshal(b []byte) error {
 func (m *TestParams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_TestParams.Marshal(b, m, deterministic)
 }
-func (m *TestParams) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TestParams.Merge(m, src)
+func (dst *TestParams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TestParams.Merge(dst, src)
 }
 func (m *TestParams) XXX_Size() int {
 	return xxx_messageInfo_TestParams.Size(m)
@@ -450,7 +448,7 @@ func (m *TestResponse) Reset()         { *m = TestResponse{} }
 func (m *TestResponse) String() string { return proto.CompactTextString(m) }
 func (*TestResponse) ProtoMessage()    {}
 func (*TestResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_afa6debe97205904, []int{8}
+	return fileDescriptor_grpcserver_7ff8f6f8f3d8c463, []int{8}
 }
 func (m *TestResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestResponse.Unmarshal(m, b)
@@ -458,8 +456,8 @@ func (m *TestResponse) XXX_Unmarshal(b []byte) error {
 func (m *TestResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_TestResponse.Marshal(b, m, deterministic)
 }
-func (m *TestResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TestResponse.Merge(m, src)
+func (dst *TestResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TestResponse.Merge(dst, src)
 }
 func (m *TestResponse) XXX_Size() int {
 	return xxx_messageInfo_TestResponse.Size(m)
@@ -622,9 +620,9 @@ var _Test_serviceDesc = grpc.ServiceDesc{
 	Metadata: "grpcserver.proto",
 }
 
-func init() { proto.RegisterFile("grpcserver.proto", fileDescriptor_afa6debe97205904) }
+func init() { proto.RegisterFile("grpcserver.proto", fileDescriptor_grpcserver_7ff8f6f8f3d8c463) }
 
-var fileDescriptor_afa6debe97205904 = []byte{
+var fileDescriptor_grpcserver_7ff8f6f8f3d8c463 = []byte{
 	// 438 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x52, 0x4f, 0x6f, 0xd3, 0x30,
 	0x14, 0xc7, 0x6b, 0x97, 0x35, 0x8f, 0x0e, 0x51, 0xab, 0xa0, 0x34, 0xe2, 0x50, 0x45, 0x42, 0xda,
