@@ -146,12 +146,12 @@ class ParkerDriver(Driver):
                     F1  =   types.Double(value=output.get('F1',None)),
                     F2  =   types.Int64(value=output.get('F2',None)),
                     F3  =   types.Double(value=output.get('F3',None)),
-                    Hd1  =  output.get('Hd1',None),
-                    Hd2  =  output.get('Hd2',None),
-                    Hd3  =  output.get('Hd3',None),
-                    Hd4  =  output.get('Hd4',None),
-                    Hd5  =  output.get('Hd5',None),
-                    Hd6  =  output.get('Hd6',None)
+                    Hd1  =   types.Double(value=output.get('Hd1',None)),
+                    Hd2  =   types.Double(value=output.get('Hd2',None)),
+                    Hd3  =   types.Double(value=output.get('Hd3',None)),
+                    Hd4  =   types.Double(value=output.get('Hd4',None)),
+                    Hd5  =   types.Double(value=output.get('Hd5',None)),
+                    Hd6  =   types.Double(value=output.get('Hd6',None))
                 )
             )
         )
