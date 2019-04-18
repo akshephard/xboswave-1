@@ -14,12 +14,12 @@ else
     echo "Did inspection"
     wv rtgrant --subject $ENTITY -e 3y --attester $WAVE_DEFAULT_ENTITY --indirections 0 wavemq:publish,subscribe@solarplus/$DRIVER_NAME/*
     echo "Granted permissions"
-    echo $ENTITY
-    echo $NAMESPACE
-    echo $NAMESPACE_HASH
-    echo $WAVE_DEFAULT_ENTITY
-    echo $2
-    echo $3
+    echo "Entity is: "$ENTITY
+    echo "Namespace is:" $NAMESPACE
+    echo "Namespace_hash is: " $NAMESPACE_HASH
+    echo "WAVE_DEFAULT_ENTITY is: " $WAVE_DEFAULT_ENTITY
+    echo "Second argument is " $2
+    echo "Third argument is " $3
     wv name --public --attester $ENTITY $2 $3
     echo "linked namespace to hash"
     wv rtprove --subject $ENTITY -o driverproof.pem wavemq:publish,subscribe@solarplus/$DRIVER_NAME/*

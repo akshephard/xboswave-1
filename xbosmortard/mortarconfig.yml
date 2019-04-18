@@ -1,11 +1,11 @@
 WAVEMQ:
     SiteRouter: "localhost:4516"
-    EntityFile: "myentity.ent"
-    Namespace: "GyBzLC-FCBTB7cO8SzRCD-t2uI-RykjxgXy5s2t06Ddi4Q=="
+    EntityFile: "mortarent.ent"
+    Namespace: "GyA1TN-RJ1DWOjdBV-_2BZDKSH0qOZLeHCwz-Dmpqqy0EA=="
     BaseURI: "mortar"
-    ServerName: "mortarserver"
+    ServerName: "mortar"
 
-# service is on GyBzLC-FCBTB7cO8SzRCD-t2uI-RykjxgXy5s2t06Ddi4Q== mortar/s.grpcserver/mortarserver/i.grpc
+# service is on GyA1TN-RJ1DWOjdBV-_2BZDKSH0qOZLeHCwz-Dmpqqy0EA== mortar/s.grpcserver/mortarserver/i.grpc
 
 HodConfig: "hodconfig.yml"
 InfluxDBAddr: "http://127.0.0.1:8086"
