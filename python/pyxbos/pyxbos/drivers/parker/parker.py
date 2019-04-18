@@ -21,7 +21,8 @@ class ParkerDriver(Driver):
     def read(self, requestid=None):
         output = self.modbus_device.get_data()
 
-
+        # This is necessary because we need to bitwise operations to unpack the
+        # the flags received from the modbus register
         regulator_flag_1 = output['regulator_flag_1']
         output['energy_saving_regulator_flag'] = bool(regulator_flag_1 & 0x0100)
         output['energy_saving_real_time_regulator_flag'] = bool(regulator_flag_1 & 0x0200)

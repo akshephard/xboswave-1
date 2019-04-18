@@ -64,6 +64,7 @@ message XBOSIoTDeviceState {
     ParkerState parker_state = 8;
     Weather_Current_State weather_current = 9;
     Weather_Prediction_State weather_prediction = 10;
+    WattnodeState wattnode_state = 11;
 }
 
 
