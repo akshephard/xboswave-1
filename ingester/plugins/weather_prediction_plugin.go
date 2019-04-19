@@ -3,6 +3,7 @@ import (
 	"fmt"
 	"github.com/gtfierro/xboswave/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
+    "reflect"
 )
 func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.WeatherPrediction != nil
@@ -57,6 +58,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
                 prediction := _prediction.Prediction
                 fmt.Printf("part of the message: %v", prediction)
+                fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
 				var name string
 				time := int64(msg.XBOSIoTDeviceState.Time)
