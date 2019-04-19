@@ -62,7 +62,7 @@ class WeatherPredictionDriver(Driver):
                     ozone  =   types.Double(value=output.get('ozone',None)),
                 )
             ))
-            print(predictions)
+            #print(predictions)
 
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
