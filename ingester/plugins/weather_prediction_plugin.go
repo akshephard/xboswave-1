@@ -77,8 +77,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.PrecipIntensityerror != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensityerror.Value))
+            	if prediction.PrecipIntensityError != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensityError.Value))
             		name = "precipintensityerror"
             	} else {
             	continue
