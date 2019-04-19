@@ -65,12 +65,121 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted.Times = append(extracted.Times, time)
 
-				if prediction.Temperature != nil {
-					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
-					name = "temperature"
-				} else {
-					continue
-				}
+            	if prediction.time != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.time.Value))
+            		name = "time"
+            	} else {
+            	continue
+            	}
+            	if prediction.icon != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.icon.Value))
+            		name = "icon"
+            	} else {
+            	continue
+            	}
+            	if prediction.precipIntensity != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.precipIntensity.Value))
+            		name = "precipintensity"
+            	} else {
+            	continue
+            	}
+            	if prediction.precipIntensityError != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.precipIntensityError.Value))
+            		name = "precipintensityerror"
+            	} else {
+            	continue
+            	}
+            	if prediction.precipProbability != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.precipProbability.Value))
+            		name = "precipprobability"
+            	} else {
+            	continue
+            	}
+            	if prediction.precipAccumulation != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.precipAccumulation.Value))
+            		name = "precipaccumulation"
+            	} else {
+            	continue
+            	}
+            	if prediction.precipType != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.precipType.Value))
+            		name = "preciptype"
+            	} else {
+            	continue
+            	}
+            	if prediction.temperature != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.temperature.Value))
+            		name = "temperature"
+            	} else {
+            	continue
+            	}
+            	if prediction.apparentTemperature != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.apparentTemperature.Value))
+            		name = "apparenttemperature"
+            	} else {
+            	continue
+            	}
+            	if prediction.dewPoint != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.dewPoint.Value))
+            		name = "dewpoint"
+            	} else {
+            	continue
+            	}
+            	if prediction.humidity != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.humidity.Value))
+            		name = "humidity"
+            	} else {
+            	continue
+            	}
+            	if prediction.pressure != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.pressure.Value))
+            		name = "pressure"
+            	} else {
+            	continue
+            	}
+            	if prediction.windSpeed != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.windSpeed.Value))
+            		name = "windspeed"
+            	} else {
+            	continue
+            	}
+            	if prediction.windGust != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.windGust.Value))
+            		name = "windgust"
+            	} else {
+            	continue
+            	}
+            	if prediction.windBearing != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.windBearing.Value))
+            		name = "windbearing"
+            	} else {
+            	continue
+            	}
+            	if prediction.cloudCover != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.cloudCover.Value))
+            		name = "cloudcover"
+            	} else {
+            	continue
+            	}
+            	if prediction.uvIndex != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.uvIndex.Value))
+            		name = "uvindex"
+            	} else {
+            	continue
+            	}
+            	if prediction.visibility != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.visibility.Value))
+            		name = "visibility"
+            	} else {
+            	continue
+            	}
+            	if prediction.ozone != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.ozone.Value))
+            		name = "ozone"
+            	} else {
+            	continue
+            	}
+
 
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
