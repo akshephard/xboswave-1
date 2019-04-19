@@ -57,7 +57,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             fmt.Printf("The length of the the message is: %d", len(msg.XBOSIoTDeviceState.WeatherPrediction.Predictions))
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
                 prediction := _prediction.Prediction
-                fmt.Printf("part of the message: %v", prediction)
+                //fmt.Printf("part of the message: %v", prediction)
                 fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
 				var name string
