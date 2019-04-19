@@ -107,7 +107,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.Dewpoint != nil {
+            	if prediction.DewPoint != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.DewPoint.Value))
             		name = "dewpoint"
             	} else {
@@ -149,8 +149,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.Uvindex != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Uvindex.Value))
+            	if prediction.UvIndex != nil {
+            			extracted.Values = append(extracted.Values, float64(prediction.UvIndex.Value))
             		name = "uvindex"
             	} else {
             	continue
