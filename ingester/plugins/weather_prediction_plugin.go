@@ -3,7 +3,7 @@ import (
 	"fmt"
 	"github.com/gtfierro/xboswave/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
-    "reflect"
+    //"reflect"
 )
 func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.WeatherPrediction != nil
@@ -71,6 +71,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				} else {
 					continue
 				}
+
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
 				extracted.Tags = map[string]string{
