@@ -68,8 +68,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	if prediction.Time != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Time.Value))
             		name = "time"
-            	} else {
-            	continue
             	}
             	if prediction.PrecipIntensity != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
@@ -155,6 +153,22 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
+
+				extracted.UUID = types.GenerateUUID(uri, []byte(name))
+				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+				extracted.Tags = map[string]string{
+					"unit":            device_units[name],
+					"name":            name,
+					"prediction_step": fmt.Sprintf("%d", step),
+				}
+				extracted.IntTags = map[string]int64{
+					"prediction_time": int64(_prediction.PredictionTime),
+				}
+				if err := add(extracted); err != nil {
+					return err
+				}
+
+
             	if prediction.Ozone != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
             		name = "ozone"
