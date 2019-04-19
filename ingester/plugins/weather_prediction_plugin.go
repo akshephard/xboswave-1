@@ -54,7 +54,7 @@ return types.ExtractedTimeseries{}
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
 		if has_device(msg) {
-            fmt.Printf("The length of the the message is: %d", len(msg.XBOSIoTDeviceState.WeatherPrediction.Predictions))
+            //fmt.Printf("The length of the the message is: %d", len(msg.XBOSIoTDeviceState.WeatherPrediction.Predictions))
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
                 prediction := _prediction.Prediction
                 //fmt.Printf("part of the message: %v", prediction)
