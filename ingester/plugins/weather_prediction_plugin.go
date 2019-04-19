@@ -71,26 +71,20 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.Icon != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Icon.Value))
-            		name = "icon"
-            	} else {
-            	continue
-            	}
             	if prediction.Precipintensity != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Precipintensity.Value))
+            			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
             		name = "precipintensity"
             	} else {
             	continue
             	}
             	if prediction.Precipintensityerror != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Precipintensityerror.Value))
+            			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensityerror.Value))
             		name = "precipintensityerror"
             	} else {
             	continue
             	}
             	if prediction.Precipprobability != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Precipprobability.Value))
+            			extracted.Values = append(extracted.Values, float64(prediction.PrecipProbability.Value))
             		name = "precipprobability"
             	} else {
             	continue
