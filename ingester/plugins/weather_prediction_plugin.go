@@ -89,12 +89,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.PrecipType != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.PrecipType.Value))
-            		name = "preciptype"
-            	} else {
-            	continue
-            	}
             	if prediction.Temperature != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
             		name = "temperature"
