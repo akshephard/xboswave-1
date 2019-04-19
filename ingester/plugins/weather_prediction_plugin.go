@@ -144,7 +144,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	continue
             	}
             	if prediction.Cloudcover != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Cloudcover.Value))
+            			extracted.Values = append(extracted.Values, float64(prediction.CloudCover.Value))
             		name = "cloudcover"
             	} else {
             	continue
