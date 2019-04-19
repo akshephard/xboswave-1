@@ -71,25 +71,25 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.Precipintensity != nil {
+            	if prediction.PrecipIntensity != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
             		name = "precipintensity"
             	} else {
             	continue
             	}
-            	if prediction.Precipintensityerror != nil {
+            	if prediction.PrecipIntensityerror != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensityerror.Value))
             		name = "precipintensityerror"
             	} else {
             	continue
             	}
-            	if prediction.Precipprobability != nil {
+            	if prediction.PrecipProbability != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.PrecipProbability.Value))
             		name = "precipprobability"
             	} else {
             	continue
             	}
-            	if prediction.Preciptype != nil {
+            	if prediction.PrecipType != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.PrecipType.Value))
             		name = "preciptype"
             	} else {
@@ -101,7 +101,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.Apparenttemperature != nil {
+            	if prediction.ApparentTemperature != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.ApparentTemperature.Value))
             		name = "apparenttemperature"
             	} else {
@@ -125,25 +125,25 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-            	if prediction.Windspeed != nil {
+            	if prediction.WindSpeed != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.WindSpeed.Value))
             		name = "windspeed"
             	} else {
             	continue
             	}
-            	if prediction.Windgust != nil {
+            	if prediction.WindGust != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.WindGust.Value))
             		name = "windgust"
             	} else {
             	continue
             	}
-            	if prediction.Windbearing != nil {
+            	if prediction.WindBearing != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.WindBearing.Value))
             		name = "windbearing"
             	} else {
             	continue
             	}
-            	if prediction.Cloudcover != nil {
+            	if prediction.CloudCover != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.CloudCover.Value))
             		name = "cloudcover"
             	} else {
