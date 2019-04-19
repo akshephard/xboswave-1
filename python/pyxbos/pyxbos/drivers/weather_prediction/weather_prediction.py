@@ -26,7 +26,7 @@ class WeatherPredictionDriver(Driver):
         if 'hourly' not in json_data: return
 
         hourly = json_data['hourly']
-        print(json_data)
+        #print(json_data)
         predictions = []
         output = {}
 
