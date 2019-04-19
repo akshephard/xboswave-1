@@ -59,8 +59,9 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 prediction := _prediction.Prediction
                 //fmt.Printf("part of the message: %v", prediction)
                 //fmt.Println(reflect.TypeOf(prediction))
-				var extracted types.ExtractedTimeseries
+				var extracted types.ExtractedTimeseries.Values
 				var name string
+                var extracted_slice []types.ExtractedTimeseries
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted.Times = append(extracted.Times, time)
@@ -154,6 +155,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	continue
             	}
 
+                extracted_slice = append(extracted_slice, extracted.Values)
+
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
 				extracted.Tags = map[string]string{
@@ -175,8 +178,9 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	} else {
             	continue
             	}
-
-
+                extracted_slice = append(extracted_slice, extracted.Values)
+                //Add the extracted values into some type of array and then iterate through loop
+                //You need to keep track of the name in some kind of array as well so they can be done in an order
 
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
