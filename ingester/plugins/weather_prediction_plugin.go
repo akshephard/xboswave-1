@@ -74,14 +74,14 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	if prediction.Visibility != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
                         //extracted_slice = append(extracted_slice, extracted.Values)
-                        extract_map["visibility"] = extracted.Values
+                        extracted_slice[i] = extracted.Values
                         name_list = append(name_list, "visibility")
             		name = "visibility"
             	} else {
             	continue
             	}
                 for i, current_name := range name_list {
-                    fmt.Println(i, s)
+                    //fmt.Println(i, s)
     				extracted_slice[i].UUID = types.GenerateUUID(uri, []byte(name_list[i]))
     				extracted_slice[i].Collection = fmt.Sprintf("xbos/%s", uri.Resource)
     				extracted_slice[i].Tags = map[string]string{
