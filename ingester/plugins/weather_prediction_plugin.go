@@ -62,8 +62,9 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				var extracted types.ExtractedTimeseries
 				var name string
                 var extract_map map[string]types.ExtractedTimeseries
-                extract_map = make(map[string]types.ExtractedTimeseries)
-                var extracted_slice []types.ExtractedTimeseries
+                //extract_map = make(map[string]types.ExtractedTimeseries)
+                extracted_slice := make([]types.ExtractedTimeseries, 3)
+                //var extracted_slice []types.ExtractedTimeseries
                 var name_list []string
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
@@ -81,17 +82,17 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	}
                 for i, current_name := range name_list {
                     fmt.Println(i, s)
-    				extract_map[current_name].UUID = types.GenerateUUID(uri, []byte(name_list[i]))
-    				extract_map[current_name].Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-    				extract_map[current_name].Tags = map[string]string{
+    				extracted_slice[i].UUID = types.GenerateUUID(uri, []byte(name_list[i]))
+    				extracted_slice[i].Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+    				extracted_slice[i].Tags = map[string]string{
     					"unit":            device_units[current_name],
     					"name":            current_name,
     					"prediction_step": fmt.Sprintf("%d", step),
     				}
-    				extract_map[current_name].IntTags = map[string]int64{
+    				extracted_slice[i].IntTags = map[string]int64{
     					"prediction_time": int64(_prediction.PredictionTime),
     				}
-    				if err := add(extract_map[current_name]); err != nil {
+    				if err := add(extracted_slice[i]); err != nil {
     					return err
     				}
                 }
