@@ -60,8 +60,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //fmt.Printf("part of the message: %v", prediction)
                 //fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
-				var name string
-                var extract_map map[string]types.ExtractedTimeseries
+				//var name string
+                //var extract_map map[string]types.ExtractedTimeseries
                 //extract_map = make(map[string]types.ExtractedTimeseries)
                 extracted_slice := make([]types.ExtractedTimeseries, 3)
                 //var extracted_slice []types.ExtractedTimeseries
