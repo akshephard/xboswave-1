@@ -101,10 +101,11 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
     				extracted_slice[i].IntTags = map[string]int64{
     					"prediction_time": int64(_prediction.PredictionTime),
     				}
+                    fmt.Printf("3")
     				if err := add(extracted_slice[i]); err != nil {
     					return err
     				}
-                    fmt.Printf("3")
+                    fmt.Printf("4")
                 }
                 /*
                 extracted_slice = append(extracted_slice, extracted)
