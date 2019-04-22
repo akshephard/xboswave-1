@@ -61,100 +61,40 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
 				var name string
+                extract_map = make(map[string]types.ExtractedTimeseries)
                 var extracted_slice []types.ExtractedTimeseries
+                var name_list []string
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted.Times = append(extracted.Times, time)
 
-            	if prediction.Time != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Time.Value))
-            		name = "time"
-            	}
-            	if prediction.PrecipIntensity != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
-            		name = "precipintensity"
-            	} else {
-            	continue
-            	}
-            	if prediction.PrecipIntensityError != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensityError.Value))
-            		name = "precipintensityerror"
-            	} else {
-            	continue
-            	}
-            	if prediction.PrecipProbability != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.PrecipProbability.Value))
-            		name = "precipprobability"
-            	} else {
-            	continue
-            	}
-            	if prediction.Temperature != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
-            		name = "temperature"
-            	} else {
-            	continue
-            	}
-            	if prediction.ApparentTemperature != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.ApparentTemperature.Value))
-            		name = "apparenttemperature"
-            	} else {
-            	continue
-            	}
-            	if prediction.DewPoint != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.DewPoint.Value))
-            		name = "dewpoint"
-            	} else {
-            	continue
-            	}
-            	if prediction.Humidity != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Humidity.Value))
-            		name = "humidity"
-            	} else {
-            	continue
-            	}
-            	if prediction.Pressure != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Pressure.Value))
-            		name = "pressure"
-            	} else {
-            	continue
-            	}
-            	if prediction.WindSpeed != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.WindSpeed.Value))
-            		name = "windspeed"
-            	} else {
-            	continue
-            	}
-            	if prediction.WindGust != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.WindGust.Value))
-            		name = "windgust"
-            	} else {
-            	continue
-            	}
-            	if prediction.WindBearing != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.WindBearing.Value))
-            		name = "windbearing"
-            	} else {
-            	continue
-            	}
-            	if prediction.CloudCover != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.CloudCover.Value))
-            		name = "cloudcover"
-            	} else {
-            	continue
-            	}
-            	if prediction.UvIndex != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.UvIndex.Value))
-            		name = "uvindex"
-            	} else {
-            	continue
-            	}
+
             	if prediction.Visibility != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
+                        //extracted_slice = append(extracted_slice, extracted.Values)
+                        extract_map["visibility"] = extracted.Values
+                        name_list = append(name_list, "visibility")
             		name = "visibility"
             	} else {
             	continue
             	}
-
+                for i, current_name := range name_list {
+                    fmt.Println(i, s)
+    				extract_map[current_name].UUID = types.GenerateUUID(uri, []byte(name_list[i]))
+    				extract_map[current_name].Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+    				extract_map[current_name].Tags = map[string]string{
+    					"unit":            device_units[current_name],
+    					"name":            current_name,
+    					"prediction_step": fmt.Sprintf("%d", step),
+    				}
+    				extract_map[current_name].IntTags = map[string]int64{
+    					"prediction_time": int64(_prediction.PredictionTime),
+    				}
+    				if err := add(extract_map[current_name]); err != nil {
+    					return err
+    				}
+                }
+                /*
                 extracted_slice = append(extracted_slice, extracted)
 
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
@@ -195,6 +135,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				if err := add(extracted); err != nil {
 					return err
 				}
+                */
 			}
 		}
 	}
