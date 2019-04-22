@@ -87,7 +87,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                     //fmt.Println(i, s)
                     time := int64(msg.XBOSIoTDeviceState.Time)
     				step := (int64(_prediction.PredictionTime) - time) / 1e9
-    				extracted_slice[i].Times = append(extracted_list[i].Times, time)
+    				extracted_slice[i].Times = append(extracted_slice[i].Times, time)
     				extracted_slice[i].UUID = types.GenerateUUID(uri, []byte(name_list[i]))
     				extracted_slice[i].Collection = fmt.Sprintf("xbos/%s", uri.Resource)
     				extracted_slice[i].Tags = map[string]string{
