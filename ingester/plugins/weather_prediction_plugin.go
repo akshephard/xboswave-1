@@ -77,8 +77,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                         //extracted_slice = append(extracted_slice, extracted.Values)
 
                         name_list = append(name_list, "visibility")
-
-                        extracted_slice[0] = extracted
+                        extracted_slice = append(extracted_slice, extracted)
+                        //extracted_slice[0] = extracted
             		//name = "visibility"
             	} else {
             	continue
