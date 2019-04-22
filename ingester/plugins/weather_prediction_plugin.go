@@ -74,8 +74,12 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	if prediction.Visibility != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
                         //extracted_slice = append(extracted_slice, extracted.Values)
-                        extracted_slice[0] = extracted
+
                         name_list = append(name_list, "visibility")
+                        time := int64(msg.XBOSIoTDeviceState.Time)
+        				step := (int64(_prediction.PredictionTime) - time) / 1e9
+        				extracted.Times = append(extracted.Times, time)
+                        extracted_slice[0] = extracted
             		//name = "visibility"
             	} else {
             	continue
