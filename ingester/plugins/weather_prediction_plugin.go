@@ -88,6 +88,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                     fmt.Printf("part of the message: %v", i)
                     time := int64(msg.XBOSIoTDeviceState.Time)
     				step := (int64(_prediction.PredictionTime) - time) / 1e9
+                    fmt.Printf("1")
     				extracted_slice[i].Times = append(extracted_slice[i].Times, time)
     				extracted_slice[i].UUID = types.GenerateUUID(uri, []byte(name_list[i]))
     				extracted_slice[i].Collection = fmt.Sprintf("xbos/%s", uri.Resource)
@@ -96,12 +97,14 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
     					"name":            current_name,
     					"prediction_step": fmt.Sprintf("%d", step),
     				}
+                    fmt.Printf("2")
     				extracted_slice[i].IntTags = map[string]int64{
     					"prediction_time": int64(_prediction.PredictionTime),
     				}
     				if err := add(extracted_slice[i]); err != nil {
     					return err
     				}
+                    fmt.Printf("3")
                 }
                 /*
                 extracted_slice = append(extracted_slice, extracted)
