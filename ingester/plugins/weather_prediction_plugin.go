@@ -102,8 +102,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
     					"prediction_time": int64(_prediction.PredictionTime),
     				}
                     fmt.Printf("3")
-                    fmt.Printf("i is right before %v", i)
-                    len(extracted_slice)
+                    fmt.Printf("length of extracted_slice is %v", len(extracted_slice))
+                    //len(extracted_slice)
     				if err := add(extracted_slice[0]); err != nil {
     					return err
     				}
