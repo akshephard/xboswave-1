@@ -103,6 +103,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
     				}
                     fmt.Printf("3")
                     fmt.Printf("i is right before %v", i)
+                    len(extracted_slice)
     				if err := add(extracted_slice[0]); err != nil {
     					return err
     				}
