@@ -85,6 +85,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	}
                 for i, current_name := range name_list {
                     //fmt.Println(i, s)
+                    fmt.Printf("part of the message: %v", i)
                     time := int64(msg.XBOSIoTDeviceState.Time)
     				step := (int64(_prediction.PredictionTime) - time) / 1e9
     				extracted_slice[i].Times = append(extracted_slice[i].Times, time)
