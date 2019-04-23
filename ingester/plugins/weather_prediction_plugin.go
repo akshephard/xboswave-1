@@ -65,7 +65,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //fmt.Printf("loop")
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
-				time_ozone := int64(msg.XBOSIoTDeviceState.Time)
+				//time_ozone := int64(msg.XBOSIoTDeviceState.Time)
 				//step_ozone := (int64(_prediction.PredictionTime) - time) / 1e9
 				//extracted_ozone.Times = append(extracted.Times, time)
                 extracted.Times = append(extracted.Times, time_ozone)
