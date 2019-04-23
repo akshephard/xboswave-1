@@ -65,7 +65,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted_ozone.Times = append(extracted.Times, time)
-
+                extracted.Times = append(extracted.Times, time)
 
             	if prediction.Visibility != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
