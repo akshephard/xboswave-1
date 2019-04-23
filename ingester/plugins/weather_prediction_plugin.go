@@ -53,8 +53,8 @@ return types.ExtractedTimeseries{}
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
 		if has_weather_station(msg) {
-			for name := range weather_lookup {
-				extracted := build_weather(uri, name, msg)
+			for name := range device_lookup {
+				extracted := build_device(uri, name, msg)
 				if err := add(extracted); err != nil {
 					return err
 				}
