@@ -93,7 +93,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					return err
 				}
 
-
+                /*
             	if prediction.Ozone != nil {
             			extracted_ozone.Values = append(extracted.Values, float64(prediction.Ozone.Value))
             		name = "ozone"
@@ -114,6 +114,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted_ozone.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
 				}
+                */
 				//if err := add(extracted_ozone); err != nil {
 				//	return err
 				//}
