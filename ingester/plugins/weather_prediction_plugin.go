@@ -59,15 +59,15 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //fmt.Printf("part of the message: %v", prediction)
                 //fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
-                var extracted_ozone types.ExtractedTimeseries
+                //var extracted_ozone types.ExtractedTimeseries
 				var name string
                 var extracted_slice []types.ExtractedTimeseries
                 //fmt.Printf("loop")
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				time_ozone := int64(msg.XBOSIoTDeviceState.Time)
-				step_ozone := (int64(_prediction.PredictionTime) - time) / 1e9
-				extracted_ozone.Times = append(extracted.Times, time)
+				//step_ozone := (int64(_prediction.PredictionTime) - time) / 1e9
+				//extracted_ozone.Times = append(extracted.Times, time)
                 extracted.Times = append(extracted.Times, time_ozone)
 
             	if prediction.Visibility != nil {
