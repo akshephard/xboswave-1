@@ -73,7 +73,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             	if prediction.Visibility != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
                         //extracted_slice = append(extracted_slice, extracted.Values)
-                        extracted_slice[i] = extracted.Values
+                        //extracted_slice[0] = extracted
+                        extracted_slice = append(extracted_slice, extracted)
                         name_list = append(name_list, "visibility")
             		name = "visibility"
             	} else {
