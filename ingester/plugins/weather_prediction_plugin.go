@@ -108,7 +108,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted_ozone.Tags = map[string]string{
 					"unit":            device_units[name],
 					"name":            name,
-					"prediction_step": fmt.Sprintf("%d", ozone_step),
+					"prediction_step": fmt.Sprintf("%d", step_ozone),
 				}
 				extracted_ozone.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
