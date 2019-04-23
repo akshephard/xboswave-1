@@ -57,6 +57,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 		if has_device(msg) {
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
 				prediction := _prediction.Prediction
+                fmt.Printf("part of the message first time: %v", prediction)
 				var extracted types.ExtractedTimeseries
 				var name string
 				time := int64(msg.XBOSIoTDeviceState.Time)
@@ -85,6 +86,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
 				prediction := _prediction.Prediction
+                fmt.Printf("part of the message second time: %v", prediction)
 				var extracted types.ExtractedTimeseries
 				var name string
 				time := int64(msg.XBOSIoTDeviceState.Time)
