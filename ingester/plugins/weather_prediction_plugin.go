@@ -79,6 +79,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
 				}
+                fmt.Printf("part of the message second time: %v", extracted)
 				if err := add(extracted); err != nil {
 					return err
 				}
@@ -108,6 +109,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
 				}
+                fmt.Printf("part of the message second time: %v", extracted)
 				if err := add(extracted); err != nil {
 					return err
 				}
