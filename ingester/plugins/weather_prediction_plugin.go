@@ -64,6 +64,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 var extracted_slice []types.ExtractedTimeseries
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
+				time_ozone := int64(msg.XBOSIoTDeviceState.Time)
+				step_ozone := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted_ozone.Times = append(extracted.Times, time)
                 extracted.Times = append(extracted.Times, time)
 
@@ -106,7 +108,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted_ozone.Tags = map[string]string{
 					"unit":            device_units[name],
 					"name":            name,
-					"prediction_step": fmt.Sprintf("%d", step),
+					"prediction_step": fmt.Sprintf("%d", ozone_step),
 				}
 				extracted_ozone.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
