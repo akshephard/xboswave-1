@@ -59,11 +59,13 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //fmt.Printf("part of the message: %v", prediction)
                 //fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
+                var extracted_ozone types.ExtractedTimeseries
 				var name string
                 var extracted_slice []types.ExtractedTimeseries
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
-				extracted.Times = append(extracted.Times, time)
+				extracted_ozone.Times = append(extracted.Times, time)
+
 
             	if prediction.Visibility != nil {
             			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
@@ -90,7 +92,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
 
             	if prediction.Ozone != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
+            			extracted_ozone.Values = append(extracted.Values, float64(prediction.Ozone.Value))
             		name = "ozone"
             	} else {
             	continue
@@ -99,17 +101,17 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //Add the extracted values into some type of array and then iterate through loop
                 //You need to keep track of the name in some kind of array as well so they can be done in an order
 
-				extracted.UUID = types.GenerateUUID(uri, []byte(name))
-				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-				extracted.Tags = map[string]string{
+				extracted_ozone.UUID = types.GenerateUUID(uri, []byte(name))
+				extracted_ozone.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+				extracted_ozone.Tags = map[string]string{
 					"unit":            device_units[name],
 					"name":            name,
 					"prediction_step": fmt.Sprintf("%d", step),
 				}
-				extracted.IntTags = map[string]int64{
+				extracted_ozone.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
 				}
-				if err := add(extracted); err != nil {
+				if err := add(extracted_ozone); err != nil {
 					return err
 				}
 			}
