@@ -61,7 +61,9 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				var name string
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
-                fmt.Printf("The length of the the message is: %d", step)
+                fmt.Printf("The step is: %d", step)
+                fmt.Printf("The prediction time is: %d", int64(_prediction.PredictionTime))
+                fmt.Printf("The XBOSIoTDeviceState.Time is: %d", int64(msg.XBOSIoTDeviceState.Time))
 				extracted.Times = append(extracted.Times, time)
 				if prediction.Temperature != nil {
 					extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
