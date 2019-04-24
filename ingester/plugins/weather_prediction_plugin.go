@@ -86,6 +86,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					"prediction_time": int64(_prediction.PredictionTime),
 				}
 				if err := add(extracted); err != nil {
+                    fmt.Println("Are there any error?")
+                    fmt.Println(err)
 					return err
 				}
 			}
