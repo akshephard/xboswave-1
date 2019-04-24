@@ -98,7 +98,26 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                         fmt.Println(err)
     					return err
     				}
-				} 
+				}
+				if prediction.Pressue != nil {
+                    //Not sure why Values is an array since there will only be one value at a time
+					extracted.Values = append(extracted.Values, float64(prediction.Pressure.Value))
+                    fmt.Printf("The values are: %v\n", extracted.Values)
+					name = "pressure"
+    				extracted.UUID = types.GenerateUUID(uri, []byte(name))
+    				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+    				extracted.Tags = map[string]string{
+    					"unit":            device_units[name],
+    					"name":            name,
+    					"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
+                        "prediction_step": fmt.Sprintf("%d", step),
+    				}
+    				if err := add(extracted); err != nil {
+                        fmt.Println("Are there any error?")
+                        fmt.Println(err)
+    					return err
+    				}
+				}
 
                 /*
 				extracted.IntTags = map[string]int64{
