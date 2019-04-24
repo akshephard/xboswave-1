@@ -89,7 +89,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted.Tags = map[string]string{
 					"unit":            device_units[name],
 					"name":            name,
-					"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime)),
+					"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
                     "prediction_step": fmt.Sprintf("%d", step),
 				}
                 /*
