@@ -65,6 +65,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 
                 // Use for debugging
+                fmt.Printf("The xbos time in seconds is: %d\n", time/ 1e9)
                 /*
                 fmt.Printf("The step is: %d\n", step)
                 fmt.Printf("The prediction time is: %d\n", int64(_prediction.PredictionTime))
@@ -100,7 +101,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                     fmt.Println(err)
 					return err
 				}
-                fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
+                //fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
 			}
 		}
 	}
