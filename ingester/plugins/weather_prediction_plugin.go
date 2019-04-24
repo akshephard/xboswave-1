@@ -69,8 +69,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 // Use for debugging
                 fmt.Printf("The xbos time in seconds is: %d\n", time/ 1e9)
                 fmt.Printf("The step is: %d\n", step)
-                fmt.Printf("The prediction time is: %d\n", int64(_prediction.PredictionTime) / 1e9)
-                fmt.Printf("The XBOSIoTDeviceState.Time is: %d\n", int64(msg.XBOSIoTDeviceState.Time) / 1e9)
+                fmt.Printf("The prediction time is: %d\n", (int64(_prediction.PredictionTime) / 1e9))
+                fmt.Printf("The XBOSIoTDeviceState.Time is: %d\n", (int64(msg.XBOSIoTDeviceState.Time) / 1e9))
                 fmt.Printf("The count is: %d\n", count)
                 fmt.Printf("The temperature is: %f\n", float64(prediction.Temperature.Value))
                 count++
