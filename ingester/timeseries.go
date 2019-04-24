@@ -298,10 +298,12 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 		fields := map[string]interface{}{
 			"value": val,
 		}
+        /*
 		for k, v := range extracted.IntTags {
 			fields[k] = v
 		}
-
+        */
+        // This is where the go influx client is called
 		pt, err := influx.NewPoint(inf.collection, tags, fields, time.Unix(0, t))
 		if err != nil {
 			return errors.Wrap(err, "could not create new point")
