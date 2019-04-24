@@ -66,11 +66,12 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 fmt.Printf("The prediction time is: %d\n", int64(_prediction.PredictionTime))
                 fmt.Printf("The XBOSIoTDeviceState.Time is: %d\n", int64(msg.XBOSIoTDeviceState.Time))
                 fmt.Printf("The count is: %d\n", count)
+                fmt.Printf("The temperature is: %d\n", float64(prediction.Temperature.Value))
                 count++
 				extracted.Times = append(extracted.Times, time)
 				if prediction.Temperature != nil {
-					extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
-					name = "ozone"
+					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
+					name = "temperature"
 				} else {
 					continue
 				}
