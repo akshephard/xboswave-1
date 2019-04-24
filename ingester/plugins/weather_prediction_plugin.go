@@ -81,30 +81,31 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
 				if prediction.Temperature != nil {
+                    //Not sure why Values is an array since there will only be one value at a time
 					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
                     fmt.Printf("The values are: %v\n", extracted.Values)
 					name = "temperature"
-				} else {
-					continue
-				}
-				extracted.UUID = types.GenerateUUID(uri, []byte(name))
-				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-				extracted.Tags = map[string]string{
-					"unit":            device_units[name],
-					"name":            name,
-					"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-                    "prediction_step": fmt.Sprintf("%d", step),
-				}
+    				extracted.UUID = types.GenerateUUID(uri, []byte(name))
+    				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+    				extracted.Tags = map[string]string{
+    					"unit":            device_units[name],
+    					"name":            name,
+    					"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
+                        "prediction_step": fmt.Sprintf("%d", step),
+    				}
+    				if err := add(extracted); err != nil {
+                        fmt.Println("Are there any error?")
+                        fmt.Println(err)
+    					return err
+    				}
+				} 
+
                 /*
 				extracted.IntTags = map[string]int64{
 					"prediction_time": int64(_prediction.PredictionTime),
 				}
                 */
-				if err := add(extracted); err != nil {
-                    fmt.Println("Are there any error?")
-                    fmt.Println(err)
-					return err
-				}
+
                 step++
                 //fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
 			}
