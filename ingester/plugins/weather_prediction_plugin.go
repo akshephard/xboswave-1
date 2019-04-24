@@ -56,7 +56,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 		// TODO: finish
 		if has_device(msg) {
             var step int
-            step := 1
+            step = 1
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
 				prediction := _prediction.Prediction
 				var extracted types.ExtractedTimeseries
@@ -74,7 +74,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 fmt.Printf("The XBOSIoTDeviceState.Time is: %d\n", (int64(msg.XBOSIoTDeviceState.Time) / 1e9))
                 fmt.Printf("The count is: %d\n", count)
                 fmt.Printf("The temperature is: %f\n", float64(prediction.Temperature.Value))
-                
+
                 count++
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
