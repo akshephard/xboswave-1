@@ -88,7 +88,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					"unit":            device_units[name],
 					"name":            name,
 					"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime)),
-                    "prediction_step": fmt.Sprintf("%d", step)
+                    "prediction_step": fmt.Sprintf("%d", step),
 				}
                 /*
 				extracted.IntTags = map[string]int64{
