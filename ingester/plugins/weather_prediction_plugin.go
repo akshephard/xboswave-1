@@ -55,7 +55,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 		// proof of concept
 		// TODO: finish
 		if has_device(msg) {
-            var count int
+            //var count int
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
 				prediction := _prediction.Prediction
 				var extracted types.ExtractedTimeseries
