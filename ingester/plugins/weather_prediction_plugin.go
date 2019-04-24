@@ -1,7 +1,9 @@
 package main
 import (
 	"fmt"
-	"github.com/gtfierro/xboswave/ingester/types"
+	//"github.com/gtfierro/xboswave/ingester/types"
+    "/home/solarplus/xboswave-1/ingester/types"
+
 	xbospb "github.com/gtfierro/xboswave/proto"
     //"reflect"
 )
