@@ -63,8 +63,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted.Times = append(extracted.Times, time)
 				if prediction.Temperature != nil {
-					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
-					name = "temperature"
+					extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
+					name = "ozone"
 				} else {
 					continue
 				}
