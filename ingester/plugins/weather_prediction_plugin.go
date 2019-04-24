@@ -71,7 +71,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
 				extracted.Tags = map[string]string{
-					"unit":            weather_units[name],
+					"unit":            device_units[name],
 					"name":            name,
 					"prediction_step": fmt.Sprintf("%d", step),
 				}
