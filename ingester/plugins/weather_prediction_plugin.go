@@ -99,7 +99,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
     					return err
     				}
 				}
-				if prediction.Pressue != nil {
+				if prediction.Pressure != nil {
                     //Not sure why Values is an array since there will only be one value at a time
 					extracted.Values = append(extracted.Values, float64(prediction.Pressure.Value))
                     fmt.Printf("The values are: %v\n", extracted.Values)
