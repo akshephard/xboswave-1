@@ -90,6 +90,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                     fmt.Println(err)
 					return err
 				}
+                fmt.Println("The final extraced wave message is %v", extracted)
 			}
 		}
 	}
