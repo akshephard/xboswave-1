@@ -1,9 +1,9 @@
 package main
 import (
 	"fmt"
-	//"github.com/gtfierro/xboswave/ingester/types"
+	"github.com/gtfierro/xboswave/ingester/types"
     //types "/home/solarplus/xboswave-1/ingester/types"
-    "github.com/akshephard/xboswave-1/ingester/types"
+    //"github.com/akshephard/xboswave-1/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
     //"reflect"
 )
@@ -82,6 +82,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				extracted.Times = append(extracted.Times, time)
 				if prediction.Temperature != nil {
 					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
+                    fmt.Printf("The values are: %v\n", extracted.Values)
 					name = "temperature"
 				} else {
 					continue
