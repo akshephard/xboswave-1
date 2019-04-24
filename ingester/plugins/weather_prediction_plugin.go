@@ -62,7 +62,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				var name string
 				time := int64(msg.XBOSIoTDeviceState.Time)
 
-				step := (int64(_prediction.PredictionTime) - time) / 1e9
+				step := (int64(_prediction.PredictionTime*1e9) - time) / 1e9
 
                 // Use for debugging
                 /*
