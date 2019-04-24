@@ -59,25 +59,17 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //fmt.Printf("part of the message: %v", prediction)
                 //fmt.Println(reflect.TypeOf(prediction))
 				var extracted types.ExtractedTimeseries
-                //var extracted_ozone types.ExtractedTimeseries
 				var name string
-                var extracted_slice []types.ExtractedTimeseries
-                //fmt.Printf("loop")
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
-				//time_ozone := int64(msg.XBOSIoTDeviceState.Time)
-				//step_ozone := (int64(_prediction.PredictionTime) - time) / 1e9
-				//extracted_ozone.Times = append(extracted.Times, time)
-                extracted.Times = append(extracted.Times, time)
+				extracted.Times = append(extracted.Times, time)
 
-            	if prediction.Visibility != nil {
-            			extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
-            		name = "visibility"
-            	} else {
-            	continue
-            	}
-
-                extracted_slice = append(extracted_slice, extracted)
+				if prediction.Temperature != nil {
+					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
+					name = "temperature"
+				} else {
+					continue
+				}
 
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
@@ -92,32 +84,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				if err := add(extracted); err != nil {
 					return err
 				}
-
-                /*
-            	if prediction.Ozone != nil {
-            			extracted_ozone.Values = append(extracted.Values, float64(prediction.Ozone.Value))
-            		name = "ozone"
-            	} else {
-            	continue
-            	}
-                extracted_slice = append(extracted_slice, extracted)
-                //Add the extracted values into some type of array and then iterate through loop
-                //You need to keep track of the name in some kind of array as well so they can be done in an order
-
-				extracted_ozone.UUID = types.GenerateUUID(uri, []byte(name))
-				extracted_ozone.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-				extracted_ozone.Tags = map[string]string{
-					"unit":            device_units[name],
-					"name":            name,
-					"prediction_step": fmt.Sprintf("%d", step_ozone),
-				}
-				extracted_ozone.IntTags = map[string]int64{
-					"prediction_time": int64(_prediction.PredictionTime),
-				}
-                */
-				//if err := add(extracted_ozone); err != nil {
-				//	return err
-				//}
 			}
 		}
 	}
