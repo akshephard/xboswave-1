@@ -51,30 +51,25 @@ return types.ExtractedTimeseries{}
 */
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
-	if msg.XBOSIoTDeviceState != nil {
+
 		if has_device(msg) {
-            //fmt.Printf("The length of the the message is: %d", len(msg.XBOSIoTDeviceState.WeatherPrediction.Predictions))
-			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
-                prediction := _prediction.Prediction
-                //fmt.Printf("part of the message: %v", prediction)
-                //fmt.Println(reflect.TypeOf(prediction))
+			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherStationPrediction.Predictions {
+				prediction := _prediction.Prediction
 				var extracted types.ExtractedTimeseries
 				var name string
 				time := int64(msg.XBOSIoTDeviceState.Time)
 				step := (int64(_prediction.PredictionTime) - time) / 1e9
 				extracted.Times = append(extracted.Times, time)
-
 				if prediction.Temperature != nil {
-					extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
-					name = "temperature"
+					extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
+					name = "ozone"
 				} else {
 					continue
 				}
-
 				extracted.UUID = types.GenerateUUID(uri, []byte(name))
 				extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
 				extracted.Tags = map[string]string{
-					"unit":            device_units[name],
+					"unit":            weather_units[name],
 					"name":            name,
 					"prediction_step": fmt.Sprintf("%d", step),
 				}
