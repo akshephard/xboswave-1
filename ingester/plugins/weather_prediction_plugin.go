@@ -55,7 +55,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 		// proof of concept
 		// TODO: finish
 		if has_device(msg) {
-            //var count int
+            var step int := 1
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
 				prediction := _prediction.Prediction
 				var extracted types.ExtractedTimeseries
@@ -64,7 +64,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
 
                 // this is subtracting the the current xbos time from each prediction time
-				step := (int64(_prediction.PredictionTime) - time) / 1e9
+				//step := (int64(_prediction.PredictionTime) - time) / 1e9
 
                 // Use for debugging
                 fmt.Printf("The xbos time in seconds is: %d\n", time/ 1e9)
@@ -102,6 +102,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                     fmt.Println(err)
 					return err
 				}
+                step++
                 //fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
 			}
 		}
