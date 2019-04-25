@@ -131,23 +131,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             			return err
             		}
             	}
-            	if prediction.PrecipAccumulation != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.PrecipAccumulation.Value))
-            		name = "precipaccumulation"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
             	if prediction.PrecipType != nil {
             		extracted.Values = append(extracted.Values, float64(prediction.PrecipType.Value))
             		name = "preciptype"
