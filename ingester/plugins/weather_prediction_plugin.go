@@ -16,8 +16,6 @@ var device_units = map[string]string{
 	"precipIntensity":	"inches per hour",
 	"precipIntensityError":	"",
 	"precipProbability":	"",
-	"precipAccumulation":	"inches",
-	"precipType":	"",
 	"temperature":	"F",
 	"apparentTemperature":	"F",
 	"dewPoint":	"F",
