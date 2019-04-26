@@ -2,14 +2,14 @@ package main
 import (
 	"fmt"
 	"github.com/gtfierro/xboswave/ingester/types"
-    //types "/home/solarplus/xboswave-1/ingester/types"
-    //"github.com/akshephard/xboswave-1/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
-    //"reflect"
 )
+
 func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.WeatherPrediction != nil
 }
+
+// This contains the mapping of each field's value to the unit
 var device_units = map[string]string{
 	"time":	"seconds",
 	"icon":	"",
@@ -29,38 +29,26 @@ var device_units = map[string]string{
 	"visibility":	"miles",
 	"ozone":	"Dobson",
 }
-/*
-func build_device(uri types.SubscriptionURI, name string, msg xbospb.XBOS) types.ExtractedTimeseries {
-	if extractfunc, found := device_lookup[name]; found {
-		if value, found := extractfunc(msg); found {
-			var extracted types.ExtractedTimeseries
-			time := int64(msg.XBOSIoTDeviceState.Time)
-			extracted.Values = append(extracted.Values, value)
-			extracted.Times = append(extracted.Times, time)
-			extracted.UUID = types.GenerateUUID(uri, []byte(name))
-			extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-			extracted.Tags = map[string]string{
-				"unit": device_units[name],
-				"name": name,
-			}
-			return extracted
-		}
-	}
-return types.ExtractedTimeseries{}
-}
-*/
+
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
-		// proof of concept
-		// TODO: finish
+
 		if has_device(msg) {
             var step int
             step = 1
+
+            //Iterate through each hour of prediction from current to 48 hours from current
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
+                //This prediction contains all of the fields that were present in WeatherCurrent message
+                //There is one for each hour that is retrieved from the DarkSky API
 				prediction := _prediction.Prediction
+
+                //This will contain all the information necessary to send one prediction for one hour out of 0-48
 				var extracted types.ExtractedTimeseries
 				var name string
+
+                //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
 
 
@@ -78,17 +66,24 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
+                
             	if prediction.PrecipIntensity != nil {
+                    //This will be the value that is put into a field in Influx
             		extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
             		name = "precipintensity"
+                    //This UUID is unique to each field in the message
             		extracted.UUID = types.GenerateUUID(uri, []byte(name))
+                    //The collection comes from the resource name of the driver
             		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+                    //These are the tags that will be used when the point is written
             		extracted.Tags = map[string]string{
             			"unit":            device_units[name],
             			"name":            name,
             			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
             			"prediction_step": fmt.Sprintf("%d", step),
             		}
+                    //This add function is passed in from the ingester and when it is executed
+                    //a point is written into influx
             		if err := add(extracted); err != nil {
             			fmt.Println("Are there any errors?")
             			fmt.Println(err)

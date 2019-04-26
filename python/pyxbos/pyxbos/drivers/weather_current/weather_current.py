@@ -59,7 +59,7 @@ class WeatherCurrentDriver(Driver):
 
 
 if __name__ == '__main__':
-    with open('dark_sky.yaml') as f:
+    with open('weather_current.yaml') as f:
         # use safe_load instead load for security reasons
         driverConfig = yaml.safe_load(f)
 
