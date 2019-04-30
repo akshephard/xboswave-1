@@ -59,7 +59,14 @@ class WeatherCurrentDriver(Driver):
 
 
 if __name__ == '__main__':
-    with open('weather_current.yaml') as f:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("config_file", help="config file with api key as well as namespace")
+    parser.add_argument("ent_file", help="entity file")
+    args = parser.parse_args()
+    config_file = args.config_file
+    ent_file = args.ent_file
+
+    with open(config_file) as f:
         # use safe_load instead load for security reasons
         driverConfig = yaml.safe_load(f)
 
@@ -74,7 +81,7 @@ if __name__ == '__main__':
         'wavemq': 'localhost:4516',
         'namespace': namespace,
         'base_resource': 'weather_current',
-        'entity': 'weather_current.ent',
+        'entity': ent_file,
         'id': 'pyxbos-driver-current-1',
         #'rate': 1800, # half hour
         'rate': 20, # 15 min
