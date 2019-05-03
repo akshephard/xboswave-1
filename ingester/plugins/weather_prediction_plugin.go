@@ -54,6 +54,7 @@ func send_time_series_to_influx(value float64,name string,toInflux types.Extract
 }
 
 func test_go(value float64){
+    fmt.Printf("The xbos time in seconds is: %v\n", value)
     fmt.Printf("The xbos time in seconds is: %s\n",name)
 }
 
@@ -78,7 +79,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
 
-                test_go()
+                test_go(6.0)
                 // this is subtracting the the current xbos time from each prediction time
 				//step := (int64(_prediction.PredictionTime) - time) / 1e9
 
