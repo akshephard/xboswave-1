@@ -100,7 +100,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 if prediction.PrecipIntensity != nil {
                     send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
-                    name,extracted,add(types.ExtractedTimeseries),int64(_prediction.PredictionTime),step, uri)
+                    name,extracted,add(),int64(_prediction.PredictionTime),step, uri)
                 }
 
             	if prediction.PrecipIntensity != nil {
