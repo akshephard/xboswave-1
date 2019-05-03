@@ -30,6 +30,33 @@ var device_units = map[string]string{
 	"ozone":	"Dobson",
 }
 
+func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries, add func(types.ExtractedTimeseries),prediction_time int64, step int64){
+	toInflux.Values = append(toInflux.Values, value)
+
+    //This UUID is unique to each field in the message
+	toInflux.UUID = types.GenerateUUID(uri, []byte(name))
+    //The collection comes from the resource name of the driver
+	toInflux.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+    //These are the tags that will be used when the point is written
+	toInflux.Tags = map[string]string{
+		"unit":            device_units[name],
+		"name":            name,
+		"prediction_time": fmt.Sprintf("%d", prediction_time / 1e9),
+		"prediction_step": fmt.Sprintf("%d", step),
+	}
+    //This add function is passed in from the ingester and when it is executed
+    //a point is written into influx
+	if err := add(toInflux); err != nil {
+		fmt.Println("Are there any errors?")
+		fmt.Println(err)
+		return err
+	}
+}
+
+func test_go(value float64){
+    fmt.Printf("The xbos time in seconds is: %s\n",name)
+}
+
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
@@ -51,7 +78,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
 
-
+                test_go()
                 // this is subtracting the the current xbos time from each prediction time
 				//step := (int64(_prediction.PredictionTime) - time) / 1e9
 
@@ -66,7 +93,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
-                
+
             	if prediction.PrecipIntensity != nil {
                     //This will be the value that is put into a field in Influx
             		extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
