@@ -30,7 +30,8 @@ var device_units = map[string]string{
 	"ozone":	"Dobson",
 }
 
-func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries, add func(types.ExtractedTimeseries),prediction_time int64, step int64){
+func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
+    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
 	toInflux.Values = append(toInflux.Values, value)
 
     //This UUID is unique to each field in the message
@@ -79,7 +80,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
 
-                test_go(6.0)
                 // this is subtracting the the current xbos time from each prediction time
 				//step := (int64(_prediction.PredictionTime) - time) / 1e9
 
@@ -94,6 +94,12 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
+                func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
+                    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
+
+                if prediction.PrecipIntensity != nil {
+                    send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),name,extracted,add,int64(_prediction.PredictionTime),step)
+                }
 
             	if prediction.PrecipIntensity != nil {
                     //This will be the value that is put into a field in Influx
