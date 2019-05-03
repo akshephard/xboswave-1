@@ -94,8 +94,9 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
-                func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
-                    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
+
+                //func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
+                //    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
 
                 if prediction.PrecipIntensity != nil {
                     send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),name,extracted,add,int64(_prediction.PredictionTime),step)
