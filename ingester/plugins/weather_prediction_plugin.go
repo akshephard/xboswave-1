@@ -31,7 +31,7 @@ var device_units = map[string]string{
 }
 
 func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
-    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
+    add func(types.ExtractedTimeseries),prediction_time int64, step int64, uri types.SubscriptionURI) err{
 	toInflux.Values = append(toInflux.Values, value)
 
     //This UUID is unique to each field in the message
@@ -99,7 +99,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
 
                 if prediction.PrecipIntensity != nil {
-                    send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),name,extracted,add,int64(_prediction.PredictionTime),step)
+                    send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
+                    name,extracted,add,int64(_prediction.PredictionTime),step, uri)
                 }
 
             	if prediction.PrecipIntensity != nil {
