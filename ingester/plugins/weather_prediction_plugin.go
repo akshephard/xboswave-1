@@ -34,7 +34,7 @@ var device_units = map[string]string{
 }
 
 func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
-    pass_add add_fn,prediction_time int64, step int, uri types.SubscriptionURI) err{
+    pass_add add_fn,prediction_time int64, step int, uri types.SubscriptionURI){
 	toInflux.Values = append(toInflux.Values, value)
 
     //This UUID is unique to each field in the message
