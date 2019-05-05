@@ -34,7 +34,7 @@ var device_units = map[string]string{
 }
 
 func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
-    pass_add add_fn,prediction_time int64, step int, uri types.SubscriptionURI){
+    pass_add add_fn,prediction_time int64, step int, uri types.SubscriptionURI) error{
 	toInflux.Values = append(toInflux.Values, value)
 
     //This UUID is unique to each field in the message
@@ -51,8 +51,6 @@ func send_time_series_to_influx(value float64,name string,toInflux types.Extract
     //This add function is passed in from the ingester and when it is executed
     //a point is written into influx
 	if err := pass_add(toInflux); err != nil {
-		fmt.Println("Are there any errors?")
-		fmt.Println(err)
 		return err
 	}
 }
