@@ -64,10 +64,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             var step int
             step = 1
 
-            //Iterate through each hour of prediction from current to 48 hours from currentfunc test_go(value float64){
-    fmt.Printf("The xbos time in seconds is: %v\n", value)
-    fmt.Printf("The xbos time in seconds is: %s\n",name)
-}
+            //Iterate through each hour of prediction from current to 48 hours from current
 			for _, _prediction := range msg.XBOSIoTDeviceState.WeatherPrediction.Predictions {
                 //This prediction contains all of the fields that were present in WeatherCurrent message
                 //There is one for each hour that is retrieved from the DarkSky API
