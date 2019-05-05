@@ -9,6 +9,9 @@ func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.WeatherPrediction != nil
 }
 
+type add_fn func(types.ExtractedTimeseries) error
+
+
 // This contains the mapping of each field's value to the unit
 var device_units = map[string]string{
 	"time":	"seconds",
@@ -31,7 +34,7 @@ var device_units = map[string]string{
 }
 
 func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
-    add func(types.ExtractedTimeseries),prediction_time int64, step int, uri types.SubscriptionURI) err{
+    pass_add add_fn,prediction_time int64, step int, uri types.SubscriptionURI) err{
 	toInflux.Values = append(toInflux.Values, value)
 
     //This UUID is unique to each field in the message
@@ -47,7 +50,7 @@ func send_time_series_to_influx(value float64,name string,toInflux types.Extract
 	}
     //This add function is passed in from the ingester and when it is executed
     //a point is written into influx
-	if err := add(toInflux); err != nil {
+	if err := pass_add(toInflux); err != nil {
 		fmt.Println("Are there any errors?")
 		fmt.Println(err)
 		return err
@@ -100,7 +103,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 if prediction.PrecipIntensity != nil {
                     send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
-                    name,extracted, add func(types.ExtractedTimeseries) error),int64(_prediction.PredictionTime),step, uri)
+                    name,extracted, add,int64(_prediction.PredictionTime),step, uri)
                 }
 
             	if prediction.PrecipIntensity != nil {
