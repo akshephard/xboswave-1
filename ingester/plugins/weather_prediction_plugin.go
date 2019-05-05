@@ -100,7 +100,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 if prediction.PrecipIntensity != nil {
                     send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
-                    "precipIntensity",extracted, add,int64(_prediction.PredictionTime),step, uri)
+                    name,extracted, add,int64(_prediction.PredictionTime),step, uri)
                 }
                 /*
             	if prediction.PrecipIntensity != nil {
@@ -161,10 +161,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             			return err
             		}
             	}
-                if prediction.Temperature != nil {
-                    send_time_series_to_influx(float64(prediction.Temperature.Value),
-                    "temperature",extracted, add,int64(_prediction.PredictionTime),step, uri)
-                }
                 /*
             	if prediction.Temperature != nil {
             		extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
@@ -183,7 +179,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             			return err
             		}
             	}
-                */
+                *
             	if prediction.ApparentTemperature != nil {
             		extracted.Values = append(extracted.Values, float64(prediction.ApparentTemperature.Value))
             		name = "apparenttemperature"
