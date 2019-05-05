@@ -56,11 +56,6 @@ func send_time_series_to_influx(value float64,name string,toInflux types.Extract
     return nil
 }
 
-func test_go(value float64){
-    fmt.Printf("The xbos time in seconds is: %v\n", value)
-    fmt.Printf("The xbos time in seconds is: %s\n",name)
-}
-
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
