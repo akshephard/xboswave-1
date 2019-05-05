@@ -53,6 +53,7 @@ func send_time_series_to_influx(value float64,name string,toInflux types.Extract
 	if err := pass_add(toInflux); err != nil {
 		return err
 	}
+    return nil
 }
 
 func test_go(value float64){
