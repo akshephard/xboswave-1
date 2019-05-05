@@ -176,7 +176,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             			return err
             		}
             	}
-                *
+                */
             	if prediction.ApparentTemperature != nil {
             		extracted.Values = append(extracted.Values, float64(prediction.ApparentTemperature.Value))
             		name = "apparenttemperature"
