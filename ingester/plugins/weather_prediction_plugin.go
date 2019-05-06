@@ -16,19 +16,19 @@ type add_fn func(types.ExtractedTimeseries) error
 var device_units = map[string]string{
 	"time":	"seconds",
 	"icon":	"",
-	"precipIntensity":	"inches per hour",
-	"precipIntensityError":	"",
-	"precipProbability":	"",
+	"precipintensity":	"inches per hour",
+	"precipintensityError":	"",
+	"precipprobability":	"",
 	"temperature":	"F",
-	"apparentTemperature":	"F",
-	"dewPoint":	"F",
+	"apparenttemperature":	"F",
+	"dewpoint":	"F",
 	"humidity":	"",
 	"pressure":	"millibars",
-	"windSpeed":	"miles per hour",
-	"windGust":	"miles per hour",
-	"windBearing":	"degree",
-	"cloudCover":	"",
-	"uvIndex":	"",
+	"windspeed":	"miles per hour",
+	"windgust":	"miles per hour",
+	"windbearing":	"degree",
+	"cloudcover":	"",
+	"uvindex":	"",
 	"visibility":	"miles",
 	"ozone":	"Dobson",
 }
@@ -79,8 +79,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
 
-                // this is subtracting the the current xbos time from each prediction time
-				//step := (int64(_prediction.PredictionTime) - time) / 1e9
 
                 // Use for debugging
                 /*
@@ -94,14 +92,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
 
-                //func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
-                //    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
-                /*
-                if prediction.PrecipIntensity != nil {
-                    send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
-                    name,extracted, add,int64(_prediction.PredictionTime),step, uri)
-                }
-                */
                 if prediction.Time != nil {
 		          send_time_series_to_influx(float64(prediction.Time.Value),"time",extracted,add,prediction_time,step, uri)
                 }
@@ -165,33 +155,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             		send_time_series_to_influx(float64(prediction.Ozone.Value),
             		"ozone",extracted,add,prediction_time,step, uri)
             	}
-
-
-
-
-                /*
-            	if prediction.Temperature != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.Temperature.Value))
-            		name = "temperature"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-                */
-
-
-
-
 
                 step++
                 //fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
