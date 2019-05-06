@@ -116,10 +116,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             		send_time_series_to_influx(float64(prediction.PrecipProbability.Value),
             		"precipprobability",extracted,add,prediction_time,step, uri)
             	}
-            	if prediction.PrecipAccumulation != nil {
-            		send_time_series_to_influx(float64(prediction.PrecipAccumulation.Value),
-            		"precipaccumulation",extracted,add,prediction_time,step, uri)
-            	}
             	if prediction.Temperature != nil {
             		send_time_series_to_influx(float64(prediction.Temperature.Value),
             		"temperature",extracted,add,prediction_time,step, uri)
