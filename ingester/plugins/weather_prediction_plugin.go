@@ -97,74 +97,80 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
                 //    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
 
-                if prediction.Temperature != nil {
-                    send_time_series_to_influx(float64(prediction.Temperature.Value),
-                    "temperature",extracted, add,prediction_time,step, uri)
-                }
-                /*
-            	if prediction.PrecipIntensity != nil {
-                    //This will be the value that is put into a field in Influx
-            		extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensity.Value))
-            		name = "precipintensity"
-                    //This UUID is unique to each field in the message
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-                    //The collection comes from the resource name of the driver
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-                    //These are the tags that will be used when the point is written
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-                    //This add function is passed in from the ingester and when it is executed
-                    //a point is written into influx
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-                */
-            	if prediction.PrecipIntensityError != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.PrecipIntensityError.Value))
-            		name = "precipintensityerror"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.PrecipProbability != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.PrecipProbability.Value))
-            		name = "precipprobability"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-
                 if prediction.PrecipIntensity != nil {
                     send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
                     name,extracted, add,int64(_prediction.PredictionTime),step, uri)
                 }
+                if prediction.Time != nil {
+		          send_time_series_to_influx(float64(prediction.Time.Value),"time",extracted,add,prediction_time,step, uri)
+                }
+            	if prediction.PrecipIntensity != nil {
+            		send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
+            		"precipintensity",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.PrecipIntensityError != nil {
+            		send_time_series_to_influx(float64(prediction.PrecipIntensityError.Value),
+            		"precipintensityerror",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.PrecipProbability != nil {
+            		send_time_series_to_influx(float64(prediction.PrecipProbability.Value),
+            		"precipprobability",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.PrecipAccumulation != nil {
+            		send_time_series_to_influx(float64(prediction.PrecipAccumulation.Value),
+            		"precipaccumulation",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.Temperature != nil {
+            		send_time_series_to_influx(float64(prediction.Temperature.Value),
+            		"temperature",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.ApparentTemperature != nil {
+            		send_time_series_to_influx(float64(prediction.ApparentTemperature.Value),
+            		"apparenttemperature",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.DewPoint != nil {
+            		send_time_series_to_influx(float64(prediction.DewPoint.Value),
+            		"dewpoint",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.Humidity != nil {
+            		send_time_series_to_influx(float64(prediction.Humidity.Value),
+            		"humidity",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.Pressure != nil {
+            		send_time_series_to_influx(float64(prediction.Pressure.Value),
+            		"pressure",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.WindSpeed != nil {
+            		send_time_series_to_influx(float64(prediction.WindSpeed.Value),
+            		"windspeed",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.WindGust != nil {
+            		send_time_series_to_influx(float64(prediction.WindGust.Value),
+            		"windgust",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.WindBearing != nil {
+            		send_time_series_to_influx(float64(prediction.WindBearing.Value),
+            		"windbearing",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.CloudCover != nil {
+            		send_time_series_to_influx(float64(prediction.CloudCover.Value),
+            		"cloudcover",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.UvIndex != nil {
+            		send_time_series_to_influx(float64(prediction.UvIndex.Value),
+            		"uvindex",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.Visibility != nil {
+            		send_time_series_to_influx(float64(prediction.Visibility.Value),
+            		"visibility",extracted,add,prediction_time,step, uri)
+            	}
+            	if prediction.Ozone != nil {
+            		send_time_series_to_influx(float64(prediction.Ozone.Value),
+            		"ozone",extracted,add,prediction_time,step, uri)
+            	}
+
+
+
 
                 /*
             	if prediction.Temperature != nil {
@@ -185,193 +191,10 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             		}
             	}
                 */
-            	if prediction.ApparentTemperature != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.ApparentTemperature.Value))
-            		name = "apparenttemperature"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.DewPoint != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.DewPoint.Value))
-            		name = "dewpoint"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.Humidity != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.Humidity.Value))
-            		name = "humidity"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.Pressure != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.Pressure.Value))
-            		name = "pressure"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.WindSpeed != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.WindSpeed.Value))
-            		name = "windspeed"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.WindGust != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.WindGust.Value))
-            		name = "windgust"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.WindBearing != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.WindBearing.Value))
-            		name = "windbearing"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.CloudCover != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.CloudCover.Value))
-            		name = "cloudcover"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.UvIndex != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.UvIndex.Value))
-            		name = "uvindex"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.Visibility != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.Visibility.Value))
-            		name = "visibility"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
-            	if prediction.Ozone != nil {
-            		extracted.Values = append(extracted.Values, float64(prediction.Ozone.Value))
-            		name = "ozone"
-            		extracted.UUID = types.GenerateUUID(uri, []byte(name))
-            		extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-            		extracted.Tags = map[string]string{
-            			"unit":            device_units[name],
-            			"name":            name,
-            			"prediction_time": fmt.Sprintf("%d", int64(_prediction.PredictionTime) / 1e9),
-            			"prediction_step": fmt.Sprintf("%d", step),
-            		}
-            		if err := add(extracted); err != nil {
-            			fmt.Println("Are there any errors?")
-            			fmt.Println(err)
-            			return err
-            		}
-            	}
+
+
+
+
 
                 step++
                 //fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
