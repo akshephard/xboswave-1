@@ -96,11 +96,12 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 //func send_time_series_to_influx(value float64,name string,toInflux types.ExtractedTimeseries,
                 //    add func(types.ExtractedTimeseries),prediction_time int64, step int64){
-
+                /*
                 if prediction.PrecipIntensity != nil {
                     send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
                     name,extracted, add,int64(_prediction.PredictionTime),step, uri)
                 }
+                */
                 if prediction.Time != nil {
 		          send_time_series_to_influx(float64(prediction.Time.Value),"time",extracted,add,prediction_time,step, uri)
                 }
