@@ -11,7 +11,6 @@ func has_device(msg xbospb.XBOS) bool {
 
 type add_fn func(types.ExtractedTimeseries) error
 
-
 // This contains the mapping of each field's value to the unit
 var device_units = map[string]string{
 	"time":	"seconds",
@@ -72,92 +71,129 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 //This will contain all the information necessary to send one prediction for one hour out of 0-48
 				var extracted types.ExtractedTimeseries
-				//var name string
-                //var prediction_time int64
                 prediction_time := int64(_prediction.PredictionTime)
 
-                //This is the xbos time
+                //This is the xbos message time
 				time := int64(msg.XBOSIoTDeviceState.Time)
-
-
-                // Use for debugging
-                /*
-                fmt.Printf("The xbos time in seconds is: %d\n", time/ 1e9)
-                fmt.Printf("The step is: %d\n", step)
-                fmt.Printf("The prediction time is: %d\n", (int64(_prediction.PredictionTime) / 1e9))
-                fmt.Printf("The XBOSIoTDeviceState.Time is: %d\n", (int64(msg.XBOSIoTDeviceState.Time) / 1e9))
-                fmt.Printf("The temperature is: %f\n", float64(prediction.Temperature.Value))
-                */
 
                 //This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
 
-                if prediction.Time != nil {
-		          send_time_series_to_influx(float64(prediction.Time.Value),"time",extracted,add,prediction_time,step, uri)
-                }
+            	if prediction.Time != nil {
+            		err := send_time_series_to_influx(float64(prediction.Time.Value),
+            			"time",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
+            	}
             	if prediction.PrecipIntensity != nil {
-            		send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
-            		"precipintensity",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.PrecipIntensity.Value),
+            			"precipintensity",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.PrecipIntensityError != nil {
-            		send_time_series_to_influx(float64(prediction.PrecipIntensityError.Value),
-            		"precipintensityerror",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.PrecipIntensityError.Value),
+            			"precipintensityerror",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.PrecipProbability != nil {
-            		send_time_series_to_influx(float64(prediction.PrecipProbability.Value),
-            		"precipprobability",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.PrecipProbability.Value),
+            			"precipprobability",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.Temperature != nil {
-            		send_time_series_to_influx(float64(prediction.Temperature.Value),
-            		"temperature",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.Temperature.Value),
+            			"temperature",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.ApparentTemperature != nil {
-            		send_time_series_to_influx(float64(prediction.ApparentTemperature.Value),
-            		"apparenttemperature",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.ApparentTemperature.Value),
+            			"apparenttemperature",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.DewPoint != nil {
-            		send_time_series_to_influx(float64(prediction.DewPoint.Value),
-            		"dewpoint",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.DewPoint.Value),
+            			"dewpoint",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.Humidity != nil {
-            		send_time_series_to_influx(float64(prediction.Humidity.Value),
-            		"humidity",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.Humidity.Value),
+            			"humidity",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.Pressure != nil {
-            		send_time_series_to_influx(float64(prediction.Pressure.Value),
-            		"pressure",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.Pressure.Value),
+            			"pressure",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.WindSpeed != nil {
-            		send_time_series_to_influx(float64(prediction.WindSpeed.Value),
-            		"windspeed",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.WindSpeed.Value),
+            			"windspeed",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.WindGust != nil {
-            		send_time_series_to_influx(float64(prediction.WindGust.Value),
-            		"windgust",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.WindGust.Value),
+            			"windgust",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.WindBearing != nil {
-            		send_time_series_to_influx(float64(prediction.WindBearing.Value),
-            		"windbearing",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.WindBearing.Value),
+            			"windbearing",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.CloudCover != nil {
-            		send_time_series_to_influx(float64(prediction.CloudCover.Value),
-            		"cloudcover",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.CloudCover.Value),
+            			"cloudcover",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.UvIndex != nil {
-            		send_time_series_to_influx(float64(prediction.UvIndex.Value),
-            		"uvindex",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.UvIndex.Value),
+            			"uvindex",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.Visibility != nil {
-            		send_time_series_to_influx(float64(prediction.Visibility.Value),
-            		"visibility",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.Visibility.Value),
+            			"visibility",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
             	if prediction.Ozone != nil {
-            		send_time_series_to_influx(float64(prediction.Ozone.Value),
-            		"ozone",extracted,add,prediction_time,step, uri)
+            		err := send_time_series_to_influx(float64(prediction.Ozone.Value),
+            			"ozone",extracted,add,prediction_time,step, uri)
+            		if err != nil {
+            		return err
+            		}
             	}
 
+
                 step++
-                //fmt.Println("The final extraced wave message is %d", extracted.IntTags["prediction_time"])
 			}
 		}
 	}
