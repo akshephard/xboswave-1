@@ -74,7 +74,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				var extracted types.ExtractedTimeseries
 				var name string
                 var prediction_time int64
-                prediction := int64(_prediction.PredictionTime)
+                prediction_time := int64(_prediction.PredictionTime)
 
                 //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
