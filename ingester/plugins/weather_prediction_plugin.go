@@ -73,6 +73,8 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 //This will contain all the information necessary to send one prediction for one hour out of 0-48
 				var extracted types.ExtractedTimeseries
 				var name string
+                var prediction_time int64
+                prediction := int64(_prediction.PredictionTime)
 
                 //This is the xbos time
 				time := int64(msg.XBOSIoTDeviceState.Time)
@@ -97,7 +99,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
                 if prediction.Temperature != nil {
                     send_time_series_to_influx(float64(prediction.Temperature.Value),
-                    "temperature",extracted, add,int64(_prediction.PredictionTime),step, uri)
+                    "temperature",extracted, add,prediction_time,step, uri)
                 }
                 /*
             	if prediction.PrecipIntensity != nil {
