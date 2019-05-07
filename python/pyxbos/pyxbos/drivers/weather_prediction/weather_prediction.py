@@ -1,4 +1,3 @@
-from pyxbos import *
 from pyxbos.driver import *
 from pyxbos import weather_station_pb2
 import os,sys

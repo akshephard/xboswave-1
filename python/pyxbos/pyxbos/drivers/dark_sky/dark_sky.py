@@ -1,4 +1,5 @@
 from pyxbos.driver import *
+from pyxbos import weather_station_pb2
 import os,sys
 import json
 import requests
@@ -32,7 +33,7 @@ class DarkSkyPredictionDriver(Driver):
             if humidity is not None:
                 humidity *= 100 # change from decimal to percent
 
-            predictions.append(iot_pb2.WeatherStationPrediction.Prediction(
+            predictions.append(weather_station_pb2.WeatherStationPrediction.Prediction(
                 prediction_time=timestamp,
                 prediction=iot_pb2.WeatherStation(
                     temperature=types.Double(value=temperature),

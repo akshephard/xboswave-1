@@ -1,9 +1,5 @@
-from pyxbos import *
 from pyxbos.driver import *
-from pyxbos import iot_pb2
-#from pyxbos import weather_station
 from pyxbos import weather_station_pb2
-#import weather_station_pb2
 import os,sys
 import json
 import requests
