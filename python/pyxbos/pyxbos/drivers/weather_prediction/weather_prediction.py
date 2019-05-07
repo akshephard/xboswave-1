@@ -1,5 +1,6 @@
 from pyxbos import *
 from pyxbos.driver import *
+from pyxbos import weather_station_pb2
 import os,sys
 import json
 import requests
@@ -39,9 +40,9 @@ class WeatherPredictionDriver(Driver):
                 output['humidity'] *= 100 # change from decimal to percent
             #print(hour)
             timestamp = int(hour.get('time') * 1e9) # nanoseconds
-            predictions.append(weather_prediction_pb2.WeatherStationPrediction.Prediction(
+            predictions.append(weather_station_pb2.WeatherStationPrediction.Prediction(
                 prediction_time=timestamp,
-                prediction=weather_current_pb2.WeatherStation(
+                prediction=weather_station_pb2.WeatherStation(
                     time  =   types.Int64(value=output.get('time',None)),
                     icon  =  output.get('icon',None),
                     nearestStormDistance  =   types.Double(value=output.get('nearestStormDistance',None)),
