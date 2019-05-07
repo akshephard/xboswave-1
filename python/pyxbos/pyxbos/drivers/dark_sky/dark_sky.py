@@ -80,7 +80,7 @@ class DarkSkyDriver(Driver):
                 time = int(time.time()*1e9),
                 weather_station = weather_station_pb2.WeatherStation(
                     nearestStormDistance  =   types.Double(value=nearestStormDistance),
-                    nearestStormBearing   =   types.Int32(value=nearestStormBearing),
+                    nearestStormBearing   =   types.Double(value=nearestStormBearing),
                     precipIntensity        =   types.Double(value=precipIntensity),
                     temperature             =   types.Double(value=apparentTemperature),
                     humidity                =   types.Double(value=humidity),
