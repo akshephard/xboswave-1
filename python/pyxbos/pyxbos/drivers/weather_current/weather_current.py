@@ -4,7 +4,7 @@ import json
 import requests
 import yaml
 import argparse
-
+import logging
 
 class WeatherCurrentDriver(Driver):
     def setup(self, cfg):
