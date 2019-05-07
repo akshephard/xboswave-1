@@ -39,9 +39,9 @@ class WeatherPredictionDriver(Driver):
                 output['humidity'] *= 100 # change from decimal to percent
             #print(hour)
             timestamp = int(hour.get('time') * 1e9) # nanoseconds
-            predictions.append(weather_prediction_pb2.Weather_Prediction_State.Prediction(
+            predictions.append(weather_prediction_pb2.WeatherStationPrediction.Prediction(
                 prediction_time=timestamp,
-                prediction=weather_current_pb2.Weather_Current_State(
+                prediction=weather_current_pb2.WeatherStation(
                     time  =   types.Int64(value=output.get('time',None)),
                     icon  =  output.get('icon',None),
                     nearestStormDistance  =   types.Double(value=output.get('nearestStormDistance',None)),
