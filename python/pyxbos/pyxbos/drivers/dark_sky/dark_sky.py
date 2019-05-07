@@ -83,7 +83,7 @@ class DarkSkyDriver(Driver):
                     nearestStormBearing   =   types.Int32(value=nearestStormBearing),
                     precipIntensity        =   types.Double(value=precipIntensity),
                     temperature             =   types.Double(value=apparentTemperature),
-                    humidity                =   types.Int32(value=humidity),
+                    humidity                =   types.Double(value=humidity),
                 )
             )
         )
