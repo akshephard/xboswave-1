@@ -79,9 +79,9 @@ class DarkSkyDriver(Driver):
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
                 weather_station = weather_station_pb2.WeatherStation(
-                    nearest_storm_distance  =   types.Double(value=nearestStormDistance),
-                    nearest_storm_bearing   =   types.Int32(value=nearestStormBearing),
-                    precip_intensity        =   types.Double(value=precipIntensity),
+                    nearestStormDistance  =   types.Double(value=nearestStormDistance),
+                    nearestStormBearing   =   types.Int32(value=nearestStormBearing),
+                    precipIntensity        =   types.Double(value=precipIntensity),
                     temperature             =   types.Double(value=apparentTemperature),
                     humidity                =   types.Double(value=humidity),
                 )
