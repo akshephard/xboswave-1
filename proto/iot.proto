@@ -9,7 +9,7 @@ package xbospb;
 
 import "nullabletypes.proto";
 import "parker.proto";
-import "wattnode.proto";
+//import "wattnode.proto";
 import "weather_station.proto";
 
 message URI {
