@@ -35,7 +35,7 @@ class DarkSkyPredictionDriver(Driver):
 
             predictions.append(weather_station_pb2.WeatherStationPrediction.Prediction(
                 prediction_time=timestamp,
-                prediction=iot_pb2.WeatherStation(
+                prediction=weather_station_pb2.WeatherStation(
                     temperature=types.Double(value=temperature),
                     precip_intensity=types.Double(value=precipIntensity),
                     humidity=types.Double(value=humidity),
@@ -45,7 +45,7 @@ class DarkSkyPredictionDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                weather_station_prediction = iot_pb2.WeatherStationPrediction(
+                weather_station_prediction = weather_station_pb2.WeatherStationPrediction(
                     predictions=predictions
                 )
             )
@@ -78,7 +78,7 @@ class DarkSkyDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                weather_station = iot_pb2.WeatherStation(
+                weather_station = weather_station_pb2.WeatherStation(
                     nearest_storm_distance  =   types.Double(value=nearestStormDistance),
                     nearest_storm_bearing   =   types.Int32(value=nearestStormBearing),
                     precip_intensity        =   types.Double(value=precipIntensity),
