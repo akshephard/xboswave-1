@@ -10,6 +10,7 @@ import json
 import requests
 import yaml
 import argparse
+import logging
 
 
 class WeatherPredictionDriver(Driver):
