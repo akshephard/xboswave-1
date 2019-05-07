@@ -1,6 +1,7 @@
 from pyxbos import *
 from pyxbos.driver import *
 from pyxbos import iot_pb2
+import weather_station_pb2
 import os,sys
 import json
 import requests
@@ -33,7 +34,7 @@ class WeatherCurrentDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                weather_current = iot_pb2.weather_station_pb2.Weather_Current_State(
+                weather_current = weather_station_pb2.Weather_Current_State(
                     time  =   types.Int64(value=output.get('time',None)),
                     icon  =  output.get('icon',None),
                     nearestStormDistance  =   types.Double(value=output.get('nearestStormDistance',None)),
