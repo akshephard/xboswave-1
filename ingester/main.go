@@ -3,8 +3,7 @@ package main
 import (
 	"context"
 	"encoding/base64"
-	//"fmt"
-    "flag"
+	"flag"
 	"io/ioutil"
 	"os"
 	"os/signal"
@@ -39,10 +38,9 @@ var TimeseriesOperationTimeout = 1 * time.Minute
 var namespaceBytes []byte
 
 func main() {
-    flag.Parse()
+	flag.Parse()
 
-	//cfg, err := ReadConfig("ingester.yml")
-    cfg, err := ReadConfig(*configfile)
+	cfg, err := ReadConfig(*configfile)
 	if err != nil {
 		logrus.Fatal(err)
 	}
