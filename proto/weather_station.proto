@@ -1,7 +1,7 @@
 syntax = "proto3";
 package xbospb;
 import "nullabletypes.proto";
-message Weather_Current_State {
+message WeatherStation {
 	//epoch time
 	//unit: seconds
 	Int64 time = 1;
@@ -57,7 +57,7 @@ message Weather_Current_State {
 	Double ozone = 20;
 }
 
-message Weather_Prediction_State {
+message WeatherStationPrediction {
     // time of the prediction (leave empty
     // unit: ns
 
