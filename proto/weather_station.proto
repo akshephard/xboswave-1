@@ -63,7 +63,7 @@ message WeatherStationPrediction {
 
     message Prediction {
         uint64 prediction_time = 1;
-        Weather_Current_State prediction = 2;
+        WeatherStation prediction = 2;
     }
     repeated Prediction predictions = 1;
 }
