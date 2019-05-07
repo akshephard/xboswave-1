@@ -37,7 +37,7 @@ class DarkSkyPredictionDriver(Driver):
                 prediction_time=timestamp,
                 prediction=weather_station_pb2.WeatherStation(
                     temperature=types.Double(value=temperature),
-                    precip_intensity=types.Double(value=precipIntensity),
+                    precipIntensity=types.Double(value=precipIntensity),
                     humidity=types.Double(value=humidity),
                 )
             ))
