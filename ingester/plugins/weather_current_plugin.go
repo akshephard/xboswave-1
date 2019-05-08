@@ -3,6 +3,7 @@ import (
 	"fmt"
 	"github.com/gtfierro/xboswave/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
+    "reflect"
 )
 func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.WeatherCurrent!= nil
@@ -141,7 +142,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	},
 }
 func build_device(uri types.SubscriptionURI, name string, msg xbospb.XBOS) types.ExtractedTimeseries {
-	
+
 	if extractfunc, found := device_lookup[name]; found {
 		if value, found := extractfunc(msg); found {
 			var extracted types.ExtractedTimeseries
@@ -162,6 +163,13 @@ return types.ExtractedTimeseries{}
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
+        fmt.Printf("%v\n", i)
+        v := reflect.ValueOf(msg)
+        values := make([]interface{}, v.NumField())
+        for i := 0; i < v.NumField(); i++ {
+    		values[i] = v.Field(i).Interface()
+    	}
+        fmt.Println(values)
 		if has_device(msg) {
 			for name := range device_lookup {
 				extracted := build_device(uri, name, msg)

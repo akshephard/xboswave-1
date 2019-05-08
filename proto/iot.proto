@@ -9,7 +9,6 @@ package xbospb;
 
 import "nullabletypes.proto";
 import "parker.proto";
-//import "wattnode.proto";
 import "weather_station.proto";
 
 message URI {
@@ -64,7 +63,6 @@ message XBOSIoTDeviceState {
     ParkerState parker_state = 8;
     WeatherStation weather_current = 9;
     WeatherStationPrediction weather_prediction = 10;
-    //WattnodeState wattnode_state = 11;
 }
 
 
