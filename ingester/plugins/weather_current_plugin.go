@@ -163,7 +163,6 @@ return types.ExtractedTimeseries{}
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 	if msg.XBOSIoTDeviceState != nil {
-        fmt.Printf("%v\n", i)
         v := reflect.ValueOf(msg)
         values := make([]interface{}, v.NumField())
         for i := 0; i < v.NumField(); i++ {
