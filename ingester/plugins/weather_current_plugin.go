@@ -170,6 +170,5 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				}
 			}
 		}
-	}
 	return nil
 }
