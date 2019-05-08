@@ -11,6 +11,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+    "fmt"
 )
 
 var errStreamNotExist = errors.New("Stream does not exist")
