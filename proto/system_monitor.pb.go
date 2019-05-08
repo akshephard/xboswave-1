@@ -3,9 +3,11 @@
 
 package xbospb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -16,10 +18,10 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type BasicServerStatus struct {
-	// unit:ns
+	//unit:ns
 	Time     uint64 `protobuf:"varint,1,opt,name=time,proto3" json:"time,omitempty"`
 	Hostname string `protobuf:"bytes,6,opt,name=hostname,proto3" json:"hostname,omitempty"`
 	// index is the CPU number;
@@ -43,16 +45,17 @@ func (m *BasicServerStatus) Reset()         { *m = BasicServerStatus{} }
 func (m *BasicServerStatus) String() string { return proto.CompactTextString(m) }
 func (*BasicServerStatus) ProtoMessage()    {}
 func (*BasicServerStatus) Descriptor() ([]byte, []int) {
-	return fileDescriptor_system_monitor_d7c8f7301c0ead88, []int{0}
+	return fileDescriptor_6374dbf108b4cec7, []int{0}
 }
+
 func (m *BasicServerStatus) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BasicServerStatus.Unmarshal(m, b)
 }
 func (m *BasicServerStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_BasicServerStatus.Marshal(b, m, deterministic)
 }
-func (dst *BasicServerStatus) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BasicServerStatus.Merge(dst, src)
+func (m *BasicServerStatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BasicServerStatus.Merge(m, src)
 }
 func (m *BasicServerStatus) XXX_Size() int {
 	return xxx_messageInfo_BasicServerStatus.Size(m)
@@ -109,11 +112,9 @@ func init() {
 	proto.RegisterType((*BasicServerStatus)(nil), "xbospb.BasicServerStatus")
 }
 
-func init() {
-	proto.RegisterFile("system_monitor.proto", fileDescriptor_system_monitor_d7c8f7301c0ead88)
-}
+func init() { proto.RegisterFile("system_monitor.proto", fileDescriptor_6374dbf108b4cec7) }
 
-var fileDescriptor_system_monitor_d7c8f7301c0ead88 = []byte{
+var fileDescriptor_6374dbf108b4cec7 = []byte{
 	// 254 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xcf, 0x4b, 0xc3, 0x30,
 	0x14, 0x80, 0xe9, 0x56, 0xeb, 0x96, 0xb1, 0xa1, 0xd1, 0x43, 0xd8, 0xa9, 0x78, 0xaa, 0x07, 0x7b,

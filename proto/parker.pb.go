@@ -3,9 +3,11 @@
 
 package xbospb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -16,192 +18,192 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type ParkerState struct {
-	// unit: hours
+	//unit: hours
 	CompressorWorkingHours *Double `protobuf:"bytes,1,opt,name=compressor_working_hours,json=compressorWorkingHours,proto3" json:"compressor_working_hours,omitempty"`
-	// on/standby
+	//on/standby
 	OnStandbyStatus *Int64 `protobuf:"bytes,2,opt,name=on_standby_status,json=onStandbyStatus,proto3" json:"on_standby_status,omitempty"`
 	LightStatus     *Int64 `protobuf:"bytes,3,opt,name=light_status,json=lightStatus,proto3" json:"light_status,omitempty"`
 	AuxOutputStatus *Int64 `protobuf:"bytes,4,opt,name=aux_output_status,json=auxOutputStatus,proto3" json:"aux_output_status,omitempty"`
-	// counter reduces periodically (in 1/4 of a minute)
-	// unit: seconds
+	//counter reduces periodically (in 1/4 of a minute)
+	//unit: seconds
 	NextDefrostCounter *Double `protobuf:"bytes,5,opt,name=next_defrost_counter,json=nextDefrostCounter,proto3" json:"next_defrost_counter,omitempty"`
-	// digital_io_status & 0x0001
+	//digital_io_status & 0x0001
 	DoorSwitchInputStatus *Int64 `protobuf:"bytes,6,opt,name=door_switch_input_status,json=doorSwitchInputStatus,proto3" json:"door_switch_input_status,omitempty"`
-	// digital_io_status & 0x0002
+	//digital_io_status & 0x0002
 	MultipurposeInputStatus *Int64 `protobuf:"bytes,7,opt,name=multipurpose_input_status,json=multipurposeInputStatus,proto3" json:"multipurpose_input_status,omitempty"`
-	// digital_io_status & 0x0100
+	//digital_io_status & 0x0100
 	CompressorStatus *Int64 `protobuf:"bytes,8,opt,name=compressor_status,json=compressorStatus,proto3" json:"compressor_status,omitempty"`
-	// digital_io_status & 0x0200
+	//digital_io_status & 0x0200
 	OutputDefrostStatus *Int64 `protobuf:"bytes,9,opt,name=output_defrost_status,json=outputDefrostStatus,proto3" json:"output_defrost_status,omitempty"`
-	// digital_io_status & 0x0400
+	//digital_io_status & 0x0400
 	FansStatus *Int64 `protobuf:"bytes,10,opt,name=fans_status,json=fansStatus,proto3" json:"fans_status,omitempty"`
-	// digital_io_status & 0x0800
+	//digital_io_status & 0x0800
 	OutputK4Status *Int64 `protobuf:"bytes,11,opt,name=output_k4_status,json=outputK4Status,proto3" json:"output_k4_status,omitempty"`
-	// temperature measured by cabinet probe (in 10x actual value)
-	// unit: C
+	//temperature measured by cabinet probe (in 10x actual value)
+	//unit: C
 	CabinetTemperature *Double `protobuf:"bytes,12,opt,name=cabinet_temperature,json=cabinetTemperature,proto3" json:"cabinet_temperature,omitempty"`
-	// temperature measured by evaporator probe (in 10x actual value)
-	// unit: C
+	//temperature measured by evaporator probe (in 10x actual value)
+	//unit: C
 	EvaporatorTemperature *Double `protobuf:"bytes,13,opt,name=evaporator_temperature,json=evaporatorTemperature,proto3" json:"evaporator_temperature,omitempty"`
-	// temperature measured by auxiliary probe (if present) (in 10x actual value)
-	// unit: C
+	//temperature measured by auxiliary probe (if present) (in 10x actual value)
+	//unit: C
 	AuxiliaryTemperature *Double `protobuf:"bytes,14,opt,name=auxiliary_temperature,json=auxiliaryTemperature,proto3" json:"auxiliary_temperature,omitempty"`
-	// alarm_status & 0x0100
+	//alarm_status & 0x0100
 	Probe1FailureAlarm *Int64 `protobuf:"bytes,15,opt,name=probe1_failure_alarm,json=probe1FailureAlarm,proto3" json:"probe1_failure_alarm,omitempty"`
-	// alarm_status & 0x0200
+	//alarm_status & 0x0200
 	Probe2FailureAlarm *Int64 `protobuf:"bytes,16,opt,name=probe2_failure_alarm,json=probe2FailureAlarm,proto3" json:"probe2_failure_alarm,omitempty"`
-	// alarm_status & 0x0400
+	//alarm_status & 0x0400
 	Probe3FailureAlarm *Int64 `protobuf:"bytes,17,opt,name=probe3_failure_alarm,json=probe3FailureAlarm,proto3" json:"probe3_failure_alarm,omitempty"`
-	// alarm_status & 0x1000
+	//alarm_status & 0x1000
 	MinimumTemperatureAlarm *Int64 `protobuf:"bytes,18,opt,name=minimum_temperature_alarm,json=minimumTemperatureAlarm,proto3" json:"minimum_temperature_alarm,omitempty"`
-	// alarm_status & 0x2000
+	//alarm_status & 0x2000
 	MaximumTempertureAlarm *Int64 `protobuf:"bytes,19,opt,name=maximum_temperture_alarm,json=maximumTempertureAlarm,proto3" json:"maximum_temperture_alarm,omitempty"`
-	// alarm_status & 0x4000
+	//alarm_status & 0x4000
 	CondensorTemperatureFailureAlarm *Int64 `protobuf:"bytes,20,opt,name=condensor_temperature_failure_alarm,json=condensorTemperatureFailureAlarm,proto3" json:"condensor_temperature_failure_alarm,omitempty"`
-	// alarm_status & 0x8000
+	//alarm_status & 0x8000
 	CondensorPreAlarm *Int64 `protobuf:"bytes,21,opt,name=condensor_pre_alarm,json=condensorPreAlarm,proto3" json:"condensor_pre_alarm,omitempty"`
-	// alarm_status & 0x0004
+	//alarm_status & 0x0004
 	DoorAlarm *Int64 `protobuf:"bytes,22,opt,name=door_alarm,json=doorAlarm,proto3" json:"door_alarm,omitempty"`
-	// alarm_status & 0x0008
+	//alarm_status & 0x0008
 	MultipurposeInputAlarm *Int64 `protobuf:"bytes,23,opt,name=multipurpose_input_alarm,json=multipurposeInputAlarm,proto3" json:"multipurpose_input_alarm,omitempty"`
-	// alarm_status & 0x0010
+	//alarm_status & 0x0010
 	CompressorBlockedAlarm *Int64 `protobuf:"bytes,24,opt,name=compressor_blocked_alarm,json=compressorBlockedAlarm,proto3" json:"compressor_blocked_alarm,omitempty"`
-	// alarm_status & 0x0020
+	//alarm_status & 0x0020
 	PowerFailureAlarm *Int64 `protobuf:"bytes,25,opt,name=power_failure_alarm,json=powerFailureAlarm,proto3" json:"power_failure_alarm,omitempty"`
-	// alarm_status & 0x0080
+	//alarm_status & 0x0080
 	RtcErrorAlarm *Int64 `protobuf:"bytes,26,opt,name=rtc_error_alarm,json=rtcErrorAlarm,proto3" json:"rtc_error_alarm,omitempty"`
-	// regulator_flag_1 & 0x0100
+	//regulator_flag_1 & 0x0100
 	EnergySavingRegulatorFlag *Int64 `protobuf:"bytes,27,opt,name=energy_saving_regulator_flag,json=energySavingRegulatorFlag,proto3" json:"energy_saving_regulator_flag,omitempty"`
-	// regulator_flag_1 & 0x0200
+	//regulator_flag_1 & 0x0200
 	EnergySavingRealTimeRegulatorFlag *Int64 `protobuf:"bytes,28,opt,name=energy_saving_real_time_regulator_flag,json=energySavingRealTimeRegulatorFlag,proto3" json:"energy_saving_real_time_regulator_flag,omitempty"`
-	// regulator_flag_1 & 0x0400
+	//regulator_flag_1 & 0x0400
 	ServiceRequestRegulatorFlag *Int64 `protobuf:"bytes,29,opt,name=service_request_regulator_flag,json=serviceRequestRegulatorFlag,proto3" json:"service_request_regulator_flag,omitempty"`
-	// regulator_flag_2 & 0x0001; 1=standby
+	//regulator_flag_2 & 0x0001; 1=standby
 	OnStandbyRegulatorFlag *Int64 `protobuf:"bytes,30,opt,name=on_standby_regulator_flag,json=onStandbyRegulatorFlag,proto3" json:"on_standby_regulator_flag,omitempty"`
-	// regulator_flag_2 & 0x0080
+	//regulator_flag_2 & 0x0080
 	NewAlarmToReadRegulatorFlag *Int64 `protobuf:"bytes,31,opt,name=new_alarm_to_read_regulator_flag,json=newAlarmToReadRegulatorFlag,proto3" json:"new_alarm_to_read_regulator_flag,omitempty"`
-	// regulator_flag_2 & 0x0700; 0/1/2/3 = no defrost active/defrost running/dripping/fans stop
+	//regulator_flag_2 & 0x0700; 0/1/2/3 = no defrost active/defrost running/dripping/fans stop
 	DefrostStatusRegulatorFlag *Int64 `protobuf:"bytes,32,opt,name=defrost_status_regulator_flag,json=defrostStatusRegulatorFlag,proto3" json:"defrost_status_regulator_flag,omitempty"`
-	// active_setpoint=setpoint(when no energy saving); else=setpoint+r4
-	// unit: C
+	//active_setpoint=setpoint(when no energy saving); else=setpoint+r4
+	//unit: C
 	ActiveSetpoint *Int64 `protobuf:"bytes,33,opt,name=active_setpoint,json=activeSetpoint,proto3" json:"active_setpoint,omitempty"`
-	// time remaining to next defrost
-	// unit: seconds
+	//time remaining to next defrost
+	//unit: seconds
 	TimeUntilDefrost *Int64 `protobuf:"bytes,34,opt,name=time_until_defrost,json=timeUntilDefrost,proto3" json:"time_until_defrost,omitempty"`
-	// current defrost counter countdown (in 1/4 of a minute)
-	// unit: seconds
+	//current defrost counter countdown (in 1/4 of a minute)
+	//unit: seconds
 	CurrentDefrostCounter *Int64 `protobuf:"bytes,35,opt,name=current_defrost_counter,json=currentDefrostCounter,proto3" json:"current_defrost_counter,omitempty"`
-	// compressor delay in seconds
-	// unit: seconds
+	//compressor delay in seconds
+	//unit: seconds
 	CompressorDelay *Int64 `protobuf:"bytes,36,opt,name=compressor_delay,json=compressorDelay,proto3" json:"compressor_delay,omitempty"`
-	// number of HACCP alarms in history (max of last 9 stored)
+	//number of HACCP alarms in history (max of last 9 stored)
 	NumAlarmsInHistory *Int64 `protobuf:"bytes,37,opt,name=num_alarms_in_history,json=numAlarmsInHistory,proto3" json:"num_alarms_in_history,omitempty"`
-	// is energy saving mode active or not; digital_output_flags & 0x0100
+	//is energy saving mode active or not; digital_output_flags & 0x0100
 	EnergySavingStatus *Int64 `protobuf:"bytes,38,opt,name=energy_saving_status,json=energySavingStatus,proto3" json:"energy_saving_status,omitempty"`
-	// digital_output_flags & 0x0200
+	//digital_output_flags & 0x0200
 	ServiceRequestStatus *Int64 `protobuf:"bytes,39,opt,name=service_request_status,json=serviceRequestStatus,proto3" json:"service_request_status,omitempty"`
-	// digital_output_flags & 0x001
+	//digital_output_flags & 0x001
 	ResistorsActivatedByAuxKeyStatus *Int64 `protobuf:"bytes,40,opt,name=resistors_activated_by_aux_key_status,json=resistorsActivatedByAuxKeyStatus,proto3" json:"resistors_activated_by_aux_key_status,omitempty"`
-	// digital_output_flags & 0x002
+	//digital_output_flags & 0x002
 	EvaporatorValveState *Int64 `protobuf:"bytes,41,opt,name=evaporator_valve_state,json=evaporatorValveState,proto3" json:"evaporator_valve_state,omitempty"`
-	// digital_output_flags & 0x004
+	//digital_output_flags & 0x004
 	OutputDefrostState *Int64 `protobuf:"bytes,42,opt,name=output_defrost_state,json=outputDefrostState,proto3" json:"output_defrost_state,omitempty"`
-	// digital_output_flags & 0x008
+	//digital_output_flags & 0x008
 	OutputLuxState *Int64 `protobuf:"bytes,43,opt,name=output_lux_state,json=outputLuxState,proto3" json:"output_lux_state,omitempty"`
-	// digital_output_flags & 0x0010
+	//digital_output_flags & 0x0010
 	OutputAuxState *Int64 `protobuf:"bytes,44,opt,name=output_aux_state,json=outputAuxState,proto3" json:"output_aux_state,omitempty"`
-	// activated by cabinet probe; digital_output_flags & 0x0020
+	//activated by cabinet probe; digital_output_flags & 0x0020
 	ResistorsState *Int64 `protobuf:"bytes,45,opt,name=resistors_state,json=resistorsState,proto3" json:"resistors_state,omitempty"`
-	// digital_output_flags & 0x0040
+	//digital_output_flags & 0x0040
 	OutputAlarmState *Int64 `protobuf:"bytes,46,opt,name=output_alarm_state,json=outputAlarmState,proto3" json:"output_alarm_state,omitempty"`
-	// digital_output_flags & 0x0080
+	//digital_output_flags & 0x0080
 	SecondCompressorState *Int64 `protobuf:"bytes,47,opt,name=second_compressor_state,json=secondCompressorState,proto3" json:"second_compressor_state,omitempty"`
-	// setpoint
+	//setpoint
 	Setpoint *Double `protobuf:"bytes,48,opt,name=setpoint,proto3" json:"setpoint,omitempty"`
-	// min working setpoint
-	// unit: C
+	//min working setpoint
+	//unit: C
 	R1 *Double `protobuf:"bytes,49,opt,name=r1,proto3" json:"r1,omitempty"`
-	// max working setpoint
-	// unit: C
+	//max working setpoint
+	//unit: C
 	R2 *Double `protobuf:"bytes,50,opt,name=r2,proto3" json:"r2,omitempty"`
-	// used for active_set_point calculation in energy saving mode; adds to active setpoint
+	//used for active_set_point calculation in energy saving mode; adds to active setpoint
 	R4 *Double `protobuf:"bytes,51,opt,name=r4,proto3" json:"r4,omitempty"`
-	// compressor delay after turning on controller
-	// unit: minutes
+	//compressor delay after turning on controller
+	//unit: minutes
 	C0 *Double `protobuf:"bytes,52,opt,name=C0,proto3" json:"C0,omitempty"`
-	// min time between 2 activations in succession of compressor
-	// unit: minutes
+	//min time between 2 activations in succession of compressor
+	//unit: minutes
 	C1 *Double `protobuf:"bytes,53,opt,name=C1,proto3" json:"C1,omitempty"`
-	// defrost interval (only if d8 = 0/1/2); 0 = the defrost at intervals will never be activated
-	// unit: hours
+	//defrost interval (only if d8 = 0/1/2); 0 = the defrost at intervals will never be activated
+	//unit: hours
 	D0 *Double `protobuf:"bytes,54,opt,name=d0,proto3" json:"d0,omitempty"`
-	// defrost duration if P3=0 or 2; max duration if P3=1
-	// unit: minutes
+	//defrost duration if P3=0 or 2; max duration if P3=1
+	//unit: minutes
 	D3 *Double `protobuf:"bytes,55,opt,name=d3,proto3" json:"d3,omitempty"`
-	// defrost delay when you turn on controller; only if d4=1
-	// unit: minutes
+	//defrost delay when you turn on controller; only if d4=1
+	//unit: minutes
 	D5 *Double `protobuf:"bytes,56,opt,name=d5,proto3" json:"d5,omitempty"`
-	// drip delay
-	// unit: minutes
+	//drip delay
+	//unit: minutes
 	D7 *Double `protobuf:"bytes,57,opt,name=d7,proto3" json:"d7,omitempty"`
-	// kind of defrost interval; 0/1/2/3=defrost on when controller/compressor/evaporator temperature is below d9  is on for d0 hours/realtime
+	//kind of defrost interval; 0/1/2/3=defrost on when controller/compressor/evaporator temperature is below d9  is on for d0 hours/realtime
 	D8 *Int64 `protobuf:"bytes,58,opt,name=d8,proto3" json:"d8,omitempty"`
-	// measured input for low temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
+	//measured input for low temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
 	A0 *Int64 `protobuf:"bytes,59,opt,name=A0,proto3" json:"A0,omitempty"`
-	// temperature below which low temperature alarm is activated
-	// unit: C
+	//temperature below which low temperature alarm is activated
+	//unit: C
 	A1 *Double `protobuf:"bytes,60,opt,name=A1,proto3" json:"A1,omitempty"`
-	// kind of lower temp alarm; 0/1/2=disabled/working setpoint-A1/absolute (or A1)
+	//kind of lower temp alarm; 0/1/2=disabled/working setpoint-A1/absolute (or A1)
 	A2 *Int64 `protobuf:"bytes,61,opt,name=A2,proto3" json:"A2,omitempty"`
-	// measured input for high temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
+	//measured input for high temp alarm; 0/1/2=cab/evap/aux (only if P4=1/2)
 	A3 *Int64 `protobuf:"bytes,62,opt,name=A3,proto3" json:"A3,omitempty"`
-	// temperature above which high temperature alarm is activated
-	// unit: C
+	//temperature above which high temperature alarm is activated
+	//unit: C
 	A4 *Double `protobuf:"bytes,63,opt,name=A4,proto3" json:"A4,omitempty"`
-	// kind of high temp alarm; 0/1/2=disabled/working setpoint+A4/absolute (or A4)
+	//kind of high temp alarm; 0/1/2=disabled/working setpoint+A4/absolute (or A4)
 	A5 *Int64 `protobuf:"bytes,64,opt,name=A5,proto3" json:"A5,omitempty"`
-	// high temperature alarm delay after turning on controller; only if A3=0
-	// unit: minutes
+	//high temperature alarm delay after turning on controller; only if A3=0
+	//unit: minutes
 	A6 *Double `protobuf:"bytes,65,opt,name=A6,proto3" json:"A6,omitempty"`
-	// temperature alarm delay
-	// unit: minutes
+	//temperature alarm delay
+	//unit: minutes
 	A7 *Double `protobuf:"bytes,66,opt,name=A7,proto3" json:"A7,omitempty"`
-	// high temperature alarm delay after end of defrost; only if A3=0
-	// unit: minutes
+	//high temperature alarm delay after end of defrost; only if A3=0
+	//unit: minutes
 	A8 *Double `protobuf:"bytes,67,opt,name=A8,proto3" json:"A8,omitempty"`
-	// high temperature alarm delay after deactivation of microport input only if A3=0
-	// unit: minutes
+	//high temperature alarm delay after deactivation of microport input only if A3=0
+	//unit: minutes
 	A9 *Double `protobuf:"bytes,68,opt,name=A9,proto3" json:"A9,omitempty"`
-	// evap fan activity during normal operation; 0/1/2/3/4=off/on/in parallel with compressor/dependent on F1/off if compressor is off and depedent on F1 if compressor is on
+	//evap fan activity during normal operation; 0/1/2/3/4=off/on/in parallel with compressor/dependent on F1/off if compressor is off and depedent on F1 if compressor is on
 	F0 *Int64 `protobuf:"bytes,69,opt,name=F0,proto3" json:"F0,omitempty"`
-	// evap temperature above which evap fan is turned off; only if F0=3/4
-	// unit: C
+	//evap temperature above which evap fan is turned off; only if F0=3/4
+	//unit: C
 	F1 *Double `protobuf:"bytes,70,opt,name=F1,proto3" json:"F1,omitempty"`
-	// evap fan activity during defrost and drip delay; 0/1/2 = off/on/dependent on F0
+	//evap fan activity during defrost and drip delay; 0/1/2 = off/on/dependent on F0
 	F2 *Int64 `protobuf:"bytes,71,opt,name=F2,proto3" json:"F2,omitempty"`
-	// fan delay after evap drip completes
-	// unit: minutes
+	//fan delay after evap drip completes
+	//unit: minutes
 	F3 *Double `protobuf:"bytes,72,opt,name=F3,proto3" json:"F3,omitempty"`
-	// first real time defrost activation time; only if d8=3
-	// unit: hh:mm
+	//first real time defrost activation time; only if d8=3
+	//unit: hh:mm
 	Hd1 *Double `protobuf:"bytes,73,opt,name=Hd1,proto3" json:"Hd1,omitempty"`
-	// second real time defrost activation time; only if d8=3
-	// unit: hh:mm
+	//second real time defrost activation time; only if d8=3
+	//unit: hh:mm
 	Hd2 *Double `protobuf:"bytes,74,opt,name=Hd2,proto3" json:"Hd2,omitempty"`
-	// third real time defrost activation time; only if d8=3
-	// unit: hh:mm
+	//third real time defrost activation time; only if d8=3
+	//unit: hh:mm
 	Hd3 *Double `protobuf:"bytes,75,opt,name=Hd3,proto3" json:"Hd3,omitempty"`
-	// fourth real time defrost activation time; only if d8=3
-	// unit: hh:mm
+	//fourth real time defrost activation time; only if d8=3
+	//unit: hh:mm
 	Hd4 *Double `protobuf:"bytes,76,opt,name=Hd4,proto3" json:"Hd4,omitempty"`
-	// fifth real time defrost activation time; only if d8=3
-	// unit: hh:mm
+	//fifth real time defrost activation time; only if d8=3
+	//unit: hh:mm
 	Hd5 *Double `protobuf:"bytes,77,opt,name=Hd5,proto3" json:"Hd5,omitempty"`
-	// sixth real time defrost activation time; only if d8=3
-	// unit: hh:mm
+	//sixth real time defrost activation time; only if d8=3
+	//unit: hh:mm
 	Hd6                  *Double  `protobuf:"bytes,78,opt,name=Hd6,proto3" json:"Hd6,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -212,16 +214,17 @@ func (m *ParkerState) Reset()         { *m = ParkerState{} }
 func (m *ParkerState) String() string { return proto.CompactTextString(m) }
 func (*ParkerState) ProtoMessage()    {}
 func (*ParkerState) Descriptor() ([]byte, []int) {
-	return fileDescriptor_parker_9cc6c39c22550b09, []int{0}
+	return fileDescriptor_48357db32399db41, []int{0}
 }
+
 func (m *ParkerState) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ParkerState.Unmarshal(m, b)
 }
 func (m *ParkerState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ParkerState.Marshal(b, m, deterministic)
 }
-func (dst *ParkerState) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ParkerState.Merge(dst, src)
+func (m *ParkerState) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ParkerState.Merge(m, src)
 }
 func (m *ParkerState) XXX_Size() int {
 	return xxx_messageInfo_ParkerState.Size(m)
@@ -782,9 +785,9 @@ func init() {
 	proto.RegisterType((*ParkerState)(nil), "xbospb.ParkerState")
 }
 
-func init() { proto.RegisterFile("parker.proto", fileDescriptor_parker_9cc6c39c22550b09) }
+func init() { proto.RegisterFile("parker.proto", fileDescriptor_48357db32399db41) }
 
-var fileDescriptor_parker_9cc6c39c22550b09 = []byte{
+var fileDescriptor_48357db32399db41 = []byte{
 	// 1307 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x98, 0x6b, 0x57, 0x14, 0x37,
 	0x18, 0xc7, 0x8f, 0xd8, 0x5a, 0x0d, 0x2a, 0x32, 0xdc, 0x82, 0xb7, 0xa2, 0x56, 0x6b, 0xad, 0xa5,
