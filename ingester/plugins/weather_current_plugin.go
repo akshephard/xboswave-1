@@ -6,7 +6,7 @@ import (
     "reflect"
 )
 func has_device(msg xbospb.XBOS) bool {
-	return msg.XBOSIoTDeviceState.WeatherCurrent!= nil
+	return msg.XBOSIoTDeviceState.WeatherStation!= nil
 }
 var device_units = map[string]string{
 	"time":	"seconds",
@@ -33,110 +33,110 @@ var device_units = map[string]string{
 var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"time": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.Time != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.Time.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.Time != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.Time.Value), true
 		}
 		return 0, false
 	},
 	"nearestStormDistance": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.NearestStormDistance != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.NearestStormDistance.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.NearestStormDistance != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.NearestStormDistance.Value), true
 		}
 		return 0, false
 	},
 	"nearestStormBearing": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.NearestStormBearing != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.NearestStormBearing.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.NearestStormBearing != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.NearestStormBearing.Value), true
 		}
 		return 0, false
 	},
 	"precipIntensity": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.PrecipIntensity != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.PrecipIntensity.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.PrecipIntensity != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.PrecipIntensity.Value), true
 		}
 		return 0, false
 	},
 	"precipIntensityError": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.PrecipIntensityError != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.PrecipIntensityError.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.PrecipIntensityError != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.PrecipIntensityError.Value), true
 		}
 		return 0, false
 	},
 	"precipProbability": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.PrecipProbability != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.PrecipProbability.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.PrecipProbability != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.PrecipProbability.Value), true
 		}
 		return 0, false
 	},
 	"temperature": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.Temperature != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.Temperature.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.Temperature != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.Temperature.Value), true
 		}
 		return 0, false
 	},
 	"apparentTemperature": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.ApparentTemperature != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.ApparentTemperature.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.ApparentTemperature != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.ApparentTemperature.Value), true
 		}
 		return 0, false
 	},
 	"dewPoint": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.DewPoint != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.DewPoint.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.DewPoint != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.DewPoint.Value), true
 		}
 		return 0, false
 	},
 	"humidity": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.Humidity != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.Humidity.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.Humidity != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.Humidity.Value), true
 		}
 		return 0, false
 	},
 	"pressure": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.Pressure != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.Pressure.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.Pressure != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.Pressure.Value), true
 		}
 		return 0, false
 	},
 	"windSpeed": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.WindSpeed != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.WindSpeed.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.WindSpeed != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.WindSpeed.Value), true
 		}
 		return 0, false
 	},
 	"windGust": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.WindGust != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.WindGust.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.WindGust != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.WindGust.Value), true
 		}
 		return 0, false
 	},
 	"windBearing": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.WindBearing != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.WindBearing.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.WindBearing != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.WindBearing.Value), true
 		}
 		return 0, false
 	},
 	"cloudCover": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.CloudCover != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.CloudCover.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.CloudCover != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.CloudCover.Value), true
 		}
 		return 0, false
 	},
 	"uvIndex": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.UvIndex != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.UvIndex.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.UvIndex != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.UvIndex.Value), true
 		}
 		return 0, false
 	},
 	"visibility": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.Visibility != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.Visibility.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.Visibility != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.Visibility.Value), true
 		}
 		return 0, false
 	},
 	"ozone": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherCurrent.Ozone != nil {
-			return float64(msg.XBOSIoTDeviceState.WeatherCurrent.Ozone.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.WeatherStation.Ozone != nil {
+			return float64(msg.XBOSIoTDeviceState.WeatherStation.Ozone.Value), true
 		}
 		return 0, false
 	},
@@ -162,13 +162,6 @@ return types.ExtractedTimeseries{}
 }
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
-	if msg.XBOSIoTDeviceState != nil {
-        v := reflect.ValueOf(msg)
-        values := make([]interface{}, v.NumField())
-        for i := 0; i < v.NumField(); i++ {
-    		values[i] = v.Field(i).Interface()
-    	}
-        fmt.Println(values)
 		if has_device(msg) {
 			for name := range device_lookup {
 				extracted := build_device(uri, name, msg)
