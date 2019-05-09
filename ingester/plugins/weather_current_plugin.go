@@ -149,7 +149,8 @@ func build_device(uri types.SubscriptionURI, name string, msg xbospb.XBOS) types
 			extracted.Values = append(extracted.Values, value)
 			extracted.Times = append(extracted.Times, time)
 			extracted.UUID = types.GenerateUUID(uri, []byte(name))
-			extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+            //extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+			extracted.Collection = fmt.Sprintf("timeseries")
 			extracted.Tags = map[string]string{
 				"unit": device_units[name],
 				"name": name,
