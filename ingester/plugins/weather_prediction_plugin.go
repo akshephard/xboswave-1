@@ -86,6 +86,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					}
 				}
                 */
+                /*
 				if prediction.PrecipIntensity != nil {
 					err := ingest_time_series(float64(prediction.PrecipIntensity.Value),
 						"precipintensity", extracted, add, prediction_time, step, uri)
@@ -93,6 +94,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 						return err
 					}
 				}
+                */
 				if prediction.PrecipIntensityError != nil {
 					err := ingest_time_series(float64(prediction.PrecipIntensityError.Value),
 						"precipintensityerror", extracted, add, prediction_time, step, uri)
