@@ -31,7 +31,7 @@ class WeatherPredictionDriver(Driver):
         #print(json_data)
         predictions = []
         output = {}
-
+        print(json_data['hourly'])
         for hour in hourly.get('data',[]):
             for key, value in hour.items():
                 output[key] = value
