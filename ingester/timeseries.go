@@ -305,11 +305,11 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 		}
         */
         // This is where the go influx client is called
-        fmt.Printf("The collection contains:  %v\n", inf.collection)
-        fmt.Printf("The collection contains:  %v\n", extracted.Collection)
+        //fmt.Printf("The collection contains:  %v\n", inf.collection)
+        //fmt.Printf("The collection contains:  %v\n", extracted.Collection)
         //inf.collection = "xbos"
-        fmt.Printf("The tags contained are: %v\n", tags)
-        fmt.Printf("The fields contained are: %v\n", fields)
+        //fmt.Printf("The tags contained are: %v\n", tags)
+        //fmt.Printf("The fields contained are: %v\n", fields)
 
 		pt, err := influx.NewPoint(extracted.Collection, tags, fields, time.Unix(0, t))
 		if err != nil {
@@ -321,8 +321,6 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 	}
 	commitSizes.Observe(float64(len(extracted.Values)))
 	commitTimes.Observe(float64(time.Since(start).Nanoseconds() / 1e6))
-    print("Collection of points")
-    print(bp)
 	return inf.conn.Write(bp)
 }
 

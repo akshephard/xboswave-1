@@ -166,8 +166,8 @@ func (ingest *Ingester) runPlugins(uri types.SubscriptionURI, msg *mqpb.Message)
 					return nil
 				}
 				err = ingest.tsdbClient.write(extracted)
-                fmt.Printf("The collection specified is: %v\n", extracted.Collection)
-                fmt.Printf("The extracted timeseries data is: %v\n", extracted)
+                //fmt.Printf("The collection specified is: %v\n", extracted.Collection)
+                //fmt.Printf("The extracted timeseries data is: %v\n", extracted)
 				if err != nil {
 					logrus.Error(errors.Wrap(err, "Could not write to btrdb buffer"))
 				}
