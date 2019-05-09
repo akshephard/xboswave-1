@@ -306,17 +306,14 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
         */
         // This is where the go influx client is called
         fmt.Printf("The collection contains:  %v\n", inf.collection)
-        inf.collection = "xbos"
+        //inf.collection = "xbos"
         fmt.Printf("The tags contained are: %v\n", tags)
         fmt.Printf("The fields contained are: %v\n", fields)
 
 		pt, err := influx.NewPoint("timeseries", tags, fields, time.Unix(0, t))
-        print(pt)
-        print(pt.Fields)
 		if err != nil {
 			return errors.Wrap(err, "could not create new point")
 		}
-        print(pt)
 		bp.AddPoint(pt)
 		// increment # of points we have processed
 		pointsCommitted.Inc()
