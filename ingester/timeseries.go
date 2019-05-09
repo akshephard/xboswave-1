@@ -311,7 +311,7 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 
 		pt, err := influx.NewPoint(inf.collection, tags, fields, time.Unix(0, t))
         print(pt)
-        print(pt.fields)
+        print(pt.Fields)
 		if err != nil {
 			return errors.Wrap(err, "could not create new point")
 		}
