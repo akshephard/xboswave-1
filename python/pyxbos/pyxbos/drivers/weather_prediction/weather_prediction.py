@@ -25,10 +25,7 @@ class WeatherPredictionDriver(Driver):
         print("In prediction driver")
         response = requests.get(self.url)
         json_data = json.loads(response.text)
-        if 'hourly' not in json_data:
-            print(json_data)
-            print("FAIL")
-            return
+        if 'hourly' not in json_data: return
 
         hourly = json_data['hourly']
         #print(json_data)
@@ -100,7 +97,7 @@ if __name__ == '__main__':
         'darksky': {
             'apikey': api,
             'url': 'https://api.darksky.net/forecast/',
-            'coordinates': '0' # Should be near BLR
+            'coordinates': '40.5301,-124.00' # Should be near BLR
         },
         'wavemq': 'localhost:4516',
         'namespace': namespace,

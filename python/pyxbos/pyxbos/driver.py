@@ -79,7 +79,7 @@ class Driver:
         ))
 
         loop = asyncio.get_event_loop()
-        
+
         async def _doread(requestid=None):
             self.read(requestid=requestid)
 
@@ -130,6 +130,8 @@ class Driver:
             content = msg.SerializeToString(),
         )
         self._log.info("Publishing on %s", self._uri+"/"+resource)
+        print(self.uri)
+        print(resource)
         try:
             x = self.cl.Publish(PublishParams(
                 perspective=self._perspective,
