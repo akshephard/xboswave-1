@@ -273,7 +273,7 @@ func newInfluxDB(c *InfluxDBConfig) *influxClient {
 }
 
 func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
-
+    //create a collection on points ot be written to the database at once
 	bp, err := influx.NewBatchPoints(influx.BatchPointsConfig{
 		Database:  inf.dbname,
 		Precision: "ns",
@@ -313,12 +313,14 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 		if err != nil {
 			return errors.Wrap(err, "could not create new point")
 		}
+        print(pt)
 		bp.AddPoint(pt)
 		// increment # of points we have processed
 		pointsCommitted.Inc()
 	}
 	commitSizes.Observe(float64(len(extracted.Values)))
 	commitTimes.Observe(float64(time.Since(start).Nanoseconds() / 1e6))
+    print("Collection of points")
     print(bp)
 	return inf.conn.Write(bp)
 }
