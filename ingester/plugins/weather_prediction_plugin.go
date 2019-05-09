@@ -36,7 +36,7 @@ var device_units = map[string]string{
 func ingest_time_series(value float64, name string, toInflux types.ExtractedTimeseries,
 	pass_add add_fn, prediction_time int64, step int, uri types.SubscriptionURI) error {
 	toInflux.Values = append(toInflux.Values, value)
-
+    fmt.Printf("The values being placed into extracted timeseries: %v\n", toInflux.Values)
 	//This UUID is unique to each field in the message
 	toInflux.UUID = types.GenerateUUID(uri, []byte(name))
 	//The collection comes from the resource name of the driver
