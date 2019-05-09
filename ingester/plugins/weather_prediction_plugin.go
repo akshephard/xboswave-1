@@ -36,7 +36,6 @@ var device_units = map[string]string{
 func ingest_time_series(value float64, name string, toInflux types.ExtractedTimeseries,
 	pass_add add_fn, prediction_time int64, step int, uri types.SubscriptionURI) error {
 	toInflux.Values = append(toInflux.Values, value)
-    fmt.Printf("The values being placed into extracted timeseries: %v\n", toInflux.Values)
 	//This UUID is unique to each field in the message
 	toInflux.UUID = types.GenerateUUID(uri, []byte(name))
 	//The collection comes from the resource name of the driver
@@ -77,7 +76,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
 				//This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
-                /*
 				if prediction.Time != nil {
 					err := ingest_time_series(float64(prediction.Time.Value),
 						"time", extracted, add, prediction_time, step, uri)
@@ -85,8 +83,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 						return err
 					}
 				}
-                */
-                /*
 				if prediction.PrecipIntensity != nil {
 					err := ingest_time_series(float64(prediction.PrecipIntensity.Value),
 						"precipintensity", extracted, add, prediction_time, step, uri)
@@ -94,8 +90,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 						return err
 					}
 				}
-                */
-                /*
 				if prediction.PrecipIntensityError != nil {
 					err := ingest_time_series(float64(prediction.PrecipIntensityError.Value),
 						"precipintensityerror", extracted, add, prediction_time, step, uri)
@@ -110,7 +104,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 						return err
 					}
 				}
-                */
 				if prediction.Temperature != nil {
 					err := ingest_time_series(float64(prediction.Temperature.Value),
 						"temperature", extracted, add, prediction_time, step, uri)
