@@ -25,7 +25,9 @@ class WeatherPredictionDriver(Driver):
         print("In prediction driver")
         response = requests.get(self.url)
         json_data = json.loads(response.text)
-        if 'hourly' not in json_data: return
+        if 'hourly' not in json_data:
+            print("FAIL")
+            return
 
         hourly = json_data['hourly']
         #print(json_data)
