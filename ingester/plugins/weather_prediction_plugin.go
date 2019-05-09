@@ -77,7 +77,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 
 				//This is the time that is being put into influx as the timestamp
 				extracted.Times = append(extracted.Times, time)
-
+                /*
 				if prediction.Time != nil {
 					err := ingest_time_series(float64(prediction.Time.Value),
 						"time", extracted, add, prediction_time, step, uri)
@@ -85,6 +85,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 						return err
 					}
 				}
+                */
 				if prediction.PrecipIntensity != nil {
 					err := ingest_time_series(float64(prediction.PrecipIntensity.Value),
 						"precipintensity", extracted, add, prediction_time, step, uri)
