@@ -310,7 +310,7 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
         fmt.Printf("The tags contained are: %v\n", tags)
         fmt.Printf("The fields contained are: %v\n", fields)
 
-		pt, err := influx.NewPoint(inf.collection, tags, fields, time.Unix(0, t))
+		pt, err := influx.NewPoint("timeseries", tags, fields, time.Unix(0, t))
         print(pt)
         print(pt.Fields)
 		if err != nil {
