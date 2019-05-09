@@ -306,6 +306,7 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
         */
         // This is where the go influx client is called
         fmt.Printf("The collection contains:  %v\n", inf.collection)
+        inf.collection = "xbos"
         fmt.Printf("The tags contained are: %v\n", tags)
         fmt.Printf("The fields contained are: %v\n", fields)
 
