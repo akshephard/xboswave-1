@@ -40,7 +40,7 @@ func ingest_time_series(value float64, name string, toInflux types.ExtractedTime
 	//This UUID is unique to each field in the message
 	toInflux.UUID = types.GenerateUUID(uri, []byte(name))
 	//The collection comes from the resource name of the driver
-	toInflux.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
+	//toInflux.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
 	//These are the tags that will be used when the point is written
 	toInflux.Tags = map[string]string{
 		"unit":            device_units[name],
