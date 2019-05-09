@@ -308,6 +308,7 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
         fmt.Printf("The collection contains:  %v\n", inf.collection)
         fmt.Printf("The tags contained are: %v\n", tags)
         fmt.Printf("The fields contained are: %v\n", fields)
+
 		pt, err := influx.NewPoint(inf.collection, tags, fields, time.Unix(0, t))
 		if err != nil {
 			return errors.Wrap(err, "could not create new point")
@@ -318,7 +319,7 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 	}
 	commitSizes.Observe(float64(len(extracted.Values)))
 	commitTimes.Observe(float64(time.Since(start).Nanoseconds() / 1e6))
-
+    print(bp)
 	return inf.conn.Write(bp)
 }
 
