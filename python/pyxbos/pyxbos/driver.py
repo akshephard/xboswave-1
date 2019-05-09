@@ -130,7 +130,7 @@ class Driver:
             content = msg.SerializeToString(),
         )
         self._log.info("Publishing on %s", self._uri+"/"+resource)
-        print(self.uri)
+        print(self._uri)
         print(resource)
         try:
             x = self.cl.Publish(PublishParams(
