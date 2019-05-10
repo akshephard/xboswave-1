@@ -80,9 +80,9 @@ if __name__ == '__main__':
     xbos_cfg = {
         'wavemq': 'localhost:4516',
         'namespace': namespace,
-        'base_resource': 'parker',
+        'base_resource': 'rtac',
         'entity': ent_file,
-        'id': 'pyxbos-driver-parker-2',
+        'id': 'pyxbos-driver-rtac-1',
         #'rate': 1800, # half hour
         'rate': 20, # 15 min
         'service_name': service_name
@@ -90,5 +90,5 @@ if __name__ == '__main__':
     print(getmembers(iot_pb2))
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
     #e = DarkSkyDriver(cfg)
-    e = ParkerDriver(xbos_cfg)
+    e = rtacDriver(xbos_cfg)
     e.begin()
