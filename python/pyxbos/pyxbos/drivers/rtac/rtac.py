@@ -1,5 +1,6 @@
 from pyxbos.driver import *
 from modbus_driver import Modbus_Driver
+from pyxbos import rtac_pb2
 import os,sys
 import json
 import requests
