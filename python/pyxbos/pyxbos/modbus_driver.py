@@ -88,7 +88,7 @@ class Modbus_Driver(object):
             self.BAUDRATE = modbusConfig[modbus_section]['baudrate']
         elif self.MODBUS_TYPE == 'tcp':
             self.IP_ADDRESS = modbusConfig[modbus_section]['ip']
-            self.PORT = modbusConfig[modbus_section]['tcp_port']
+            self.PORT = modbusConfig[modbus_section]['port']
         else:
             print("Invalid modbus type")
             exit
