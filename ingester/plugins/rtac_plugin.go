@@ -9,7 +9,7 @@ func has_device(msg xbospb.XBOS) bool {
 }
 var device_units = map[string]string{
 	"island_state":	"",
-	"island_type":	"",
+	"island_type":	""
 	"bess_availability":	"",
 	"pge_state":	"",
 	"pcc_breaker_state":	"",
@@ -41,6 +41,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"IslandState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandState != nil {
+            fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
 			return float64(msg.XBOSIoTDeviceState.Rtac.IslandState.Value), true
 		}
 		return 0, false
@@ -209,7 +210,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	},
 }
 func build_device(uri types.SubscriptionURI, name string, msg xbospb.XBOS) types.ExtractedTimeseries {
-	
+
 	if extractfunc, found := device_lookup[name]; found {
 		if value, found := extractfunc(msg); found {
 			var extracted types.ExtractedTimeseries
