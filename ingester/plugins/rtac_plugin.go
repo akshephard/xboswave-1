@@ -75,9 +75,9 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 		}
 		return 0, false
 	},
-	"<built-in method capitalize of str object at 0x7f6cd73a63c0>": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.<built-in method capitalize of str object at 0x7f6cd73a63c0> != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.<built-in method capitalize of str object at 0x7f6cd73a63c0>.Value), true
+	"Heartbeat": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.Heartbeat != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.Heartbeat.Value), true
 		}
 		return 0, false
 	},
