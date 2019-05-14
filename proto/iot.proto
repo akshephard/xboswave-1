@@ -10,7 +10,7 @@ package xbospb;
 import "nullabletypes.proto";
 import "parker.proto";
 import "weather_station.proto";
-import "rtac.proto"
+import "rtac.proto";
 
 message URI {
     string namespace = 1;
