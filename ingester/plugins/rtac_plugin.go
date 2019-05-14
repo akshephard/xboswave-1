@@ -39,39 +39,39 @@ var device_units = map[string]string{
 }
 var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
-	"island_state": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.island_state != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.island_state.Value), true
+	"IslandState": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandState != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.IslandState.Value), true
 		}
 		return 0, false
 	},
-	"island_type": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.island_type != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.island_type.Value), true
+	"IslandType": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandType != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.IslandType.Value), true
 		}
 		return 0, false
 	},
-	"bess_availability": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.bess_availability != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.bess_availability.Value), true
+	"BessAvailability": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.BessAvailability != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.BessAvailability.Value), true
 		}
 		return 0, false
 	},
-	"pge_state": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.pge_state != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.pge_state.Value), true
+	"PgeState": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.PgeState != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.PgeState.Value), true
 		}
 		return 0, false
 	},
-	"pcc_breaker_state": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.pcc_breaker_state != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.pcc_breaker_state.Value), true
+	"PccBreakerState": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.PccBreakerState != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.PccBreakerState.Value), true
 		}
 		return 0, false
 	},
-	"bess_pv_breaker_state": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.bess_pv_breaker_state != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.bess_pv_breaker_state.Value), true
+	"BessPvBreakerState": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.BessPvBreakerState != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.BessPvBreakerState.Value), true
 		}
 		return 0, false
 	},
@@ -81,129 +81,129 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 		}
 		return 0, false
 	},
-	"real_power_setpoint": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.real_power_setpoint != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.real_power_setpoint.Value), true
+	"RealPowerSetpoint": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.RealPowerSetpoint != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.RealPowerSetpoint.Value), true
 		}
 		return 0, false
 	},
-	"reactive_power_setpoint": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.reactive_power_setpoint != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.reactive_power_setpoint.Value), true
+	"ReactivePowerSetpoint": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ReactivePowerSetpoint != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.ReactivePowerSetpoint.Value), true
 		}
 		return 0, false
 	},
-	"target_real_power": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.target_real_power != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.target_real_power.Value), true
+	"TargetRealPower": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.TargetRealPower != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.TargetRealPower.Value), true
 		}
 		return 0, false
 	},
-	"target_reactive_power": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.target_reactive_power != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.target_reactive_power.Value), true
+	"TargetReactivePower": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.TargetReactivePower != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.TargetReactivePower.Value), true
 		}
 		return 0, false
 	},
-	"battery_total_capacity": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.battery_total_capacity != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.battery_total_capacity.Value), true
+	"BatteryTotalCapacity": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.BatteryTotalCapacity != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.BatteryTotalCapacity.Value), true
 		}
 		return 0, false
 	},
-	"battery_current_stored_energy": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.battery_current_stored_energy != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.battery_current_stored_energy.Value), true
+	"BatteryCurrentStoredEnergy": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.BatteryCurrentStoredEnergy != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.BatteryCurrentStoredEnergy.Value), true
 		}
 		return 0, false
 	},
-	"total_actual_real_power": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.total_actual_real_power != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.total_actual_real_power.Value), true
+	"TotalActualRealPower": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.TotalActualRealPower != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.TotalActualRealPower.Value), true
 		}
 		return 0, false
 	},
-	"total_actual_reactive_power": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.total_actual_reactive_power != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.total_actual_reactive_power.Value), true
+	"TotalActualReactivePower": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.TotalActualReactivePower != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.TotalActualReactivePower.Value), true
 		}
 		return 0, false
 	},
-	"total_actual_apparent_power": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.total_actual_apparent_power != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.total_actual_apparent_power.Value), true
+	"TotalActualApparentPower": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.TotalActualApparentPower != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.TotalActualApparentPower.Value), true
 		}
 		return 0, false
 	},
-	"active_power_output_limit": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.active_power_output_limit != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.active_power_output_limit.Value), true
+	"ActivePowerOutputLimit": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ActivePowerOutputLimit != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.ActivePowerOutputLimit.Value), true
 		}
 		return 0, false
 	},
-	"current_power_production": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.current_power_production != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.current_power_production.Value), true
+	"CurrentPowerProduction": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.CurrentPowerProduction != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.CurrentPowerProduction.Value), true
 		}
 		return 0, false
 	},
-	"ac_current_phase_a": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_current_phase_a != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_current_phase_a.Value), true
+	"AcCurrentPhaseA": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcCurrentPhaseA != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcCurrentPhaseA.Value), true
 		}
 		return 0, false
 	},
-	"ac_current_phase_b": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_current_phase_b != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_current_phase_b.Value), true
+	"AcCurrentPhaseB": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcCurrentPhaseB != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcCurrentPhaseB.Value), true
 		}
 		return 0, false
 	},
-	"ac_current_phase_c": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_current_phase_c != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_current_phase_c.Value), true
+	"AcCurrentPhaseC": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcCurrentPhaseC != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcCurrentPhaseC.Value), true
 		}
 		return 0, false
 	},
-	"ac_voltage_ab": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_voltage_ab != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_voltage_ab.Value), true
+	"AcVoltageAb": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcVoltageAb != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcVoltageAb.Value), true
 		}
 		return 0, false
 	},
-	"ac_voltage_bc": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_voltage_bc != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_voltage_bc.Value), true
+	"AcVoltageBc": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcVoltageBc != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcVoltageBc.Value), true
 		}
 		return 0, false
 	},
-	"ac_voltage_ca": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_voltage_ca != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_voltage_ca.Value), true
+	"AcVoltageCa": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcVoltageCa != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcVoltageCa.Value), true
 		}
 		return 0, false
 	},
-	"ac_frequency": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.ac_frequency != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.ac_frequency.Value), true
+	"AcFrequency": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.AcFrequency != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.AcFrequency.Value), true
 		}
 		return 0, false
 	},
-	"fault_condition": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.fault_condition != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.fault_condition.Value), true
+	"FaultCondition": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.FaultCondition != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.FaultCondition.Value), true
 		}
 		return 0, false
 	},
-	"pge_voltage": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.pge_voltage != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.pge_voltage.Value), true
+	"PgeVoltage": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.PgeVoltage != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.PgeVoltage.Value), true
 		}
 		return 0, false
 	},
-	"pge_frequency": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.pge_frequency != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.pge_frequency.Value), true
+	"PgeFrequency": func(msg xbospb.XBOS) (float64, bool) {
+		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.PgeFrequency != nil {
+			return float64(msg.XBOSIoTDeviceState.Rtac.PgeFrequency.Value), true
 		}
 		return 0, false
 	},
