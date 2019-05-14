@@ -9,7 +9,7 @@ func has_device(msg xbospb.XBOS) bool {
 }
 var device_units = map[string]string{
 	"island_state":	"",
-	"island_type":	""
+	"island_type":	"",
 	"bess_availability":	"",
 	"pge_state":	"",
 	"pcc_breaker_state":	"",
