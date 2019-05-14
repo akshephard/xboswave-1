@@ -25,7 +25,7 @@ class rtacDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                rtac_state = parker_pb2.RtacState(
+                rtac_state = rtac_pb2.RtacState(
                     island_state  =   types.Bool(value=output.get('island_state',None)),
                     island_type  =   types.Bool(value=output.get('island_type',None)),
                     bess_availability  =   types.Bool(value=output.get('bess_availability',None)),
