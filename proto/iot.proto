@@ -63,6 +63,7 @@ message XBOSIoTDeviceState {
     ParkerState parker_state = 8;
     WeatherStation weather_current = 9;
     WeatherStationPrediction weather_prediction = 10;
+    RtacState rtac_state = 11;
 }
 
 
