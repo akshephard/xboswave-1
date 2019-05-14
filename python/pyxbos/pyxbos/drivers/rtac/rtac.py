@@ -27,12 +27,12 @@ class rtacDriver(Driver):
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
                 rtac = rtac_pb2.Rtac(
-                    island_state  =   types.Double(value=output.get('island_state',None)),
-                    island_type  =   types.Double(value=output.get('island_type',None)),
-                    bess_availability  =   types.Double(value=output.get('bess_availability',None)),
-                    pge_state  =   types.Double(value=output.get('pge_state',None)),
-                    pcc_breaker_state  =   types.Double(value=output.get('pcc_breaker_state',None)),
-                    bess_pv_breaker_state  =   types.Double(value=output.get('bess_pv_breaker_state',None)),
+                    island_state  =   types.Bool(value=output.get('island_state',None)),
+                    island_type  =   types.Bool(value=output.get('island_type',None)),
+                    bess_availability  =   types.Bool(value=output.get('bess_availability',None)),
+                    pge_state  =   types.Bool(value=output.get('pge_state',None)),
+                    pcc_breaker_state  =   types.Bool(value=output.get('pcc_breaker_state',None)),
+                    bess_pv_breaker_state  =   types.Bool(value=output.get('bess_pv_breaker_state',None)),
                     heartbeat  =   types.Int64(value=output.get('heartbeat',None)),
                     real_power_setpoint  =   types.Double(value=output.get('real_power_setpoint',None)),
                     reactive_power_setpoint  =   types.Double(value=output.get('reactive_power_setpoint',None)),

@@ -3,17 +3,17 @@ package xbospb;
 import "nullabletypes.proto";
 message Rtac {
 	//Is system currently connected to PG&E or islanded
-	Double island_state = 1;
+	Bool island_state = 1;
 	//is system islanded (or would be islanded) using BESS or diesel generator
-	Double island_type = 2;
+	Bool island_type = 2;
 	//while on-grid is BESS available for control or not
-	Double bess_availability = 3;
+	Bool bess_availability = 3;
 	//is PG&E grid available or not regardless of connect state
-	Double pge_state = 4;
+	Bool pge_state = 4;
 	//is PCC breaker closed or not
-	Double pcc_breaker_state = 5;
+	Bool pcc_breaker_state = 5;
 	//is BESS/PV break closed or not
-	Double bess_pv_breaker_state = 6;
+	Bool bess_pv_breaker_state = 6;
 	//0xAA55/0x55AA; written by driver periodically to show communication is alive
 	Int64 heartbeat = 7;
 	//between 109000W to-109000W
