@@ -231,7 +231,7 @@ class Modbus_Driver(object):
 
         if self.MODBUS_TYPE == 'tcp':
             self.client = ModbusTcpClient(self.IP_ADDRESS,port=self.PORT)
-
+        '''
         rr = self.read_register_raw(0x601,1,247)
         decoder = BinaryPayloadDecoder.fromRegisters(
                 rr.registers,
@@ -239,6 +239,7 @@ class Modbus_Driver(object):
                 wordorder=self.WORD_ORDER)
         output = decoder.decode_16bit_int()
         print(output)
+        '''
         #rr = self.read_register_raw(1001,2,7)
         '''decoder = BinaryPayloadDecoder.fromRegisters(
                 rr.registers,
