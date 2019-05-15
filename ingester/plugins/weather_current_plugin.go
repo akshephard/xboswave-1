@@ -177,6 +177,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
                 fmt.Println(val.Type().Field(i).Name)
                 fmt.Println(i)
                 values[i] = v.Field(i).Interface()
+                fmt.Printf("The types of values are: %v\n",reflect.TypeOf(values[i]))
             }
             fmt.Println(values)
 		}
