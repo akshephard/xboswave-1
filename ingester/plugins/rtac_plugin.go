@@ -41,11 +41,19 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"IslandState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandState != nil {
-            fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
-			return float64(msg.XBOSIoTDeviceState.Rtac.IslandState.Value), true
+            if msg.XBOSIoTDeviceState.Rtac.IslandState.Value == 1 {
+                fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
+                return 1, true
+            }
+            else {
+                fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
+                return 0, true
+            }
+
 		}
 		return 0, false
 	},
+    /*
 	"IslandType": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandType != nil {
 			return float64(msg.XBOSIoTDeviceState.Rtac.IslandType.Value), true
@@ -76,6 +84,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 		}
 		return 0, false
 	},
+    */
 	"Heartbeat": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.Heartbeat != nil {
 			return float64(msg.XBOSIoTDeviceState.Rtac.Heartbeat.Value), true
