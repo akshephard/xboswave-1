@@ -169,6 +169,15 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					return err
 				}
 			}
+            v := reflect.ValueOf(*msg.XBOSIoTDeviceState.Rtac)
+            values := make([]interface{}, v.NumField())
+            val := reflect.Indirect(reflect.ValueOf(*msg.XBOSIoTDeviceState.Rtac))
+            for i := 0; i < v.NumField(); i++ {
+                fmt.Println(val.Type().Field(i).Name)
+                fmt.Println(i)
+                values[i] = v.Field(i).Interface()
+            }
+            fmt.Println(values)
 		}
 	return nil
 }
