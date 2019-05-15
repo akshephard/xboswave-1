@@ -248,7 +248,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 			}
             v := reflect.ValueOf(msg.XBOSIoTDeviceState.Rtac)
             fmt.Printf("The type of XBOSIoTDeviceState is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState))
-            fmt.Printf("The type of XBOSIoTDeviceState.Rtac is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac))
+            fmt.Printf("The type of XBOSIoTDeviceState.Rtac is: %v\n",reflect.TypeOf(*msg.XBOSIoTDeviceState.Rtac))
             fmt.Printf("The type of XBOSIoTDeviceState.Rtac.PgeFrequency is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac.PgeFrequency))
             fmt.Printf("The type of XBOSIoTDeviceState.Rtac.PgeFrequency.Value is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac.PgeFrequency.Value))
             values := make([]interface{}, v.NumField())
