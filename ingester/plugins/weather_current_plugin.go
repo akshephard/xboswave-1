@@ -171,7 +171,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 				}
 			}
             v := reflect.ValueOf(*msg.XBOSIoTDeviceState.WeatherCurrent)
-            values := make([]interface{}, v.NumField())
+            values := make([]interface{}, (v.NumField()-3))
             val := reflect.Indirect(reflect.ValueOf(*msg.XBOSIoTDeviceState.WeatherCurrent))
             for i := 0; i < v.NumField(); i++ {
                 fmt.Println(val.Type().Field(i).Name)
