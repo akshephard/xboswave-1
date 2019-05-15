@@ -246,14 +246,16 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					return err
 				}
 			}
+            /*
             fmt.Printf("The type of XBOSIoTDeviceState is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState))
             fmt.Printf("The type of XBOSIoTDeviceState.Rtac is: %v\n",reflect.TypeOf(*msg.XBOSIoTDeviceState.Rtac))
             fmt.Printf("The type of XBOSIoTDeviceState.Rtac.PgeFrequency is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac.PgeFrequency))
             fmt.Printf("The type of XBOSIoTDeviceState.Rtac.PgeFrequency.Value is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac.PgeFrequency.Value))
+            */
             v := reflect.ValueOf(*msg.XBOSIoTDeviceState.Rtac)
             values := make([]interface{}, v.NumField())
             for i := 0; i < v.NumField(); i++ {
-                fmt.Println(i)
+                fmt.Println(v.Field(i).name)
                 values[i] = v.Field(i).Interface()
             }
             fmt.Println(values)
