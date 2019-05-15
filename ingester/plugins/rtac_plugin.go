@@ -254,7 +254,9 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
             */
             v := reflect.ValueOf(*msg.XBOSIoTDeviceState.Rtac)
             values := make([]interface{}, v.NumField())
+            val := reflect.Indirect(reflect.ValueOf(a))
             for i := 0; i < v.NumField(); i++ {
+                fmt.Println(val.Type().Field(i).Name)
                 fmt.Println(v.Field(i).name)
                 values[i] = v.Field(i).Interface()
             }
