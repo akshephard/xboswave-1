@@ -41,7 +41,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"IslandState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandState != nil {
-            if msg.XBOSIoTDeviceState.Rtac.IslandState.Value == True {
+            if msg.XBOSIoTDeviceState.Rtac.IslandState.Value{
                 fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
                 return 1, true
             } else {
