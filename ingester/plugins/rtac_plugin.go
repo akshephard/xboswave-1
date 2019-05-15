@@ -248,7 +248,12 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 			}
             v := reflect.ValueOf(msg.XBOSIoTDeviceState)
             values := make([]interface{}, v.NumField())
-		}
+            fmt.Println(values)
+            for i := 0; i < v.NumField(); i++ {
+                values[i] = v.Field(i).Interface()
+            }
+            fmt.Println(values)
+	   }
 	}
 	return nil
 }
