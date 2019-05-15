@@ -296,6 +296,8 @@ func (inf *influxClient) write(extracted types.ExtractedTimeseries) error {
 		for k, v := range extracted.Tags {
 			tags[k] = v
 		}
+        //empty interface should take in any value
+        // this is capable of taking in any value
 		fields := map[string]interface{}{
 			"value": val,
 		}
