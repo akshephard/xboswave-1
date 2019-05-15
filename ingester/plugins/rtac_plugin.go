@@ -44,12 +44,10 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
             if msg.XBOSIoTDeviceState.Rtac.IslandState.Value == 1 {
                 fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
                 return 1, true
-            }
-            else {
+            } else {
                 fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
                 return 0, true
             }
-
 		}
 		return 0, false
 	},
