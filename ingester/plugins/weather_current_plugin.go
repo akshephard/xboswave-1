@@ -165,40 +165,12 @@ return types.ExtractedTimeseries{}
 
 func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.ExtractedTimeseries) error) error {
 		if has_device(msg) {
-            /*
 			for name := range device_lookup {
 				extracted := build_device(uri, name, msg)
 				if err := add(extracted); err != nil {
 					return err
 				}
 			}
-            */
-            v := reflect.ValueOf(*msg.XBOSIoTDeviceState.WeatherCurrent)
-            values := make([]interface{}, (v.NumField()-3))
-            val := reflect.Indirect(reflect.ValueOf(*msg.XBOSIoTDeviceState.WeatherCurrent))
-            for i := 0; i < (v.NumField() - 3); i++ {
-                var ingest_test types.ExtractedTimeseries
-                time := int64(msg.XBOSIoTDeviceState.Time)
-                field_value := float64(v.Field(i).Interface())
-                name := val.Type().Field(i).Name
-    			ingest_test.Values = append(ingest_test.Values, field_value)
-    			ingest_test.Times = append(ingest_test.Times, time)
-    			ingest_test.UUID = types.GenerateUUID(uri, []byte(name))
-                //extracted.Collection = fmt.Sprintf("xbos/%s", uri.Resource)
-    			ingest_test.Collection = fmt.Sprintf("timeseries")
-    			ingest_test.Tags = map[string]string{
-    				"unit": "constant",
-    				"name": name,
-    			}
-                fmt.Println(val.Type().Field(i).Name)
-                fmt.Println(i)
-                values[i] = v.Field(i).Interface()
-                fmt.Printf("The types of values are: %v\n",reflect.TypeOf(values[i]))
-				if err := add(ingest_test); err != nil {
-					return err
-				}
-            }
-            fmt.Println(values)
 		}
 	return nil
 }
