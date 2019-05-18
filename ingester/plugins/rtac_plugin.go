@@ -41,48 +41,64 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"IslandState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandState != nil {
-            		if msg.XBOSIoTDeviceState.Rtac.IslandState.Value{
-                		fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
-                		return 1, true
-            	} else {
-                	fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
-                	return 0, true
-            	}		
+			if msg.XBOSIoTDeviceState.Rtac.IslandState.Value{
+				return 1, true
+			} else {
+				return 0, true
+			}
 		}
 		return 0, false
 	},
-    	/*
 	"IslandType": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandType != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.IslandType.Value), true
+			if msg.XBOSIoTDeviceState.Rtac.IslandType.Value{
+				return 1, true
+			} else {
+				return 0, true
+			}
 		}
 		return 0, false
 	},
 	"BessAvailability": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.BessAvailability != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.BessAvailability.Value), true
+			if msg.XBOSIoTDeviceState.Rtac.BessAvailability.Value{
+				return 1, true
+			} else {
+				return 0, true
+			}
 		}
 		return 0, false
 	},
 	"PgeState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.PgeState != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.PgeState.Value), true
+			if msg.XBOSIoTDeviceState.Rtac.PgeState.Value{
+				return 1, true
+			} else {
+				return 0, true
+			}
 		}
 		return 0, false
 	},
 	"PccBreakerState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.PccBreakerState != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.PccBreakerState.Value), true
+			if msg.XBOSIoTDeviceState.Rtac.PccBreakerState.Value{
+				return 1, true
+			} else {
+				return 0, true
+			}
 		}
 		return 0, false
 	},
 	"BessPvBreakerState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.BessPvBreakerState != nil {
-			return float64(msg.XBOSIoTDeviceState.Rtac.BessPvBreakerState.Value), true
+			if msg.XBOSIoTDeviceState.Rtac.BessPvBreakerState.Value{
+				return 1, true
+			} else {
+				return 0, true
+			}
 		}
 		return 0, false
 	},
-    */
 	"Heartbeat": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.Heartbeat != nil {
 			return float64(msg.XBOSIoTDeviceState.Rtac.Heartbeat.Value), true
@@ -217,7 +233,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	},
 }
 func build_device(uri types.SubscriptionURI, name string, msg xbospb.XBOS) types.ExtractedTimeseries {
-
+	
 	if extractfunc, found := device_lookup[name]; found {
 		if value, found := extractfunc(msg); found {
 			var extracted types.ExtractedTimeseries
@@ -245,7 +261,7 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					return err
 				}
 			}
-	   }
+		}
 	}
 	return nil
 }
