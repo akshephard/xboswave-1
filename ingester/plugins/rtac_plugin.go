@@ -3,7 +3,6 @@ import (
 	"fmt"
 	"github.com/gtfierro/xboswave/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
-    "reflect"
 )
 func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.Rtac!= nil
@@ -42,17 +41,17 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"IslandState": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandState != nil {
-            if msg.XBOSIoTDeviceState.Rtac.IslandState.Value{
-                fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
-                return 1, true
-            } else {
-                fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
-                return 0, true
-            }
+            		if msg.XBOSIoTDeviceState.Rtac.IslandState.Value{
+                		fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
+                		return 1, true
+            	} else {
+                	fmt.Println("The value is %v",msg.XBOSIoTDeviceState.Rtac.IslandState.Value)
+                	return 0, true
+            	}		
 		}
 		return 0, false
 	},
-    /*
+    	/*
 	"IslandType": func(msg xbospb.XBOS) (float64, bool) {
 		if has_device(msg) && msg.XBOSIoTDeviceState.Rtac.IslandType != nil {
 			return float64(msg.XBOSIoTDeviceState.Rtac.IslandType.Value), true
@@ -246,21 +245,6 @@ func Extract(uri types.SubscriptionURI, msg xbospb.XBOS, add func(types.Extracte
 					return err
 				}
 			}
-            /*
-            fmt.Printf("The type of XBOSIoTDeviceState is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState))
-            fmt.Printf("The type of XBOSIoTDeviceState.Rtac is: %v\n",reflect.TypeOf(*msg.XBOSIoTDeviceState.Rtac))
-            fmt.Printf("The type of XBOSIoTDeviceState.Rtac.PgeFrequency is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac.PgeFrequency))
-            fmt.Printf("The type of XBOSIoTDeviceState.Rtac.PgeFrequency.Value is: %v\n",reflect.TypeOf(msg.XBOSIoTDeviceState.Rtac.PgeFrequency.Value))
-            */
-            v := reflect.ValueOf(*msg.XBOSIoTDeviceState.Rtac)
-            values := make([]interface{}, v.NumField())
-            val := reflect.Indirect(reflect.ValueOf(*msg.XBOSIoTDeviceState.Rtac))
-            for i := 0; i < v.NumField(); i++ {
-                fmt.Println(val.Type().Field(i).Name)
-                fmt.Println(i)
-                values[i] = v.Field(i).Interface()
-            }
-            fmt.Println(values)
 	   }
 	}
 	return nil

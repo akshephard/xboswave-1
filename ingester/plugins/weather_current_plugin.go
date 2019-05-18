@@ -3,7 +3,6 @@ import (
 	"fmt"
 	"github.com/gtfierro/xboswave/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
-    "reflect"
 )
 func has_device(msg xbospb.XBOS) bool {
 	return msg.XBOSIoTDeviceState.WeatherCurrent!= nil

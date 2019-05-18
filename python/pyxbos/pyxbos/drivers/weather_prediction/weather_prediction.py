@@ -104,8 +104,8 @@ if __name__ == '__main__':
         'base_resource': 'weather_prediction',
         'entity': ent_file,
         'id': 'pyxbos-driver-prediction-1',
-        #'rate': 1800, # half hour
-        'rate': 20, # 15 min
+        'rate': 900, # half hour
+        # 'rate': 20, # 15 min
     }
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
     prediction_driver = WeatherPredictionDriver(cfg)
