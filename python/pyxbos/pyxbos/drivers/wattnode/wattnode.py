@@ -11,7 +11,7 @@ from inspect import getmembers
 
 class WattnodeDriver(Driver):
     def setup(self, cfg):
-        with open('parker.yaml') as f:
+        with open('wattnode.yaml') as f:
             # use safe_load instead load for security reasons
             driverConfig = yaml.safe_load(f)
         self.modbus_device = Modbus_Driver(driverConfig)
