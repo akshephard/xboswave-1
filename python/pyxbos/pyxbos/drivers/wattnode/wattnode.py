@@ -1,4 +1,4 @@
-from pyxbos import *
+from pyxbos.driver import *
 from modbus_driver import Modbus_Driver
 import os,sys
 import json
