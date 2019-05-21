@@ -14,7 +14,7 @@ class WattnodeDriver(Driver):
         with open('wattnode.yaml') as f:
             # use safe_load instead load for security reasons
             driverConfig = yaml.safe_load(f)
-        self.modbus_device = Modbus_Driver(driverConfig)
+        self.modbus_device = Modbus_Driver("wattnode.yaml")
         self.modbus_device.initialize_modbus()
         self.service_name = cfg['service_name']
 
