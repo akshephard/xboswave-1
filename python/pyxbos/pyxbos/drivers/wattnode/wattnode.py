@@ -20,6 +20,7 @@ class WattnodeDriver(Driver):
 
     def read(self, requestid=None):
         output = self.modbus_device.get_data()
+        print("Do we get here?")
         print(output)
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
