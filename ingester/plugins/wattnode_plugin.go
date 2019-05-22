@@ -4,8 +4,9 @@ import (
 	"github.com/gtfierro/xboswave/ingester/types"
 	xbospb "github.com/gtfierro/xboswave/proto"
 )
+
 func has_device(msg xbospb.XBOS) bool {
-	return msg.XBOSIoTDeviceState.WattnodeState!= nil
+	return msg.XBOSIoTDeviceState.Wattnode!= nil
 }
 var device_units = map[string]string{
 	"EnergySum":	"kWh",
@@ -419,7 +420,7 @@ var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 	},
 }
 func build_device(uri types.SubscriptionURI, name string, msg xbospb.XBOS) types.ExtractedTimeseries {
-	
+
 	if extractfunc, found := device_lookup[name]; found {
 		if value, found := extractfunc(msg); found {
 			var extracted types.ExtractedTimeseries
