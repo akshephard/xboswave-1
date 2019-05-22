@@ -1,4 +1,5 @@
 from pyxbos.driver import *
+from pyxbos import wattnode_pb2
 from modbus_driver import Modbus_Driver
 import os,sys
 import json
@@ -25,7 +26,7 @@ class WattnodeDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                wattnode_state = wattnode_pb2.WattnodeState(
+                wattnode = wattnode_pb2.WattnodeState(
                     EnergySum  =   types.Double(value=output.get('EnergySum',None)),
                     EnergyPosSUm  =   types.Double(value=output.get('EnergyPosSUm',None)),
                     EnergySumNR  =   types.Double(value=output.get('EnergySumNR',None)),
@@ -106,7 +107,7 @@ if __name__ == '__main__':
         'base_resource': 'wattnode',
         'entity': 'wattnode.ent',
         'id': 'pyxbos-driver-wattnode',
-        #'rate': 1800, # half hour
+        #'rate': 900, # half hour
         'rate': 20, # 15 min
         'service_name': service_name
     }

@@ -71,7 +71,7 @@ class Modbus_Driver(object):
             self.UNIT_ID_LIST.append(self.UNIT_ID)
         # Start logging if enabled in config
         self.LOGGING_FLAG = modbusConfig[modbus_section]['enable_logging']
-        if self.LOGGING_FLAG == True:
+        if self.LOGGING_FLAG == False:
             #Start client logging for trouble shooting
             logging.basicConfig()
             log = logging.getLogger()

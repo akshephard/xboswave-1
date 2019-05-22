@@ -11,6 +11,7 @@ import "nullabletypes.proto";
 import "parker.proto";
 import "weather_station.proto";
 import "rtac.proto";
+import "wattnode.proto";
 
 message URI {
     string namespace = 1;
@@ -65,6 +66,7 @@ message XBOSIoTDeviceState {
     WeatherStation weather_current = 9;
     WeatherStationPrediction weather_prediction = 10;
     Rtac rtac = 11;
+    WattnodeState wattnode = 12;
 }
 
 
