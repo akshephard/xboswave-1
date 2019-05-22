@@ -71,350 +71,350 @@ var device_units = map[string]string{
 var device_lookup = map[string]func(msg xbospb.XBOS) (float64, bool){
 
 	"EnergySum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergySum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergySum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergySum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergySum.Value), true
 		}
 		return 0, false
 	},
 	"EnergyPosSUm": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyPosSUm != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyPosSUm.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyPosSUm != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyPosSUm.Value), true
 		}
 		return 0, false
 	},
 	"EnergySumNR": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergySumNR != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergySumNR.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergySumNR != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergySumNR.Value), true
 		}
 		return 0, false
 	},
 	"EnergyPosSumNr": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyPosSumNr != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyPosSumNr.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyPosSumNr != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyPosSumNr.Value), true
 		}
 		return 0, false
 	},
 	"PowerSum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerSum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerSum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerSum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerSum.Value), true
 		}
 		return 0, false
 	},
 	"PowerA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerA.Value), true
 		}
 		return 0, false
 	},
 	"PowerB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerB.Value), true
 		}
 		return 0, false
 	},
 	"PowerC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerC.Value), true
 		}
 		return 0, false
 	},
 	"VoltAvgLN": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltAvgLN != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltAvgLN.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltAvgLN != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltAvgLN.Value), true
 		}
 		return 0, false
 	},
 	"VoltA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltA.Value), true
 		}
 		return 0, false
 	},
 	"VoltB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltB.Value), true
 		}
 		return 0, false
 	},
 	"VoltC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltC.Value), true
 		}
 		return 0, false
 	},
 	"VoltAvgLL": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltAvgLL != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltAvgLL.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltAvgLL != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltAvgLL.Value), true
 		}
 		return 0, false
 	},
 	"VoltAB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltAB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltAB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltAB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltAB.Value), true
 		}
 		return 0, false
 	},
 	"VoltBC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltBC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltBC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltBC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltBC.Value), true
 		}
 		return 0, false
 	},
 	"VoltAC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.VoltAC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.VoltAC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.VoltAC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.VoltAC.Value), true
 		}
 		return 0, false
 	},
 	"Freq": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.Freq != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.Freq.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.Freq != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.Freq.Value), true
 		}
 		return 0, false
 	},
 	"EnergyA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyA.Value), true
 		}
 		return 0, false
 	},
 	"EnergyB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyB.Value), true
 		}
 		return 0, false
 	},
 	"EnergyC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyC.Value), true
 		}
 		return 0, false
 	},
 	"EnergyPosA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyPosA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyPosA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyPosA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyPosA.Value), true
 		}
 		return 0, false
 	},
 	"EnergyPosB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyPosB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyPosB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyPosB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyPosB.Value), true
 		}
 		return 0, false
 	},
 	"EnergyPosC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyPosC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyPosC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyPosC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyPosC.Value), true
 		}
 		return 0, false
 	},
 	"EnergyNegSum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyNegSum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyNegSum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyNegSum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyNegSum.Value), true
 		}
 		return 0, false
 	},
 	"EnergyNegSumNR": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyNegSumNR != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyNegSumNR.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyNegSumNR != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyNegSumNR.Value), true
 		}
 		return 0, false
 	},
 	"EnergyNegA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyNegA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyNegA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyNegA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyNegA.Value), true
 		}
 		return 0, false
 	},
 	"EnergyNegB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyNegB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyNegB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyNegB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyNegB.Value), true
 		}
 		return 0, false
 	},
 	"EnergyNegC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyNegC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyNegC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyNegC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyNegC.Value), true
 		}
 		return 0, false
 	},
 	"EnergyReacSum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyReacSum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyReacSum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyReacSum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyReacSum.Value), true
 		}
 		return 0, false
 	},
 	"EnergyReacA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyReacA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyReacA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyReacA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyReacA.Value), true
 		}
 		return 0, false
 	},
 	"EnergyReacB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyReacB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyReacB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyReacB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyReacB.Value), true
 		}
 		return 0, false
 	},
 	"EnergyReacC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyReacC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyReacC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyReacC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyReacC.Value), true
 		}
 		return 0, false
 	},
 	"EnergyAppSum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyAppSum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyAppSum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyAppSum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyAppSum.Value), true
 		}
 		return 0, false
 	},
 	"EnergyAppA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyAppA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyAppA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyAppA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyAppA.Value), true
 		}
 		return 0, false
 	},
 	"EnergyAppB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyAppB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyAppB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyAppB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyAppB.Value), true
 		}
 		return 0, false
 	},
 	"EnergyAppC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.EnergyAppC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.EnergyAppC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.EnergyAppC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.EnergyAppC.Value), true
 		}
 		return 0, false
 	},
 	"PowerFactorAvg": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerFactorAvg != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerFactorAvg.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerFactorAvg != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerFactorAvg.Value), true
 		}
 		return 0, false
 	},
 	"PowerFactorA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerFactorA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerFactorA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerFactorA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerFactorA.Value), true
 		}
 		return 0, false
 	},
 	"PowerFactorB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerFactorB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerFactorB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerFactorB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerFactorB.Value), true
 		}
 		return 0, false
 	},
 	"PowerFactorC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerFactorC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerFactorC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerFactorC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerFactorC.Value), true
 		}
 		return 0, false
 	},
 	"PowerReacSum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerReacSum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerReacSum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerReacSum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerReacSum.Value), true
 		}
 		return 0, false
 	},
 	"PowerReacA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerReacA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerReacA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerReacA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerReacA.Value), true
 		}
 		return 0, false
 	},
 	"PowerReacB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerReacB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerReacB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerReacB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerReacB.Value), true
 		}
 		return 0, false
 	},
 	"PowerReacC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerReacC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerReacC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerReacC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerReacC.Value), true
 		}
 		return 0, false
 	},
 	"PowerAppSum": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerAppSum != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerAppSum.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerAppSum != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerAppSum.Value), true
 		}
 		return 0, false
 	},
 	"PowerAppA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerAppA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerAppA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerAppA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerAppA.Value), true
 		}
 		return 0, false
 	},
 	"PowerAppB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerAppB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerAppB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerAppB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerAppB.Value), true
 		}
 		return 0, false
 	},
 	"PowerAppC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.PowerAppC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.PowerAppC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.PowerAppC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.PowerAppC.Value), true
 		}
 		return 0, false
 	},
 	"CurrentA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.CurrentA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.CurrentA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.CurrentA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.CurrentA.Value), true
 		}
 		return 0, false
 	},
 	"CurrentB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.CurrentB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.CurrentB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.CurrentB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.CurrentB.Value), true
 		}
 		return 0, false
 	},
 	"CurrentC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.CurrentC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.CurrentC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.CurrentC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.CurrentC.Value), true
 		}
 		return 0, false
 	},
 	"Demand": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.Demand != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.Demand.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.Demand != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.Demand.Value), true
 		}
 		return 0, false
 	},
 	"DemandMin": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.DemandMin != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.DemandMin.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.DemandMin != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.DemandMin.Value), true
 		}
 		return 0, false
 	},
 	"DemandMax": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.DemandMax != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.DemandMax.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.DemandMax != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.DemandMax.Value), true
 		}
 		return 0, false
 	},
 	"DemandApp": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.DemandApp != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.DemandApp.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.DemandApp != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.DemandApp.Value), true
 		}
 		return 0, false
 	},
 	"DemandA": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.DemandA != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.DemandA.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.DemandA != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.DemandA.Value), true
 		}
 		return 0, false
 	},
 	"DemandB": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.DemandB != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.DemandB.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.DemandB != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.DemandB.Value), true
 		}
 		return 0, false
 	},
 	"DemandC": func(msg xbospb.XBOS) (float64, bool) {
-		if has_device(msg) && msg.XBOSIoTDeviceState.WattnodeState.DemandC != nil {
-			return float64(msg.XBOSIoTDeviceState.WattnodeState.DemandC.Value), true
+		if has_device(msg) && msg.XBOSIoTDeviceState.Wattnode.DemandC != nil {
+			return float64(msg.XBOSIoTDeviceState.Wattnode.DemandC.Value), true
 		}
 		return 0, false
 	},
