@@ -103,11 +103,11 @@ if __name__ == '__main__':
         # use safe_load instead load for security reasons
         driverConfig = yaml.safe_load(f)
 
-    namespace = driverConfig['wavemq']['namespace']
+    namespace = driverConfig['xbos']['namespace']
     service_name = driverConfig['xbos']['service_name']
     #driver_cfg = "parker.yaml"
     print(driverConfig)
-
+    # looks like we need to control what is added to the xbos_cfg
     xbos_cfg = {
         'wavemq': 'localhost:4516',
         'namespace': namespace,
