@@ -169,7 +169,7 @@ if __name__ == '__main__':
         # use safe_load instead load for security reasons
         driverConfig = yaml.safe_load(f)
 
-    namespace = driverConfig['wavemq']['namespace']
+    namespace = driverConfig['xbos']['namespace']
     service_name = driverConfig['xbos']['service_name']
     #driver_cfg = "parker.yaml"
     print(driverConfig)
@@ -179,7 +179,7 @@ if __name__ == '__main__':
         'namespace': namespace,
         'base_resource': 'parker',
         'entity': ent_file,
-        'id': 'pyxbos-driver-parker-2',
+        'id': 'pyxbos-driver-parker',
         #'rate': 1800, # half hour
         'rate': 20, # 15 min
         'service_name': service_name
