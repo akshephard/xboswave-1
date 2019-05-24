@@ -1,4 +1,5 @@
 from pyxbos.driver import *
+from pyxbos import parker_pb2
 from modbus_driver import Modbus_Driver
 import os,sys
 import json
@@ -11,10 +12,7 @@ from inspect import getmembers
 
 class ParkerDriver(Driver):
     def setup(self, cfg):
-        with open('parker.yaml') as f:
-            # use safe_load instead load for security reasons
-            driverConfig = yaml.safe_load(f)
-        self.modbus_device = Modbus_Driver(driverConfig)
+        self.modbus_device = Modbus_Driver(cfg)
         self.modbus_device.initialize_modbus()
         self.service_name = cfg['service_name']
 

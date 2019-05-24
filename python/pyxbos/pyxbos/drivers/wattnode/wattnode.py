@@ -1,4 +1,3 @@
-from pyxbos.driver import *
 from pyxbos import wattnode_pb2
 from modbus_driver import Modbus_Driver
 import os,sys
