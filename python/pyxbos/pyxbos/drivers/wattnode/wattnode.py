@@ -105,9 +105,6 @@ if __name__ == '__main__':
 
     namespace = driverConfig['xbos']['namespace']
     service_name = driverConfig['xbos']['service_name']
-    #driver_cfg = "parker.yaml"
-    print(driverConfig)
-    # looks like we need to control what is added to the xbos_cfg
     xbos_cfg = {
         'wavemq': 'localhost:4516',
         'namespace': namespace,
@@ -118,7 +115,6 @@ if __name__ == '__main__':
         'rate': 20, # 15 min
         'service_name': service_name
     }
-    print(getmembers(iot_pb2))
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
     #e = DarkSkyDriver(cfg)
     xbos_cfg.update(driverConfig)
