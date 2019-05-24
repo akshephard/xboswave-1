@@ -15,14 +15,12 @@ class WattnodeDriver(Driver):
         with open('wattnode.yaml') as f:
             # use safe_load instead load for security reasons
             driverConfig = yaml.safe_load(f)
-        self.modbus_device = Modbus_Driver("wattnode.yaml")
+        self.modbus_device = Modbus_Driver(cfg)
         self.modbus_device.initialize_modbus()
         self.service_name = cfg['service_name']
 
     def read(self, requestid=None):
         output = self.modbus_device.get_data()
-        print("Do we get here?")
-        print(output)
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
