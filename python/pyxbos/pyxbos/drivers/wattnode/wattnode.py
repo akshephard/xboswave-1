@@ -121,5 +121,6 @@ if __name__ == '__main__':
     print(getmembers(iot_pb2))
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
     #e = DarkSkyDriver(cfg)
+    xbos_cfg.update(driverConfig)
     e = WattnodeDriver(xbos_cfg)
     e.begin()
