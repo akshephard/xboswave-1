@@ -1,13 +1,10 @@
 from pyxbos import wattnode_pb2
 from pyxbos.driver import *
 from modbus_driver import Modbus_Driver
-import os,sys
 import json
-import requests
 import yaml
 import argparse
 import time
-from inspect import getmembers
 
 
 class WattnodeDriver(Driver):
@@ -21,7 +18,7 @@ class WattnodeDriver(Driver):
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                wattnode = wattnode_pb2.WattnodeState(
+                wattnode = wattnode_pb2.Wattnode(
                     EnergySum  =   types.Double(value=output.get('EnergySum',None)),
                     EnergyPosSUm  =   types.Double(value=output.get('EnergyPosSUm',None)),
                     EnergySumNR  =   types.Double(value=output.get('EnergySumNR',None)),
@@ -108,12 +105,11 @@ if __name__ == '__main__':
         'base_resource': 'wattnode',
         'entity': ent_file,
         'id': 'pyxbos-driver-wattnode',
-        #'rate': 1800, # half hour
-        'rate': 20, # 15 min
+        'rate': 20, # polling rate in seconds
         'service_name': service_name
     }
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
-    #e = DarkSkyDriver(cfg)
+    # Merge config file with xbos_cfg dictionary
     xbos_cfg.update(driverConfig)
     e = WattnodeDriver(xbos_cfg)
     e.begin()

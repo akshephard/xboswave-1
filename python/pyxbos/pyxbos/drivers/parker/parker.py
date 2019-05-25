@@ -1,13 +1,11 @@
 from pyxbos.driver import *
 from pyxbos import parker_pb2
 from modbus_driver import Modbus_Driver
-import os,sys
 import json
 import requests
 import yaml
 import argparse
 import time
-from inspect import getmembers
 
 
 class ParkerDriver(Driver):
@@ -52,7 +50,6 @@ class ParkerDriver(Driver):
         output['second_compressor_state'] =	bool(digital_output_flags & 0x0080)
 
         alarm_status = output['alarm_status']
-        #print(format(output['alarm_status'], '#010b'))
         output['probe1_failure_alarm'] = bool(alarm_status & 0x0100)
         output['probe2_failure_alarm'] = bool(alarm_status & 0x0200)
         output['probe3_failure_alarm'] = bool(alarm_status & 0x0400)
@@ -65,14 +62,11 @@ class ParkerDriver(Driver):
         output['compressor_blocked_alarm'] = bool(alarm_status & 0x0010)
         output['power_failure_alarm'] = bool(alarm_status & 0x0020)
         output['rtc_error_alarm'] = bool(alarm_status & 0x0080)
-        #print(output['rtc_error_alarm'])
-        #print(format(output['rtc_error_alarm'], '#010b'))
-        print(output)
 
         msg = xbos_pb2.XBOS(
             XBOSIoTDeviceState = iot_pb2.XBOSIoTDeviceState(
                 time = int(time.time()*1e9),
-                parker_state = parker_pb2.ParkerState(
+                parker = parker_pb2.Parker(
                     compressor_working_hours  =   types.Double(value=output.get('compressor_working_hours',None)),
                     on_standby_status  =   types.Int64(value=output.get('on_standby_status',None)),
                     light_status  =   types.Int64(value=output.get('light_status',None)),
@@ -158,6 +152,8 @@ class ParkerDriver(Driver):
 
 
 if __name__ == '__main__':
+    # Get the entity and config file from the command line, this enables the
+    # drivers to be run by systemd
     parser = argparse.ArgumentParser()
     parser.add_argument("config_file", help="config file with api key as well as namespace")
     parser.add_argument("ent_file", help="entity file")
@@ -171,21 +167,16 @@ if __name__ == '__main__':
 
     namespace = driverConfig['xbos']['namespace']
     service_name = driverConfig['xbos']['service_name']
-    #driver_cfg = "parker.yaml"
-    print(driverConfig)
-
     xbos_cfg = {
         'wavemq': 'localhost:4516',
         'namespace': namespace,
         'base_resource': 'parker',
         'entity': ent_file,
         'id': 'pyxbos-driver-parker',
-        #'rate': 1800, # half hour
-        'rate': 20, # 15 min
+        'rate': 20,  # polling rate in seconds
         'service_name': service_name
     }
     logging.basicConfig(level="INFO", format='%(asctime)s - %(name)s - %(message)s')
-    #e = DarkSkyDriver(cfg)
     xbos_cfg.update(driverConfig)
     e = ParkerDriver(xbos_cfg)
     e.begin()
