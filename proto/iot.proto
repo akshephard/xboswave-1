@@ -65,7 +65,7 @@ message XBOSIoTDeviceState {
     WeatherStation weather_current = 9;
     WeatherStationPrediction weather_prediction = 10;
     Rtac rtac = 11;
-    WattnodeState wattnode = 12;
+    Wattnode wattnode = 12;
 }
 
 
