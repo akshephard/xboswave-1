@@ -1,7 +1,7 @@
 syntax = "proto3";
 package xbospb;
 import "nullabletypes.proto";
-message WattnodeState {
+message Wattnode {
 	//total net (bidirectional) energy - preserved across power failures; can be reset or preset
 	//unit: kWh
 	Double EnergySum = 1;
